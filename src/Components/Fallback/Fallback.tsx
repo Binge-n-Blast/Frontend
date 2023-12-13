@@ -5,7 +5,7 @@ const Fallback = () => {
     <div>
       <Watch
         radius="48"
-        color="#0557A2"
+        color="#63049B"
         ariaLabel="watch-loading"
         wrapperStyle={{
           height: "100vh",

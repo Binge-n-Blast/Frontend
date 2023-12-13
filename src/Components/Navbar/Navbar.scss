@@ -8,16 +8,26 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-
-  .hamburger {
-    display: none;
-  }
-
+  z-index: 999999;
+  padding: 0 300px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(99, 4, 155, 0.10);
+  backdrop-filter: blur(100px);
   .menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 72px;
+
+    a{
+      font-size: 16px;
+      font-family: 'DM Sans', sans-serif;
+
+    }
+  }
+
+  .hamburger {
+    display: none;
   }
 }
 
@@ -41,6 +51,8 @@ nav {
       flex-direction: column;
       gap: 30px;
       background-color: rgba(0, 0, 0, 0.9);
+
+      
     }
 
     .active {

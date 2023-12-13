@@ -1,8 +1,13 @@
 import "./Home.scss"
+import Hero from "./Components/Hero/Hero"
+import CommonSections from "./Components/CommonSections/CommonSections"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <section className="home">
+      <Hero/>
+      <CommonSections/>
+    </section>
   )
 }
 

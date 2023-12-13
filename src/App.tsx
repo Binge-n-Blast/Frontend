@@ -1,5 +1,8 @@
-import { Suspense,ReactElement } from "react";
+import { Suspense, ReactElement } from "react";
 import { Route, Routes } from "react-router-dom";
+
+//CSS 
+import "./App.scss";
 
 // Utils
 import ScrollToTop from "./Utils/ScrollToTop";
@@ -20,13 +23,11 @@ import {
   Theater,
   Refund,
   PrivacyPolicy,
-  Contact
+  Contact,
 } from "./PagesImport/UserPagesImport";
 
 //Admin Routes
 import { TodaysBooking, Login } from "./PagesImport/AdminPagesImport";
-
-
 
 //Routes Interface
 export interface RoutesData {
@@ -79,7 +80,7 @@ const adminRoutesData: RoutesData[] = [
 function App() {
   return (
     <ScrollToTop>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -105,7 +106,7 @@ function App() {
           ))}
         </Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </ScrollToTop>
   );
 }

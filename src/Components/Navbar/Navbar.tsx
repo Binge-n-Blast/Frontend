@@ -41,8 +41,8 @@ const Navbar = () => {
       name: "Theaters",
     },
     {
-      link: "/contact-us",
-      name: "Contact",
+      link: "/refund",
+      name: "Refund",
     },
   ];
 
@@ -60,9 +60,9 @@ const Navbar = () => {
       </div>
       <div className="hamburger" onClick={handleClick}>
         {click ? (
-          <FaTimes style={{ color: "black" }} size={25} />
+          <FaTimes style={{ color: "white" }} size={25} />
         ) : (
-          <FaBars style={{ color: "black" }} size={25} />
+          <FaBars style={{ color: "white" }} size={25} />
         )}
       </div>
     </nav>
