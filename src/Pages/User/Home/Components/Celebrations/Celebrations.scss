@@ -1,0 +1,132 @@
+$purple: #63049b;
+
+.celebrations {
+  padding: 100px 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
+
+  .red-blob {
+    position: absolute;
+    z-index: -1;
+    right: 0px;
+    bottom: 100px;
+    width: 764px;
+    height: 764px;
+    border-radius: 864px;
+    background: linear-gradient(
+      318deg,
+      #6f113e 13.43%,
+      rgba(111, 17, 62, 0) 93.61%
+    );
+    filter: blur(125px);
+  }
+
+  .blue-blob1 {
+    position: absolute;
+    z-index: -1;
+    left: 0px;
+    top: 150px;
+    width: 864px;
+    height: 864px;
+    border-radius: 864px;
+    border-radius: 820px;
+    background: linear-gradient(
+      318deg,
+      #09173d 13.43%,
+      rgba(9, 23, 61, 0) 93.61%
+    );
+    filter: blur(125px);
+  }
+
+  .blue-blob2 {
+    position: absolute;
+    z-index: -1;
+    right: 0px;
+    top: 10px;
+    width: 864px;
+    height: 864px;
+    border-radius: 864px;
+    border-radius: 820px;
+    background: linear-gradient(
+      318deg,
+      #09173d 13.43%,
+      rgba(9, 23, 61, 0) 93.61%
+    );
+    filter: blur(125px);
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+
+    h2 {
+      text-align: center;
+      font-family: Orbitron;
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+    p {
+      text-align: center;
+      font-family: DM Sans;
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 34px;
+
+    .card {
+      padding: 25px;
+      width: 374px;
+      height: 452px;
+      border-radius: 0px 50px;
+      border: 1px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        h3 {
+          font-family: Orbitron;
+          font-size: 20px;
+          letter-spacing: 1px;
+        }
+        p {
+          text-align: left;
+          font-size: 14px;
+        }
+      }
+
+      .button {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 324px;
+          height: 54px;
+          border-radius: 10px;
+          background: $purple;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}

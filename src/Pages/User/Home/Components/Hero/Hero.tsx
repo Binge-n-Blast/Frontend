@@ -18,7 +18,7 @@ const Hero = () => {
         </h1>
       </div>
       <div className="buttons">
-        <button className="button1">Book Now!</button>
+        <button className="button1">Book now !</button>
         <button className="button2">Contact Us!</button>
       </div>
     </div>

@@ -83,7 +83,7 @@ const CommonSections = () => {
             <div className="data">
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
-              <Link to="/theaters">Book Now!</Link>
+              <Link to="/theaters">Book now !</Link>
             </div>
             <img src={item.img} alt="" />
           </div>

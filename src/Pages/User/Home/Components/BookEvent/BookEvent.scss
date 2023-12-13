@@ -1,0 +1,36 @@
+$purple: #63049b;
+
+.book-event {
+  background-color: #14011f;
+  padding: 100px 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    h2 {
+      font-size: 48px;
+      font-family: "DM Sans", sans-serif;
+    }
+    p {
+      font-family: "DM Sans", sans-serif;
+      font-size: 24px;
+    }
+    ul {
+      li {
+        font-family: "DM Sans", sans-serif;
+        font-size: 18px;
+        margin-bottom: 5px;
+
+      }
+      li::marker {
+        color: $purple;
+      }
+    }
+  }
+}

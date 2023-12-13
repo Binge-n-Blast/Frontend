@@ -2,6 +2,9 @@ import "./Navbar.scss";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+// Images
+import logo from "./Assets/logo.png"
+
 // Icons
 import { FaTimes, FaBars } from "react-icons/fa";
 
@@ -49,7 +52,7 @@ const Navbar = () => {
   return (
     <nav className={color ? "color" : ""}>
       <div className="logo">
-        <h1>Binge’n Blast</h1>
+        <img src={logo} alt="" />
       </div>
       <div className={click ? "menu active" : "menu"}>
         {links.map((link, index) => (

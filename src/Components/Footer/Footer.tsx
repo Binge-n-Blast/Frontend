@@ -1,5 +1,9 @@
-import { Link } from "react-router-dom";
 import "./Footer.scss";
+import { Link } from "react-router-dom";
+
+
+// Images
+import logo from "../Navbar/Assets/logo.png"
 
 const Footer = () => {
   interface Link {
@@ -31,7 +35,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="section">
-        <h1>Binge'n Blast</h1>
+        <img src={logo} alt="" />
         <p>
           2-76-9/2271, Telephone Colony,<br /> Medipally Mandal, Boduppal,<br /> Medchal
           Dist - 500092
