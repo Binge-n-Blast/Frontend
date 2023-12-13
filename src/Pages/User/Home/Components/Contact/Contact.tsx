@@ -9,13 +9,13 @@ const Contact = () => {
           <div className="form">
             <div className="left">
               <div>
-                <input type="text" placeholder="Full name" />
+                <input type="text" placeholder="Full name" autoComplete="off"/>
               </div>
               <div>
-                <input type="text" placeholder="Phone number" />
+                <input type="text" placeholder="Phone number" autoComplete="off"/>
               </div>
               <div>
-                <input type="text" placeholder="Email address" />
+                <input type="text" placeholder="Email address" autoComplete="off"/>
               </div>
             </div>
             <div className="right">
