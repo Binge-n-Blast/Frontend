@@ -1,0 +1,75 @@
+$purple: #63049b;
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 100px 300px;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+    h3 {
+      font-family: Orbitron;
+      letter-spacing: 1px;
+      font-size: 32px;
+    }
+
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-direction: column;
+      gap: 22px;
+
+      .form {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 22px;
+        height: 220px;
+
+        .left {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 20px;
+          input {
+            width: 409px;
+            padding: 18px 12px;
+            font-size: 18px;
+            border-radius: 8px;
+          }
+        }
+
+        .right {
+          height: 100%;
+          textarea {
+            width: 569px;
+            height: 100%;
+            border-radius: 8px;
+            padding: 18px 12px;
+            font-size: 18px;
+          }
+        }
+      }
+
+      .button{
+        button{
+            padding: 20px 56px;
+            border-radius: 12px;
+            background-color: $purple;
+            font-size: 20px;
+color: white;
+        }
+      }
+    }
+  }
+}
