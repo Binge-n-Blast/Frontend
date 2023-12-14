@@ -140,55 +140,6 @@ $purple: #63049b;
     padding: 80px 200px;
     gap: 40px;
 
-    .red-blob {
-      position: absolute;
-      z-index: -1;
-      right: 0px;
-      bottom: 100px;
-      width: 764px;
-      height: 764px;
-      border-radius: 864px;
-      background: linear-gradient(
-        318deg,
-        #6f113e 13.43%,
-        rgba(111, 17, 62, 0) 93.61%
-      );
-      filter: blur(125px);
-    }
-
-    .blue-blob1 {
-      position: absolute;
-      z-index: -1;
-      left: 0px;
-      top: 150px;
-      width: 864px;
-      height: 864px;
-      border-radius: 864px;
-      border-radius: 820px;
-      background: linear-gradient(
-        318deg,
-        #09173d 13.43%,
-        rgba(9, 23, 61, 0) 93.61%
-      );
-      filter: blur(125px);
-    }
-
-    .blue-blob2 {
-      position: absolute;
-      z-index: -1;
-      right: 0px;
-      top: 10px;
-      width: 864px;
-      height: 864px;
-      border-radius: 864px;
-      border-radius: 820px;
-      background: linear-gradient(
-        318deg,
-        #09173d 13.43%,
-        rgba(9, 23, 61, 0) 93.61%
-      );
-      filter: blur(125px);
-    }
     .content {
       gap: 13px;
 
@@ -213,7 +164,7 @@ $purple: #63049b;
 
         .content {
           gap: 8px;
-          img{
+          img {
             width: 310px;
           }
           h3 {
@@ -227,10 +178,56 @@ $purple: #63049b;
 
         .button {
           a {
-           
             width: 290px;
             height: 42px;
             font-size: 19px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .celebrations {
+    padding: 80px 200px;
+    gap: 40px;
+
+    .content {
+      gap: 13px;
+
+      h2 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 25px;
+      }
+    }
+
+    .cards {
+      gap: 30px;
+
+      .card {
+        padding: 22px;
+        width: 300px;
+        height: 350px;
+        gap: 16px;
+
+        .content {
+          img {
+            width: 300px;
+          }
+          h3 {
+            font-size: 17px;
+          }
+        }
+
+        .button {
+          a {
+            width: 280px;
+            height: 40px;
+            font-size: 18px;
           }
         }
       }
