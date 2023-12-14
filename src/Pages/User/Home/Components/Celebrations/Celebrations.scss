@@ -135,7 +135,7 @@ $purple: #63049b;
   }
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1790px) {
   .celebrations {
     padding: 80px 200px;
     gap: 40px;
@@ -188,7 +188,7 @@ $purple: #63049b;
   }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1490px) {
   .celebrations {
     padding: 80px 200px;
     gap: 40px;
@@ -210,13 +210,13 @@ $purple: #63049b;
 
       .card {
         padding: 22px;
-        width: 30px;
+        width: 300px;
         height: 350px;
         gap: 16px;
 
         .content {
           img {
-            width: 300px;
+            width: 250px;
           }
           h3 {
             font-size: 17px;
@@ -234,3 +234,51 @@ $purple: #63049b;
     }
   }
 }
+
+
+// @media (max-width: 1360px) {
+//   .celebrations {
+//     padding: 80px 200px;
+//     gap: 40px;
+
+//     .content {
+//       gap: 13px;
+
+//       h2 {
+//         font-size: 28px;
+//       }
+//       p {
+//         font-size: 16px;
+//         line-height: 25px;
+//       }
+//     }
+
+//     .cards {
+//       gap: 30px;
+
+//       .card {
+//         padding: 22px;
+//         width: 300px;
+//         height: 350px;
+//         gap: 16px;
+
+//         .content {
+//           img {
+//             width: 250px;
+//           }
+//           h3 {
+//             font-size: 17px;
+//           }
+//         }
+
+//         .button {
+//           a {
+//             width: 280px;
+//             height: 40px;
+//             font-size: 18px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
