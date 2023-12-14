@@ -1,4 +1,5 @@
 import "./Hero.scss";
+import { Link } from "react-router-dom";
 
 // Images
 import heroImg from "../../Assets/heroImg.png";
@@ -18,8 +19,8 @@ const Hero = () => {
         </h1>
       </div>
       <div className="buttons">
-        <button className="button1">Book now !</button>
-        <button className="button2">Contact Us!</button>
+        <Link to="/theaters" className="button1">Book now !</Link>
+        <a className="button2" href="#contact">Contact Us !</a>
       </div>
     </div>
   );

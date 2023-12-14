@@ -23,7 +23,6 @@ import {
   Theater,
   Refund,
   PrivacyPolicy,
-  Contact,
 } from "./PagesImport/UserPagesImport";
 
 //Admin Routes
@@ -52,10 +51,6 @@ const userRoutesData: RoutesData[] = [
   {
     path: "/about",
     element: <About />,
-  },
-  {
-    path: "/contact-us",
-    element: <Contact />,
   },
   {
     path: "/refund",

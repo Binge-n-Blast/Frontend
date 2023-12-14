@@ -54,6 +54,8 @@ $purple: #63049b;
     .button1 {
       background-color: $purple;
       color: white;
+      width: 203px;
+
       padding: 20px 50px;
       border-radius: 12px;
       font-size: 20px;
@@ -62,7 +64,9 @@ $purple: #63049b;
     .button2 {
       background-color: #fff;
       color: $purple;
-      padding: 20px 50px;
+      width: 203px;
+
+      padding: 18px 40px;
       border-radius: 12px;
       font-size: 20px;
     }

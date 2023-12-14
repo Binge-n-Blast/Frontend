@@ -7,6 +7,7 @@ $purple:#63049B;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -14,6 +15,10 @@ body {
   color: white;
 }
 
+// Hide Scrollbar
+::-webkit-scrollbar {
+  display: none;
+}
 
 
 a {
