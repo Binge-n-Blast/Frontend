@@ -2,7 +2,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
   height: 10vh;
   width: 100%;
   position: fixed;
@@ -10,9 +9,9 @@ nav {
   left: 0;
   z-index: 999999;
   padding: 0 300px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: transparent;
-  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(203, 203, 203, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
   .menu {
     display: flex;
     justify-content: center;
@@ -30,8 +29,23 @@ nav {
   }
 }
 
-.color {
-  background-color: rgba(0, 0, 0, 0.9);
+@media (max-width: 1600px) {
+  nav {
+    padding: 0 200px;
+
+    .logo {
+      img {
+        width: 130px;
+      }
+    }
+    .menu {
+      gap: 50px;
+
+      a {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 @media (max-width: 700px) {

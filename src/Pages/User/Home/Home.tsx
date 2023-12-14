@@ -1,20 +1,20 @@
-import "./Home.scss"
-import Hero from "./Components/Hero/Hero"
-import CommonSections from "./Components/CommonSections/CommonSections"
-import Contact from "./Components/Contact/Contact"
-import Celebrations from "./Components/Celebrations/Celebrations"
-import BookEvent from "./Components/BookEvent/BookEvent"
+// Components
+import Hero from "./Components/Hero/Hero";
+import CommonSections from "./Components/CommonSections/CommonSections";
+import Contact from "./Components/Contact/Contact";
+import Celebrations from "./Components/Celebrations/Celebrations";
+import BookEvent from "./Components/BookEvent/BookEvent";
 
 const Home = () => {
   return (
     <section className="home">
-      <Hero/>
-      <Celebrations/>
-      <CommonSections/>
-      <BookEvent/>
-      <Contact/>
+      <Hero />
+      <Celebrations />
+      <CommonSections />
+      <BookEvent />
+      <Contact />
     </section>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

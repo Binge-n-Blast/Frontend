@@ -61,13 +61,61 @@ $purple: #63049b;
         }
       }
 
-      .button{
-        button{
-            padding: 20px 56px;
+      .button {
+        button {
+          padding: 20px 56px;
+          border-radius: 12px;
+          background-color: $purple;
+          font-size: 20px;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .contact {
+    gap: 10px;
+    padding: 80px 200px;
+
+    .container {
+      gap: 20px;
+      h3 {
+        font-size: 28px;
+      }
+
+      .main {
+        gap: 20px;
+
+        .form {
+          gap: 20px;
+          height: 200px;
+
+          .left {
+            gap: 18px;
+            input {
+              width: 380px;
+              padding: 17px 11px;
+              font-size: 16px;
+            }
+          }
+
+          .right {
+            textarea {
+              width: 569px;
+              padding: 17px 11px;
+              font-size: 16px;
+            }
+          }
+        }
+
+        .button {
+          button {
+            padding: 16px 41px;
+            font-size: 18px;
             border-radius: 12px;
-            background-color: $purple;
-            font-size: 20px;
-color: white;
+          }
         }
       }
     }

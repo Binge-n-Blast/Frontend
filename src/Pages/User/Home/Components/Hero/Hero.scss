@@ -26,7 +26,7 @@ $purple: #63049b;
     filter: blur(125px);
   }
 
-  img{
+  img {
     position: absolute;
     top: 210px;
     right: 70px;
@@ -69,6 +69,52 @@ $purple: #63049b;
       padding: 18px 40px;
       border-radius: 12px;
       font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .hero {
+    padding: 0 200px;
+    gap: 40px;
+
+    .gradient {
+      top: 120px;
+      left: 80px;
+      width: 523px;
+      height: 523px;
+      border-radius: 523px;
+    }
+
+    img {
+      width: 850px;
+      top: 150px;
+      right: 40px;
+    }
+    .content {
+      p {
+        font-size: 35px;
+      }
+      h1 {
+        font-size: 45px;
+      }
+    }
+
+    .buttons {
+      gap: 18px;
+      .button1 {
+        width: 190px;
+        padding: 18px 45px;
+        border-radius: 11px;
+        font-size: 18px;
+      }
+
+      .button2 {
+        width: 190px;
+        padding: 18px 42px;
+        border-radius: 11px;
+        font-size: 18px;
+      }
     }
   }
 }

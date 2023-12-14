@@ -26,11 +26,36 @@ $purple: #63049b;
         font-family: "DM Sans", sans-serif;
         font-size: 18px;
         margin-bottom: 5px;
-
       }
       li::marker {
         color: $purple;
       }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .book-event {
+    padding: 80px 200px;
+
+    .content {
+      gap: 18px;
+      h2 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 20px;
+      }
+      ul {
+        li {
+          font-size: 16px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    img{
+      height: 400px;
     }
   }
 }

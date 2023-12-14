@@ -10,20 +10,12 @@ import { FaTimes, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const [color, setColor] = useState(false);
 
   const handleClick = () => {
     setClick(!click);
   };
 
-  const handleColor = () => {
-    if (window.scrollY >= 200) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
-  window.addEventListener("scroll", handleColor);
+ 
 
   interface Links {
     link: string;
@@ -50,7 +42,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={color ? "color" : ""}>
+    <nav >
       <div className="logo">
         <Link to="/">
           <img src={logo} alt="" />

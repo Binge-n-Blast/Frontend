@@ -1,7 +1,7 @@
 import "./Celebrations.scss";
 import {Link} from "react-router-dom"
 
-//Images
+// Images
 import img1 from "../../Assets/img1.png";
 import img2 from "../../Assets/img2.png";
 import img3 from "../../Assets/img3.png";

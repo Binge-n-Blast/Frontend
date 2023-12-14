@@ -97,10 +97,10 @@ $purple: #63049b;
       align-items: center;
       flex-direction: column;
       gap: 20px;
-      background: rgba( 255, 255, 255, 0.05 );
-      backdrop-filter: blur( 15.5px );
-      -webkit-backdrop-filter: blur( 15.5px );
-      border: 1px solid rgba( 255, 255, 255, 0.18 );
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15.5px);
+      -webkit-backdrop-filter: blur(15.5px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
 
       .content {
         display: flex;
@@ -129,6 +129,109 @@ $purple: #63049b;
           border-radius: 10px;
           background: $purple;
           font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .celebrations {
+    padding: 80px 200px;
+    gap: 40px;
+
+    .red-blob {
+      position: absolute;
+      z-index: -1;
+      right: 0px;
+      bottom: 100px;
+      width: 764px;
+      height: 764px;
+      border-radius: 864px;
+      background: linear-gradient(
+        318deg,
+        #6f113e 13.43%,
+        rgba(111, 17, 62, 0) 93.61%
+      );
+      filter: blur(125px);
+    }
+
+    .blue-blob1 {
+      position: absolute;
+      z-index: -1;
+      left: 0px;
+      top: 150px;
+      width: 864px;
+      height: 864px;
+      border-radius: 864px;
+      border-radius: 820px;
+      background: linear-gradient(
+        318deg,
+        #09173d 13.43%,
+        rgba(9, 23, 61, 0) 93.61%
+      );
+      filter: blur(125px);
+    }
+
+    .blue-blob2 {
+      position: absolute;
+      z-index: -1;
+      right: 0px;
+      top: 10px;
+      width: 864px;
+      height: 864px;
+      border-radius: 864px;
+      border-radius: 820px;
+      background: linear-gradient(
+        318deg,
+        #09173d 13.43%,
+        rgba(9, 23, 61, 0) 93.61%
+      );
+      filter: blur(125px);
+    }
+    .content {
+      gap: 13px;
+
+      h2 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 25px;
+      }
+    }
+
+    .cards {
+      gap: 30px;
+
+      .card {
+        padding: 22px;
+        width: 340px;
+        height: 380px;
+        border-radius: 0px 48px;
+        gap: 18px;
+
+        .content {
+          gap: 8px;
+          img{
+            width: 310px;
+          }
+          h3 {
+            font-size: 18px;
+          }
+          p {
+            font-size: 13px;
+            line-height: 20px;
+          }
+        }
+
+        .button {
+          a {
+           
+            width: 290px;
+            height: 42px;
+            font-size: 19px;
+          }
         }
       }
     }

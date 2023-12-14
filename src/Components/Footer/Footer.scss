@@ -23,3 +23,20 @@ footer {
     }
   }
 }
+
+@media (max-width: 1600px) {
+  footer {
+    gap: 80px;
+    padding: 80px 200px;
+
+    .section {
+      gap: 18px;
+      a {
+        font-size: 15px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
