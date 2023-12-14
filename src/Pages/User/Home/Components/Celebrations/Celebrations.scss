@@ -236,49 +236,50 @@ $purple: #63049b;
 }
 
 
-// @media (max-width: 1360px) {
-//   .celebrations {
-//     padding: 80px 200px;
-//     gap: 40px;
+@media (max-width: 1360px) {
+  .celebrations {
+    padding: 60px 100px;
+    gap: 30px;
 
-//     .content {
-//       gap: 13px;
+    .content {
+      gap: 13px;
 
-//       h2 {
-//         font-size: 28px;
-//       }
-//       p {
-//         font-size: 16px;
-//         line-height: 25px;
-//       }
-//     }
+      h2 {
+        font-size: 26px;
+      }
+      p {
+        font-size: 15px;
+        line-height: 22px;
+      }
+    }
 
-//     .cards {
-//       gap: 30px;
+    .cards {
+      gap: 25px;
 
-//       .card {
-//         padding: 22px;
-//         width: 300px;
-//         height: 350px;
-//         gap: 16px;
+      .card {
+        padding: 22px;
+        width: 300px;
+        height: 350px;
+        gap: 15px;
 
-//         .content {
-//           img {
-//             width: 250px;
-//           }
-//           h3 {
-//             font-size: 17px;
-//           }
-//         }
+        .content {
+          img {
+            width: 250px;
+          }
+          h3 {
+            font-size: 16px;
+          
+        }
 
-//         .button {
-//           a {
-//             width: 280px;
-//             height: 40px;
-//             font-size: 18px;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+        .button {
+          a {
+            width: 260px;
+            height: 36px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+}
