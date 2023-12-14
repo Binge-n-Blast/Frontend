@@ -1,9 +1,8 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 
-
 // Images
-import logo from "../Navbar/Assets/logo.png"
+import logo from "../Navbar/Assets/logo.png";
 
 const Footer = () => {
   interface Link {
@@ -37,8 +36,9 @@ const Footer = () => {
       <div className="section">
         <img src={logo} alt="" />
         <p>
-          2-76-9/2271, Telephone Colony,<br /> Medipally Mandal, Boduppal,<br /> Medchal
-          Dist - 500092
+          2-76-9/2271, Telephone Colony,
+          <br /> Medipally Mandal, Boduppal,
+          <br /> Medchal Dist - 500092
         </p>
       </div>
       <div className="section">
@@ -57,8 +57,8 @@ const Footer = () => {
       </div>
       <div className="section">
         <p>Contact Us</p>
-        <p>+91 9392005252</p>
-        <p>admin@bingedelight.com</p>
+        <a href="tel:+6494461709">+91 9392005252</a>
+        <a href="mailto:test@gmail.com" >admin@bingedelight.com</a>
       </div>
     </footer>
   );
