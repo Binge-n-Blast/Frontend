@@ -52,6 +52,9 @@ $purple: #63049b;
     flex-direction: row;
     gap: 20px;
     .button1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: $purple;
       color: white;
       width: 203px;
@@ -62,6 +65,9 @@ $purple: #63049b;
     }
 
     .button2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: #fff;
       color: $purple;
       width: 203px;
@@ -111,9 +117,225 @@ $purple: #63049b;
 
       .button2 {
         width: 190px;
-        padding: 18px 42px;
+        padding: 18px 40px;
         border-radius: 11px;
         font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .hero {
+    padding: 0 150px;
+    gap: 40px;
+
+    .gradient {
+      top: 200px;
+      left: 80px;
+      width: 450px;
+      height: 450px;
+      border-radius: 450px;
+    }
+
+    img {
+      width: 780px;
+      top: 240px;
+      right: 90px;
+    }
+    .content {
+      p {
+        font-size: 32px;
+      }
+      h1 {
+        font-size: 42px;
+      }
+    }
+
+    .buttons {
+      gap: 16px;
+      .button1 {
+        width: 170px;
+        padding: 17px 42px;
+        font-size: 16px;
+      }
+
+      .button2 {
+        width: 170px;
+        padding: 17px 30px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero {
+    img {
+      width: 700px;
+      top: 240px;
+      right: 90px;
+    }
+    .content {
+      p {
+        font-size: 31px;
+      }
+      h1 {
+        font-size: 40px;
+      }
+    }
+
+    .buttons {
+      gap: 16px;
+      .button1 {
+        width: 160px;
+        padding: 16px 40px;
+        font-size: 16px;
+      }
+
+      .button2 {
+        width: 160px;
+        padding: 16px 30px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .hero {
+    height: auto;
+    padding: 100px 50px;
+    padding-top: 400px;
+    align-items: center;
+    gap: 50px;
+
+    .gradient {
+      top: 25%;
+      left: 40px;
+      width: 323px;
+      height: 323px;
+      border-radius: 323px;
+    }
+
+    img {
+      width: 500px;
+      top: 210px;
+      right: 25%;
+    }
+    .content {
+      text-align: center;
+      p {
+        font-size: 20px;
+      }
+      h1 {
+        font-size: 35px;
+      }
+    }
+
+    .buttons {
+      gap: 16px;
+      .button1 {
+        font-size: 16px;
+      }
+
+      .button2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .hero {
+    padding-top: 350px;
+
+    .gradient {
+      top: 25%;
+      left: 20px;
+      width: 250px;
+      height: 250px;
+      border-radius: 250px;
+    }
+
+    img {
+      width: 400px;
+      top: 210px;
+      right: 20%;
+    }
+    .content {
+      text-align: center;
+      p {
+        font-size: 18px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    .buttons {
+      gap: 16px;
+      .button1 {
+        width: 150px;
+        padding: 16px 20px;
+        font-size: 15px;
+      }
+
+      .button2 {
+        width: 150px;
+        padding: 16px 20px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    padding: 100px 10px;
+    padding-top: 250px;
+    gap: 30px;
+
+    .gradient {
+      top: 25%;
+      left: 0px;
+      width: 250px;
+      height: 250px;
+      border-radius: 250px;
+    }
+
+    img {
+      width: 320px;
+      top: 120px;
+      right: 18%;
+    }
+    .content {
+      text-align: center;
+      p {
+        font-size: 20px;
+        line-height: 30px;
+      }
+      h1 {
+        font-size: 21px;
+      }
+    }
+
+    .buttons {
+      gap: 16px;
+      .button1 {
+        width: 143px;
+        height: 45px;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 8px;
+      }
+
+      .button2 {
+        width: 143px;
+        height: 45px;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 8px;
       }
     }
   }
