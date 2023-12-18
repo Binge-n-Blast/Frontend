@@ -74,3 +74,53 @@ $purple: #63049b;
     }
   }
 }
+
+
+@media(max-width:1864px){
+  .addOns-container {
+    padding: 80px 200px;
+
+    padding-bottom: 80px;
+
+    gap: 40px;
+
+    h3 {
+      font-size: 40px;
+    }
+    .cards {
+      gap: 32px;
+
+      .card {
+        padding: 18px;
+        width: 350px;
+        height: 140px;
+        gap: 15px;
+        border-radius: 0px 30px;
+
+        img {
+          width: 100px;
+        }
+
+        .content {
+          gap: 8px;
+          h4 {
+            font-size: 18px;
+          }
+          p {
+            font-size: 13px;
+          }
+          .action {
+            p {
+              font-size: 18px;
+            }
+            button {
+              width: 90px;
+              height: 30px;
+              padding: 9px 26px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

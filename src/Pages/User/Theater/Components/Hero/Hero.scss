@@ -57,7 +57,6 @@
     }
     p {
       font-size: 16px;
-      font-family: "DM Sans", sans-serif;
     }
   }
 
@@ -80,6 +79,55 @@
       width: 409px;
       padding: 18px 12px;
       border-radius: 8px;
+    }
+  }
+}
+
+@media (max-width: 1750px) {
+  .theater-hero {
+    margin: 80px 200px;
+    margin-top: 120px;
+    gap: 30px;
+
+    .blue-blob1 {
+      top: 40px;
+      left: -300px;
+      width: 648.84px;
+      height: 648.84px;
+    }
+    .blue-blob2 {
+      top: 80px;
+      right: -200px;
+      width: 937.498px;
+      height: 937.498px;
+    }
+
+    img {
+      width: 800px;
+    }
+    .content {
+      gap: 8px;
+      h2 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+
+    .detail {
+      h2 {
+        font-size: 28px;
+      }
+    }
+
+    .form {
+      gap: 8px;
+      input,
+      select {
+        width: 350px;
+        padding: 16px 10px;
+      }
     }
   }
 }

@@ -136,3 +136,73 @@ $purple: #63049b;
     }
   }
 }
+
+@media (max-width: 1864px) {
+  .main-container {
+    gap: 40px;
+    padding: 0 180px;
+
+    .blue-blob {
+      top: 80px;
+      left: 0px;
+    }
+    .red-blob {
+      top: 30px;
+    }
+
+    .heading {
+      gap: 18px;
+      h2 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+
+    .event-container {
+      padding-bottom: 80px;
+
+      gap: 40px;
+
+      h3 {
+        font-size: 40px;
+      }
+      .cards {
+        gap: 32px;
+
+        .card {
+          padding: 18px;
+          width: 350px;
+          height: 140px;
+          gap: 15px;
+          border-radius: 0px 30px;
+
+          img {
+            width: 100px;
+          }
+
+          .content {
+            gap: 8px;
+            h4 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 13px;
+            }
+            .action {
+              p {
+                font-size: 18px;
+              }
+              button {
+                width: 90px;
+                height: 30px;
+                padding: 9px 26px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
