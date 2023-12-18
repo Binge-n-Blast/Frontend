@@ -38,7 +38,6 @@
     width: 564px;
     height: 564px;
     border-radius: 564px;
-    border-radius: 820px;
     background: linear-gradient(
       318deg,
       #09173d 13.43%,
@@ -52,5 +51,29 @@
     line-height: 70px;
     letter-spacing: 2px;
     font-family: "DM Sans", sans-serif;
+  }
+}
+
+@media (max-width: 1700px) {
+  .about {
+    margin: 100px 200px;
+    margin-top: 150px;
+    padding: 100px;
+
+    .red-blob {
+      right: -150px;
+      bottom: 0px;
+    }
+
+    .blue-blob {
+      left: -300px;
+      top: -200px;
+    }
+
+    p {
+      font-size: 32px;
+      line-height: 60px;
+      letter-spacing: 1px;
+    }
   }
 }
