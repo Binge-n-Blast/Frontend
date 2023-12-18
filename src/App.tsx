@@ -14,7 +14,7 @@ import Error from "./Components/Error/Error";
 
 // Global Components
 import Navbar from "./Components/Navbar/Navbar";
-// import Footer from "./Components/Footer/Footer";
+import Footer from "./Components/Footer/Footer";
 
 // User Routes
 import {
@@ -101,7 +101,7 @@ function App() {
           ))}
         </Route>
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </ScrollToTop>
   );
 }

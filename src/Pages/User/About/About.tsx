@@ -2,7 +2,12 @@ import "./About.scss"
 
 const About = () => {
   return (
-    <div>About</div>
+    <section className="about">
+      <div className="red-blob"></div>
+      <div className="blue-blob"></div>
+
+      <p>BINGE DELIGHT THE PARTY LOUNGE offers you to experience extraordinary private theatre experience with personalized decor. Our exclusive premium private theatres feature enhanced 4K resolution with DOLBY atoms sound system. You can celebrate your special occasions such as Birthday's, anniversaries, Bride to be, Kitty parties any what not many more!!!</p>
+    </section>
   )
 }
 
