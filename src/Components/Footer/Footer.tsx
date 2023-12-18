@@ -12,23 +12,23 @@ const Footer = () => {
 
   const links1: Link[] = [
     {
-      path: "/",
+      path: "/about",
       name: "About",
     },
     {
-      path: "/",
+      path: "/theaters",
       name: "Theaters",
     },
   ];
 
   const links2: Link[] = [
     {
-      path: "/",
+      path: "/refund",
       name: "Refund Policy",
     },
     {
-      path: "/",
-      name: "Terms & Conditions",
+      path: "/privacy-policy",
+      name: "Privacy Policy",
     },
   ];
   return (
