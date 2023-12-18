@@ -1,0 +1,85 @@
+.theater-hero {
+  margin: 100px 300px;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+  position: relative;
+
+  .blue-blob1 {
+    position: absolute;
+    top: 50px;
+    left: -300px;
+    z-index: -1;
+    width: 748.84px;
+    height: 748.84px;
+    transform: rotate(-82.531deg);
+    border-radius: 748.84px;
+    background: linear-gradient(
+      318deg,
+      #09173d 13.43%,
+      rgba(9, 23, 61, 0) 93.61%
+    );
+    filter: blur(125px);
+  }
+
+  .blue-blob2 {
+    position: absolute;
+    top: 100px;
+    right: -200px;
+    z-index: -1;
+    width: 1137.498px;
+    height: 1137.498px;
+    transform: rotate(-82.531deg);
+    border-radius: 1137.498px;
+    background: linear-gradient(
+      318deg,
+      #09173d 13.43%,
+      rgba(9, 23, 61, 0) 93.61%
+    );
+    filter: blur(125px);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    h2 {
+      font-family: Orbitron;
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+    p {
+      font-size: 16px;
+      font-family: "DM Sans", sans-serif;
+    }
+  }
+
+  .detail {
+    h2 {
+      font-family: Orbitron;
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    input,
+    select {
+      width: 409px;
+      padding: 18px 12px;
+      border-radius: 8px;
+    }
+  }
+}
