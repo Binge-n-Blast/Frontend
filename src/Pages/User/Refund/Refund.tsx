@@ -3,8 +3,10 @@ import "./Refund.scss";
 const Refund = () => {
   return (
     <section className="refund">
+
       <div className="blue-blob"></div>
       <div className="red-blob"></div>
+      <h1>Refund Policy</h1>
       <li>
         For the confirmation of your booking we charge an advance payment of
         20%. It will be fully refunded if you cancel 72 hours before your
