@@ -1,3 +1,5 @@
+$purple: #63049b;
+
 .theater-hero {
   margin: 100px 300px;
   margin-top: 150px;
@@ -8,6 +10,23 @@
   text-align: center;
   gap: 30px;
   position: relative;
+
+  .carousel {
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: $purple;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
 
   .blue-blob1 {
     position: absolute;
