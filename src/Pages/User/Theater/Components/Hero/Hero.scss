@@ -28,6 +28,10 @@ $purple: #63049b;
     }
   }
 
+  img{
+    width: 90%;
+  }
+
   .blue-blob1 {
     position: absolute;
     top: 50px;
@@ -121,9 +125,7 @@ $purple: #63049b;
       height: 937.498px;
     }
 
-    img {
-      width: 800px;
-    }
+   
     .content {
       gap: 8px;
       h2 {

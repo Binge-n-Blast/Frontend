@@ -14,7 +14,7 @@ import theaterImg from "../../Assets/theaterImg.png";
 
 const Hero = () => {
   interface TheaterHero {
-    images: string[];
+    images: string[] | string;
     title: string;
     desc: string;
     price: number;
@@ -22,7 +22,7 @@ const Hero = () => {
   }
 
   const theaterData: TheaterHero = {
-    images: [theaterImg, theaterImg, theaterImg],
+    images: [theaterImg,theaterImg,theaterImg],
     title: "Blockbuster Bliss",
     desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
     price: 1899,
@@ -43,7 +43,8 @@ const Hero = () => {
   return (
     <>
       <section className="theater-hero">
-        <Swiper
+       {
+        theaterData.images.length>1 ?( <Swiper
           loop={true}
           navigation={true}
           grabCursor={true}
@@ -61,12 +62,15 @@ const Hero = () => {
           slidesPerView={1}
           className="carousel"
         >
-          {theaterData.images.map((image, index) => (
+          {Array.isArray(theaterData.images) && theaterData.images.map((image, index) => (
             <SwiperSlide key={index}>
               <img src={image} alt="" />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper>):(
+          <img src={theaterData.images[0]}/>
+        )
+       }
         <div className="blue-blob1"></div>
         <div className="blue-blob2"></div>
 
