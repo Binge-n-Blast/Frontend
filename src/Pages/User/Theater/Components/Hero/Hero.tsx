@@ -14,7 +14,7 @@ import theaterImg from "../../Assets/theaterImg.png";
 
 const Hero = () => {
   interface TheaterHero {
-    images: string[] | string;
+    images: string[];
     title: string;
     desc: string;
     price: number;
@@ -22,7 +22,7 @@ const Hero = () => {
   }
 
   const theaterData: TheaterHero = {
-    images: [theaterImg,theaterImg,theaterImg],
+    images: [theaterImg, theaterImg, theaterImg],
     title: "Blockbuster Bliss",
     desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
     price: 1899,
@@ -43,34 +43,34 @@ const Hero = () => {
   return (
     <>
       <section className="theater-hero">
-       {
-        theaterData.images.length>1 ?( <Swiper
-          loop={true}
-          navigation={true}
-          grabCursor={true}
-          effect={"creative"}
-          creativeEffect={{
-            prev: {
-              shadow: true,
-              translate: [0, 0, -400],
-            },
-            next: {
-              translate: ["100%", 0, 0],
-            },
-          }}
-          modules={[Navigation, EffectCreative]}
-          slidesPerView={1}
-          className="carousel"
-        >
-          {Array.isArray(theaterData.images) && theaterData.images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <img src={image} alt="" />
-            </SwiperSlide>
-          ))}
-        </Swiper>):(
-          <img src={theaterData.images[0]}/>
-        )
-       }
+        {theaterData.images.length > 1 ? (
+          <Swiper
+            loop={true}
+            navigation={true}
+            grabCursor={true}
+            effect={"creative"}
+            creativeEffect={{
+              prev: {
+                shadow: true,
+                translate: [0, 0, -400],
+              },
+              next: {
+                translate: ["100%", 0, 0],
+              },
+            }}
+            modules={[Navigation, EffectCreative]}
+            slidesPerView={1}
+            className="carousel"
+          >
+            {theaterData.images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <img src={image} alt="" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <img src={theaterData.images[0]} />
+        )}
         <div className="blue-blob1"></div>
         <div className="blue-blob2"></div>
 
