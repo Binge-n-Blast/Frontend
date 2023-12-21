@@ -24,6 +24,7 @@ $purple: #63049b;
   }
 
   .top {
+    cursor: pointer;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -78,7 +79,7 @@ $purple: #63049b;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      
+
       p {
         font-size: 13px;
       }
@@ -91,8 +92,8 @@ $purple: #63049b;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h2{
-        font-size: 20px;
+    h2 {
+      font-size: 20px;
     }
   }
 
@@ -106,28 +107,22 @@ $purple: #63049b;
   }
 }
 
-
-@media(max-width:1700px){
+@media (max-width: 1700px) {
   .checkout {
     width: 400px;
     gap: 18px;
     padding: 13px 28px;
- 
 
-  
     .top {
-    
       h2 {
         font-size: 18px;
       }
     }
-  
+
     .main {
       margin-top: 26px;
       gap: 11px;
-  
       .data {
-
         h3 {
           font-size: 16px;
         }
@@ -135,43 +130,37 @@ $purple: #63049b;
           font-size: 12px;
         }
       }
-  
+
       .date {
         p {
           font-size: 12px;
         }
       }
     }
-  
-    .rest {
 
+    .rest {
       gap: 11px;
       h3 {
         font-size: 15px;
       }
       .data {
-  
-        
         p {
           font-size: 12px;
         }
       }
     }
-  
+
     .total {
       margin: 22px 0;
 
-      h2{
-          font-size: 18px;
+      h2 {
+        font-size: 18px;
       }
     }
-  
+
     button {
       padding: 13px 36px;
-    
       font-size: 13px;
-     
     }
   }
-  
 }

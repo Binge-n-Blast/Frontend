@@ -8,17 +8,18 @@ const Checkout = () => {
   const [active, setActive] = useState(false);
   const handleCheckoutActive = () => {
     setActive(!active);
+    alert
   };
   return (
-    <section className="checkout">
+    <section className="checkout" >
       {active ? (
         <>
-          <div className="top">
+          <div className="top" onClick={handleCheckoutActive}>
             <h2>Booking Summary</h2>
             <FaMinus
               style={{ color: "white", cursor: "pointer" }}
               size={16}
-              onClick={handleCheckoutActive}
+            
             />
           </div>
 
@@ -68,12 +69,11 @@ const Checkout = () => {
           <button>Proceed to checkout</button>
         </>
       ) : (
-        <div className="top">
+        <div className="top"  onClick={handleCheckoutActive}>
           <h2>Booking Summary</h2>
           <FaPlus
             style={{ color: "white", cursor: "pointer" }}
             size={16}
-            onClick={handleCheckoutActive}
           />
         </div>
       )}
