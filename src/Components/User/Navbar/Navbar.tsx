@@ -42,7 +42,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav >
+    <nav className="navbar">
       <div className="logo">
         <Link to="/">
           <img src={logo} alt="" />

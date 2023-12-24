@@ -1,4 +1,4 @@
-nav {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@ nav {
 }
 
 @media (max-width: 1600px) {
-  nav {
+  .navbar {
     padding: 0 200px;
 
     .logo {
@@ -49,7 +49,7 @@ nav {
 }
 
 @media (max-width: 1440px) {
-  nav {
+  .navbar {
     padding: 0 150px;
 
     .logo {
@@ -68,7 +68,7 @@ nav {
 }
 
 @media (max-width: 900px) {
-  nav {
+  .navbar {
     padding: 0 50px;
 
     .hamburger {
@@ -96,7 +96,7 @@ nav {
 
 
 @media (max-width: 500px) {
-  nav {
+  .navbar {
     padding: 0 20px; 
 
 

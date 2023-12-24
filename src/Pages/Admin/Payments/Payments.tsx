@@ -1,10 +1,10 @@
-import "./TodaysBooking.scss";
+import "./Payments.scss";
 
 // Component
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 // Images
-import booking from "../../../Components/Admin/Sidebar/Assets/calendar.png";
+import payment from "../../../Components/Admin/Sidebar/Assets/money.png"
 
 // Data
 import { data } from "./data";
@@ -21,30 +21,30 @@ import {
   Pagination,
 } from "@mui/material";
 
-const TodaysBooking = () => {
+const Payments = () => {
   return (
     <>
-      <Navbar title="Today's Booking" image={booking} />
-      <section className="booking">
+      <Navbar title="Payments" image={payment}/>
+      <section className="payments">
         <TableContainer component={Paper} className="table">
           <Table aria-label="simple table">
             <TableHead className="table-head">
               <TableRow>
                 <TableCell align="center">Id</TableCell>
-                <TableCell align="center">Customer</TableCell>
-                <TableCell align="center">Theater</TableCell>
-                <TableCell align="center">Slot</TableCell>
                 <TableCell align="center">Amount</TableCell>
+                <TableCell align="center">Payer</TableCell>
+                <TableCell align="center">Account Number</TableCell>
+                <TableCell align="center">Date</TableCell>
               </TableRow>
             </TableHead>
             <TableBody className="table-body">
               {data.map((row) => (
                 <TableRow key={row.id}>
                   <TableCell align="center">{row.id}</TableCell>
-                  <TableCell align="center">{row.Customer}</TableCell>
-                  <TableCell align="center">{row.Theater}</TableCell>
-                  <TableCell align="center">{row.Slot}</TableCell>
-                  <TableCell align="center">{row.Amount}</TableCell>
+                  <TableCell align="center">{row.amount}</TableCell>
+                  <TableCell align="center">{row.payer}</TableCell>
+                  <TableCell align="center">{row.accountNumber}</TableCell>
+                  <TableCell align="center">{row.date}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -61,4 +61,4 @@ const TodaysBooking = () => {
   );
 };
 
-export default TodaysBooking;
+export default Payments;
