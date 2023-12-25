@@ -6,6 +6,11 @@ import logo from "../../User/Navbar/Assets/logo.png";
 import booking from "./Assets/calendar.png";
 import payment from "./Assets/money.png";
 import theater from "./Assets/theater.png";
+import gift from "./Assets/gift.png";
+import decoration from "./Assets/decoration.png"
+import addon from "./Assets/addon.png"
+import cake from "./Assets/cake.png"
+
 import logout from "./Assets/logout.png";
 
 // Popup
@@ -28,13 +33,23 @@ const Sidebar = () => {
           </div>
           <div className="link">
             <img src={payment} alt="" />
-
             <Link to="/admin/payments">Payments</Link>
           </div>
           <div className="link">
             <img src={theater} alt="" />
-
             <Link to="/admin/theaters">Theaters</Link>
+          </div>
+          <div className="link">
+            <img src={decoration} alt="" />
+            <Link to="/admin/decorations">Decorations</Link>
+          </div>
+          <div className="link">
+            <img src={cake} alt="" />
+            <Link to="/admin/cakes">Cakes</Link>
+          </div>
+          <div className="link">
+            <img src={addon} alt="" />
+            <Link to="/admin/add-ons">Add ons</Link>
           </div>
         </div>
       </div>

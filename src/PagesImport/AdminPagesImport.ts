@@ -11,6 +11,16 @@ export const Payments = lazy(
 export const AdminTheaters = lazy(
   () => import("../Pages/Admin/Theaters/Theaters")
 );
+
+export const Cake = lazy(
+  () => import("../Pages/Admin/Extras/Cake/Cake")
+);
+export const Decoration = lazy(
+  () => import("../Pages/Admin/Extras/Decoration/Decoration")
+);
+export const Addon = lazy(
+  () => import("../Pages/Admin/Extras/Addon/Addon")
+);
 export const AddTheater = lazy(
   () => import("../Pages/Admin/AddTheater/AddTheater")
 );

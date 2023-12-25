@@ -31,6 +31,9 @@ import {
   Login,
   Payments,
   AdminTheaters,
+  Cake,
+  Decoration,
+  Addon,
   AddTheater,
 } from "./PagesImport/AdminPagesImport";
 import Wrapper from "./Components/Admin/Wrapper/Wrapper";
@@ -81,6 +84,18 @@ const adminRoutesData: RoutesData[] = [
   {
     path: "theaters",
     element: <AdminTheaters />,
+  },
+  {
+    path: "cakes",
+    element: <Cake />,
+  },
+  {
+    path: "decorations",
+    element: <Decoration />,
+  },
+  {
+    path: "add-ons",
+    element: <Addon />,
   },
   {
     path: "add-theater",
