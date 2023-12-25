@@ -6,7 +6,6 @@ import logo from "../../User/Navbar/Assets/logo.png";
 import booking from "./Assets/calendar.png";
 import payment from "./Assets/money.png";
 import theater from "./Assets/theater.png";
-import gift from "./Assets/gift.png";
 import decoration from "./Assets/decoration.png"
 import addon from "./Assets/addon.png"
 import cake from "./Assets/cake.png"
