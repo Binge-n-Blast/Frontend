@@ -8,7 +8,17 @@ import addOnsImg1 from "../../../User/Theater/Assets/addOnsImg1.png";
 import addOnsImg2 from "../../../User/Theater/Assets/addOnsImg2.png";
 import addOnsImg3 from "../../../User/Theater/Assets/addOnsImg3.png";
 
+// Redux
+import { useDispatch } from "react-redux";
+import { handleOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+
 const Addon = () => {
+
+  const dispatch = useDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(handleOpen());
+  };
 
   interface CakesData {
     id: number;
@@ -52,7 +62,7 @@ const Addon = () => {
     <div className="cards">
         {cakesData.map((card) => (
           <div className="card" key={card.id}>
-            <img src={deleteIcon} className="delete" alt="" />
+            <img src={deleteIcon} onClick={handleOpenModal} className="delete" alt="" />
             <img src={card.img} alt="" className="cake-image"/>
             <div className="content">
               <h4>{card.title}</h4>

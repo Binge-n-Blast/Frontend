@@ -1,9 +1,8 @@
-import "./Cake.scss"
+import "./Cake.scss";
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";
 
 // Images
-import cake from "../../../../Components/Admin/Sidebar/Assets/cake.png"
-// Images
+import cake from "../../../../Components/Admin/Sidebar/Assets/cake.png";
 import cakesImg1 from "../../../User/Theater/Assets/cakesImg1.png";
 import cakesImg2 from "../../../User/Theater/Assets/cakesImg2.png";
 import cakesImg3 from "../../../User/Theater/Assets/cakesImg3.png";
@@ -11,9 +10,21 @@ import cakesImg4 from "../../../User/Theater/Assets/cakesImg4.png";
 import cakesImg5 from "../../../User/Theater/Assets/cakesImg5.png";
 import cakesImg6 from "../../../User/Theater/Assets/cakesImg6.png";
 import deleteIcon from "./Assets/delete.png";
+
+// Components
 import Form from "../Form/Form";
+import Popup from "../../../../Components/Popup/Popup";
+
+// Redux
+import { useDispatch } from "react-redux";
+import { handleOpen } from "../../../../Redux/Slices/Admin/popupSlice";
 
 const Cake = () => {
+  const dispatch = useDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(handleOpen());
+  };
 
   interface CakesData {
     id: number;
@@ -68,36 +79,39 @@ const Cake = () => {
     },
   ];
 
-
   return (
     <>
-    <Navbar title="Cakes" image={cake}/>
-    <section className="cake">
+      <Navbar title="Cakes" image={cake} />
+      <Popup />
+      <section className="cake">
+        <div className="add">
+          <Form />
+        </div>
 
-      <div className="add">
-        {/* <button>Add New Cake!</button> */}
-        <Form/>
-      </div>
-
-    <div className="cards">
-        {cakesData.map((card) => (
-          <div className="card" key={card.id}>
-            <img src={deleteIcon} className="delete" alt="" />
-            <img src={card.img} alt="" className="cake-image"/>
-            <div className="content">
-              <h4>{card.title}</h4>
-              <p>{card.desc}</p>
-              <div className="action">
-                <p>₹ {card.price}</p>
-                <button>Edit</button>
+        <div className="cards">
+          {cakesData.map((card) => (
+            <div className="card" key={card.id}>
+              <img
+                src={deleteIcon}
+                onClick={handleOpenModal}
+                className="delete"
+                alt=""
+              />
+              <img src={card.img} alt="" className="cake-image" />
+              <div className="content">
+                <h4>{card.title}</h4>
+                <p>{card.desc}</p>
+                <div className="action">
+                  <p>₹ {card.price}</p>
+                  <button>Edit</button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Cake
+export default Cake;

@@ -12,7 +12,17 @@ import eventImg5 from "../../../User/Theater/Assets/eventImg5.png";
 import eventImg6 from "../../../User/Theater/Assets/eventImg6.png";
 import deleteIcon from "../Cake/Assets/delete.png";
 
+// Redux
+import { useDispatch } from "react-redux";
+import { handleOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+
 const Decoration = () => {
+  const dispatch = useDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(handleOpen());
+  };
+
   interface DecorationData {
     id: number;
     img: string;
@@ -76,7 +86,12 @@ const Decoration = () => {
         <div className="cards">
           {decorationData.map((card) => (
             <div className="card" key={card.id}>
-              <img src={deleteIcon} className="delete" alt="" />
+              <img
+                src={deleteIcon}
+                onClick={handleOpenModal}
+                className="delete"
+                alt=""
+              />
               <img src={card.img} alt="" className="cake-image" />
               <div className="content">
                 <h4>{card.title}</h4>

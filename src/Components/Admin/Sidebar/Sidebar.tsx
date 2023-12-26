@@ -1,22 +1,33 @@
 import "./Sidebar.scss";
 import { Link } from "react-router-dom";
 
+// Component
+import Popup from "../../Popup/Popup";
+
+
 // Images
 import logo from "../../User/Navbar/Assets/logo.png";
 import booking from "./Assets/calendar.png";
 import payment from "./Assets/money.png";
 import theater from "./Assets/theater.png";
-import decoration from "./Assets/decoration.png"
-import addon from "./Assets/addon.png"
-import cake from "./Assets/cake.png"
-
+import decoration from "./Assets/decoration.png";
+import addon from "./Assets/addon.png";
+import cake from "./Assets/cake.png";
 import logout from "./Assets/logout.png";
-import Popup from "../../Popup/Popup";
 
-
+//Redux
+import { useDispatch } from "react-redux";
+import { handleOpen } from "../../../Redux/Slices/Admin/popupSlice";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(handleOpen());
+  };
   return (
+  <>
+  <Popup/>
     <section className="sidebar">
       <div className="top">
         <div className="logo">
@@ -50,20 +61,17 @@ const Sidebar = () => {
             <img src={addon} alt="" />
             <Link to="/admin/add-ons">Add ons</Link>
           </div>
-
-          <Popup/>
         </div>
       </div>
 
       <div className="logout">
         <div className="link">
           <img src={logout} alt="" />
-          <Link to="/">Logout</Link>
+          <button onClick={handleOpenModal}>Logout</button>
         </div>
       </div>
-
-      {/* <Popup /> */}
     </section>
+  </>
   );
 };
 

@@ -1,19 +1,27 @@
 import "./Popup.scss";
-import { useState } from "react";
 
 // MUi
-import {Box,Modal} from "@mui/material";
+import { Box, Modal } from "@mui/material";
+
+//Redux Hooks
+import { useSelector, useDispatch } from "react-redux";
+
+// Reducers
+import { handleClose } from "../../Redux/Slices/Admin/popupSlice";
+import { RootState } from "../../Redux/Store/store";
 
 const Popup = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const dispatch = useDispatch();
+  const open = useSelector((state: RootState) => state.popup.open);
+
+  const handleCloseModal = () => {
+    dispatch(handleClose());
+  };
   return (
     <div className="popup">
-      <button onClick={handleOpen}>Open modal</button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -21,7 +29,7 @@ const Popup = () => {
           <h2>Are you sure ?</h2>
           <div className="buttons">
             <button className="yes">Yes</button>
-            <button className="no"> No</button>
+            <button className="no" onClick={handleCloseModal}> No</button>
           </div>
         </Box>
       </Modal>
