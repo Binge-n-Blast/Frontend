@@ -11,6 +11,7 @@ import cakesImg4 from "../../../User/Theater/Assets/cakesImg4.png";
 import cakesImg5 from "../../../User/Theater/Assets/cakesImg5.png";
 import cakesImg6 from "../../../User/Theater/Assets/cakesImg6.png";
 import deleteIcon from "./Assets/delete.png";
+import Form from "../Form/Form";
 
 const Cake = () => {
 
@@ -74,7 +75,8 @@ const Cake = () => {
     <section className="cake">
 
       <div className="add">
-        <button>Add New Cake!</button>
+        {/* <button>Add New Cake!</button> */}
+        <Form/>
       </div>
 
     <div className="cards">

@@ -11,9 +11,9 @@ import addon from "./Assets/addon.png"
 import cake from "./Assets/cake.png"
 
 import logout from "./Assets/logout.png";
+import Popup from "../../Popup/Popup";
 
-// Popup
-// import Popup from "../Popup/Popup";
+
 
 const Sidebar = () => {
   return (
@@ -50,6 +50,8 @@ const Sidebar = () => {
             <img src={addon} alt="" />
             <Link to="/admin/add-ons">Add ons</Link>
           </div>
+
+          <Popup/>
         </div>
       </div>
 
