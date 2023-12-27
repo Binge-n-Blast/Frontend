@@ -10,14 +10,21 @@ import addOnsImg3 from "../../../User/Theater/Assets/addOnsImg3.png";
 
 // Redux
 import { useDispatch } from "react-redux";
-import { handleOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+import { handleFormOpen } from "../../../../Redux/Slices/Admin/formSlice";
+
+import Form from "../Form/Form";
 
 const Addon = () => {
 
   const dispatch = useDispatch();
 
-  const handleOpenModal = () => {
-    dispatch(handleOpen());
+  const handlePopupOpenModal = () => {
+    dispatch(handlePopupOpen());
+  };
+
+  const handleFormOpenModal = () => {
+    dispatch(handleFormOpen());
   };
 
   interface CakesData {
@@ -53,16 +60,17 @@ const Addon = () => {
   ];
   return (
     <>
+    <Form/>
     <Navbar title="Add ons" image={addon}/>
     <section className="add-ons">
     <div className="add">
-        <button>Add New Addon!</button>
+        <button onClick={handleFormOpenModal}>Add New Addon!</button>
       </div>
 
     <div className="cards">
         {cakesData.map((card) => (
           <div className="card" key={card.id}>
-            <img src={deleteIcon} onClick={handleOpenModal} className="delete" alt="" />
+            <img src={deleteIcon} onClick={handlePopupOpenModal} className="delete" alt="" />
             <img src={card.img} alt="" className="cake-image"/>
             <div className="content">
               <h4>{card.title}</h4>

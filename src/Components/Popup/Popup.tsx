@@ -7,21 +7,22 @@ import { Box, Modal } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 
 // Reducers
-import { handleClose } from "../../Redux/Slices/Admin/popupSlice";
+import { handlePopupClose } from "../../Redux/Slices/Admin/popupSlice";
 import { RootState } from "../../Redux/Store/store";
 
 const Popup = () => {
   const dispatch = useDispatch();
   const open = useSelector((state: RootState) => state.popup.open);
 
-  const handleCloseModal = () => {
-    dispatch(handleClose());
+  const handlePopupCloseModal = () => {
+    dispatch(handlePopupClose());
   };
+
   return (
     <div className="popup">
       <Modal
         open={open}
-        onClose={handleCloseModal}
+        onClose={handlePopupCloseModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -29,7 +30,9 @@ const Popup = () => {
           <h2>Are you sure ?</h2>
           <div className="buttons">
             <button className="yes">Yes</button>
-            <button className="no" onClick={handleCloseModal}> No</button>
+            <button className="no" onClick={handlePopupCloseModal}>
+              No
+            </button>
           </div>
         </Box>
       </Modal>

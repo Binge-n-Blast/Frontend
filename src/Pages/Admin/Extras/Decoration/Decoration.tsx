@@ -14,13 +14,20 @@ import deleteIcon from "../Cake/Assets/delete.png";
 
 // Redux
 import { useDispatch } from "react-redux";
-import { handleOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+import { handleFormOpen } from "../../../../Redux/Slices/Admin/formSlice";
+
+import Form from "../Form/Form";
 
 const Decoration = () => {
   const dispatch = useDispatch();
 
-  const handleOpenModal = () => {
-    dispatch(handleOpen());
+  const handlePopupOpenModal = () => {
+    dispatch(handlePopupOpen());
+  };
+
+  const handleFormOpenModal = () => {
+    dispatch(handleFormOpen());
   };
 
   interface DecorationData {
@@ -77,10 +84,11 @@ const Decoration = () => {
   ];
   return (
     <>
+    <Form/>
       <Navbar title="Decorations" image={decoration} />
       <section className="decoration">
         <div className="add">
-          <button>Add New Decoration!</button>
+          <button onClick={handleFormOpenModal}>Add New Decoration!</button>
         </div>
 
         <div className="cards">
@@ -88,7 +96,7 @@ const Decoration = () => {
             <div className="card" key={card.id}>
               <img
                 src={deleteIcon}
-                onClick={handleOpenModal}
+                onClick={handlePopupOpenModal}
                 className="delete"
                 alt=""
               />

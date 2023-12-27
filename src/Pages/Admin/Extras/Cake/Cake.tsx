@@ -11,21 +11,23 @@ import cakesImg5 from "../../../User/Theater/Assets/cakesImg5.png";
 import cakesImg6 from "../../../User/Theater/Assets/cakesImg6.png";
 import deleteIcon from "./Assets/delete.png";
 
-// Components
-import Form from "../Form/Form";
-import Popup from "../../../../Components/Popup/Popup";
-
 // Redux
 import { useDispatch } from "react-redux";
-import { handleOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+import { handleFormOpen } from "../../../../Redux/Slices/Admin/formSlice";
+
+import Form from "../Form/Form";
 
 const Cake = () => {
   const dispatch = useDispatch();
 
-  const handleOpenModal = () => {
-    dispatch(handleOpen());
+  const handlePopupOpenModal = () => {
+    dispatch(handlePopupOpen());
   };
 
+  const handleFormOpenModal = () => {
+    dispatch(handleFormOpen());
+  };
   interface CakesData {
     id: number;
     img: string;
@@ -81,11 +83,11 @@ const Cake = () => {
 
   return (
     <>
+      <Form />
       <Navbar title="Cakes" image={cake} />
-      <Popup />
       <section className="cake">
         <div className="add">
-          <Form />
+          <button onClick={handleFormOpenModal}>Add New Cake!</button>
         </div>
 
         <div className="cards">
@@ -93,7 +95,7 @@ const Cake = () => {
             <div className="card" key={card.id}>
               <img
                 src={deleteIcon}
-                onClick={handleOpenModal}
+                onClick={handlePopupOpenModal}
                 className="delete"
                 alt=""
               />
