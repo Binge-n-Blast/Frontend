@@ -1,5 +1,10 @@
 import "./Decoration.scss";
+import { useEffect } from "react";
+
+// Components
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";
+import Form from "../Form/Form";
+
 
 // Images
 import decoration from "../../../../Components/Admin/Sidebar/Assets/decoration.png";
@@ -15,9 +20,8 @@ import deleteIcon from "../Cake/Assets/delete.png";
 // Redux
 import { useDispatch } from "react-redux";
 import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
-import { handleFormOpen } from "../../../../Redux/Slices/Admin/formSlice";
+import { handleFormOpen,handleFormTitle } from "../../../../Redux/Slices/Admin/formSlice";
 
-import Form from "../Form/Form";
 
 const Decoration = () => {
   const dispatch = useDispatch();
@@ -29,6 +33,10 @@ const Decoration = () => {
   const handleFormOpenModal = () => {
     dispatch(handleFormOpen());
   };
+
+  useEffect(() => {
+    dispatch(handleFormTitle("Add new decoration"));
+  }, []);
 
   interface DecorationData {
     id: number;
@@ -106,7 +114,7 @@ const Decoration = () => {
                 <p>{card.desc}</p>
                 <div className="action">
                   <p>₹ {card.price}</p>
-                  <button>Edit</button>
+                  <button onClick={handleFormOpenModal}>Edit</button>
                 </div>
               </div>
             </div>

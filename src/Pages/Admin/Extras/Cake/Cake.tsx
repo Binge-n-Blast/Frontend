@@ -1,5 +1,9 @@
 import "./Cake.scss";
+import { useEffect } from "react";
+
+// Components
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";
+import Form from "../Form/Form";
 
 // Images
 import cake from "../../../../Components/Admin/Sidebar/Assets/cake.png";
@@ -12,14 +16,15 @@ import cakesImg6 from "../../../User/Theater/Assets/cakesImg6.png";
 import deleteIcon from "./Assets/delete.png";
 
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
-import { handleFormOpen } from "../../../../Redux/Slices/Admin/formSlice";
+import { handleFormOpen,handleFormTitle } from "../../../../Redux/Slices/Admin/formSlice";
 
-import Form from "../Form/Form";
+import { RootState } from "../../../../Redux/Store/store";
 
 const Cake = () => {
   const dispatch = useDispatch();
+
 
   const handlePopupOpenModal = () => {
     dispatch(handlePopupOpen());
@@ -28,6 +33,11 @@ const Cake = () => {
   const handleFormOpenModal = () => {
     dispatch(handleFormOpen());
   };
+
+  useEffect(() => {
+    dispatch(handleFormTitle("Add new cake"));
+  }, []);
+  
   interface CakesData {
     id: number;
     img: string;
@@ -105,7 +115,7 @@ const Cake = () => {
                 <p>{card.desc}</p>
                 <div className="action">
                   <p>₹ {card.price}</p>
-                  <button>Edit</button>
+                  <button onClick={handleFormOpenModal}>Edit</button>
                 </div>
               </div>
             </div>

@@ -22,9 +22,8 @@ const Form = () => {
     dispatch(handleFormClose());
   };
 
-  useEffect(() => {
-    dispatch(handleFormTitle("Test"));
-  }, []);
+
+
   return (
     <div className="form">
       <Modal
