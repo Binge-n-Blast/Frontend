@@ -5,9 +5,6 @@ export const adminApi = createApi({
     baseUrl: "https://binge-browser.onrender.com/api/v1/",
   }),
   endpoints: (builder) => ({
-    getUsers: builder.query({
-      query: () => "user",
-    }),
     adminLogin: builder.mutation({
       query: (login) => ({
         url: "admin/auth/login",

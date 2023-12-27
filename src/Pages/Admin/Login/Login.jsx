@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./Login.scss";
+import { useAdminLoginMutation } from "../../../Redux/Api/Admin/authSlice";
 
 const Login = () => {
+  const [adminLogin, response] = useAdminLoginMutation();
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -9,11 +11,18 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setLogin({ ...login, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    adminLogin(login);
+    setLogin({
+      email: "",
+      password: "",
+    });
   };
+
 
   return (
     <>
@@ -21,7 +30,7 @@ const Login = () => {
         <div className="red-blob"></div>
         <div className="blue-blob"></div>
         <h1>Login</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Email"
@@ -31,7 +40,7 @@ const Login = () => {
             onChange={handleChange}
           />
           <input
-            type="text"
+            type="password"
             placeholder="Password"
             autoComplete="off"
             name="password"
