@@ -1,5 +1,4 @@
 import "./Form.scss";
-import { useEffect } from "react";
 
 // MUi
 import { Box, Modal } from "@mui/material";
@@ -8,7 +7,6 @@ import { Box, Modal } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import {
   handleFormClose,
-  handleFormTitle,
 } from "../../../../Redux/Slices/Admin/formSlice";
 
 import { RootState } from "../../../../Redux/Store/store";
