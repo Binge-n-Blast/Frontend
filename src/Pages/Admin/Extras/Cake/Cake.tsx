@@ -16,11 +16,10 @@ import cakesImg6 from "../../../User/Theater/Assets/cakesImg6.png";
 import deleteIcon from "./Assets/delete.png";
 
 // Redux
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
 import { handleFormOpen,handleFormTitle } from "../../../../Redux/Slices/Admin/formSlice";
 
-import { RootState } from "../../../../Redux/Store/store";
 
 const Cake = () => {
   const dispatch = useDispatch();
