@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";
 import Form from "../Form/Form";
 
-
 // Images
 import addon from "../../../../Components/Admin/Sidebar/Assets/addon.png";
 import deleteIcon from "../Cake/Assets/delete.png";
@@ -16,8 +15,10 @@ import addOnsImg3 from "../../../User/Theater/Assets/addOnsImg3.png";
 // Redux
 import { useDispatch } from "react-redux";
 import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
-import { handleFormOpen,handleFormTitle} from "../../../../Redux/Slices/Admin/formSlice";
-
+import {
+  handleFormOpen,
+  handleFormTitle,
+} from "../../../../Redux/Slices/Admin/formSlice";
 
 const Addon = () => {
   const dispatch = useDispatch();
