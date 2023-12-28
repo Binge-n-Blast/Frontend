@@ -1,4 +1,6 @@
 import "./Popup.scss";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 // MUi
 import { Box, Modal } from "@mui/material";
@@ -8,12 +10,21 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Reducers
 import { handlePopupClose } from "../../Redux/Slices/Admin/popupSlice";
+import { logout } from "../../Redux/Slices/Admin/authSlice";
 
 const Popup = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const open = useSelector((state) => state.popup.open);
 
   const handlePopupCloseModal = () => {
+    dispatch(handlePopupClose());
+  };
+  const handleLogout = () => {
+    dispatch(logout());
+    toast.success("Logged out!");
+    navigate("/admin/login");
+    localStorage.removeItem("token");
     dispatch(handlePopupClose());
   };
 
@@ -28,7 +39,9 @@ const Popup = () => {
         <Box className="popup-box">
           <h2>Are you sure ?</h2>
           <div className="buttons">
-            <button className="yes">Yes</button>
+            <button className="yes" onClick={handleLogout}>
+              Yes
+            </button>
             <button className="no" onClick={handlePopupCloseModal}>
               No
             </button>

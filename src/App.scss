@@ -49,6 +49,17 @@ button{
 }
 
 
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px; 
+    text-align: center;
+  }
+}
+
 // font-family: 'Corinthia', cursive;
 // font-family: 'DM Sans', sans-serif;
 // font-family: 'Orbitron', sans-serif;

@@ -1,5 +1,6 @@
-import { Suspense, ReactElement } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Suspense } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 //CSS
 import "./App.scss";
@@ -38,7 +39,8 @@ import {
 } from "./PagesImport/AdminPagesImport";
 import Wrapper from "./Components/Admin/Wrapper/Wrapper";
 
-
+//Protected Routes
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 // Routes Data
 const userRoutesData = [
@@ -70,87 +72,118 @@ const userRoutesData = [
 const adminRoutesData = [
   {
     path: "todays-booking",
-    element: <TodaysBooking />,
+    element: (
+      <ProtectedRoute>
+        <TodaysBooking />
+      </ProtectedRoute>
+    ),
   },
 
   {
     path: "payments",
-    element: <Payments />,
+    element: (
+      <ProtectedRoute>
+        <Payments />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "theaters",
-    element: <AdminTheaters />,
+    element: (
+      <ProtectedRoute>
+        <AdminTheaters />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "cakes",
-    element: <Cake />,
+    element: (
+      <ProtectedRoute>
+        <Cake />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "decorations",
-    element: <Decoration />,
+    element: (
+      <ProtectedRoute>
+        <Decoration />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "add-ons",
-    element: <Addon />,
+    element: (
+      <ProtectedRoute>
+        <Addon />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "add-theater",
-    element: <AddTheater />,
+    element: (
+      <ProtectedRoute>
+        <AddTheater />
+      </ProtectedRoute>
+    ),
   },
 ];
 
 function App() {
   return (
-    <ScrollToTop>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <UserLayout>
-              <Home />
-            </UserLayout>
-          }
-        />
-
-        {userRoutesData.map((route, index) => (
+    <>
+      <Toaster position="top-center" reverseOrder={false} />
+      <ScrollToTop>
+        <Routes>
           <Route
-            key={index}
-            path={route.path}
+            path="/"
             element={
-              <Suspense fallback={<Fallback />}>
-                <UserLayout>{route.element}</UserLayout>
-              </Suspense>
+              <UserLayout>
+                <Home />
+              </UserLayout>
             }
           />
-        ))}
 
-        <Route path="/admin">
-          <Route
-            path="login"
-            element={
-              <Suspense fallback={<Fallback />}>
-                <UserLayout>
-                  <Login />
-                </UserLayout>
-              </Suspense>
-            }
-          />
-          {adminRoutesData.map((route, index) => (
+          {userRoutesData.map((route, index) => (
             <Route
               key={index}
               path={route.path}
               element={
                 <Suspense fallback={<Fallback />}>
-                  <AdminLayout>
-                    <Wrapper>{route.element}</Wrapper>
-                  </AdminLayout>
+                  <UserLayout>{route.element}</UserLayout>
                 </Suspense>
               }
             />
           ))}
-        </Route>
-      </Routes>
-    </ScrollToTop>
+
+          <Route path="/admin">
+            <Route
+              path="login"
+              element={
+                <Suspense fallback={<Fallback />}>
+                  <UserLayout>
+                    <Login />
+                  </UserLayout>
+                </Suspense>
+              }
+            />
+            {adminRoutesData.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  <Suspense fallback={<Fallback />}>
+                    <AdminLayout>
+                      <Wrapper>{route.element}</Wrapper>
+                    </AdminLayout>
+                  </Suspense>
+                }
+              />
+            ))}
+          </Route>
+        </Routes>
+      </ScrollToTop>
+    </>
   );
 }
 

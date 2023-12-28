@@ -1,28 +1,47 @@
-import { useState } from "react";
 import "./Login.scss";
-import { useAdminLoginMutation } from "../../../Redux/Api/Admin/authSlice";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
+//Redux
+import { useDispatch } from "react-redux";
+import { login } from "../../../Redux/Slices/Admin/authSlice";
+import { useAdminLoginMutation } from "../../../Redux/Api/Admin/adminSlice";
 
 const Login = () => {
-  const [adminLogin, response] = useAdminLoginMutation();
-  const [login, setLogin] = useState({
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [adminLogin] = useAdminLoginMutation();
+
+  const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setLogin({ ...login, [name]: value });
+    setLoginData({ ...loginData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    adminLogin(login);
-    setLogin({
-      email: "",
-      password: "",
-    });
+    const response = await adminLogin(loginData);
+    console.log(response)
+    if (response.data) {
+      toast.success("Login Successful!");
+      dispatch(login());
+      localStorage.setItem("token", response.data.data.accessToken);
+      navigate("/admin/payments");
+      setLoginData({
+        email: "",
+        password: "",
+      });
+    }
+    if (response.error) {
+      toast.error(response.error.data.errors[0].message);
+    }
   };
-
 
   return (
     <>
@@ -36,7 +55,7 @@ const Login = () => {
             placeholder="Email"
             autoComplete="off"
             name="email"
-            value={login.email}
+            value={loginData.email}
             onChange={handleChange}
           />
           <input
@@ -44,7 +63,7 @@ const Login = () => {
             placeholder="Password"
             autoComplete="off"
             name="password"
-            value={login.password}
+            value={loginData.password}
             onChange={handleChange}
           />
           <button>Submit</button>

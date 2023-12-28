@@ -1,5 +1,5 @@
 import "./Addon.scss";
-import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 // Components
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";
@@ -14,7 +14,7 @@ import addOnsImg3 from "../../../User/Theater/Assets/addOnsImg3.png";
 
 // Redux
 import { useDispatch } from "react-redux";
-import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
+
 import {
   handleFormOpen,
   handleFormTitle,
@@ -23,16 +23,20 @@ import {
 const Addon = () => {
   const dispatch = useDispatch();
 
-  const handlePopupOpenModal = () => {
-    dispatch(handlePopupOpen());
-  };
-
   const handleFormOpenModal = () => {
     dispatch(handleFormOpen());
-  };
-  useEffect(() => {
     dispatch(handleFormTitle("Add new addon"));
-  }, []);
+  };
+
+  const handleDelete = async (id) => {
+    const response = await deleteCake(id);
+    if (response.data) {
+      toast.success("Deleted!");
+    }
+    if (response.error) {
+      toast.error(response.error.data.errors[0].message);
+    }
+  };
 
   const cakesData = [
     {
@@ -71,7 +75,7 @@ const Addon = () => {
             <div className="card" key={card.id}>
               <img
                 src={deleteIcon}
-                onClick={handlePopupOpenModal}
+                onClick={() => handleDelete(uid)}
                 className="delete"
                 alt=""
               />

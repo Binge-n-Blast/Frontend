@@ -47,7 +47,7 @@ $purple: #63049b;
     .card {
       padding: 20px ;
       width: 450px;
-      height: 550px;
+      // height: 550px;
       border-radius: 0px 50px;
       display: flex;
       justify-content: center;
@@ -65,6 +65,9 @@ $purple: #63049b;
         align-items: flex-start;
         flex-direction: column;
         gap: 20px;
+        width: 100%;
+        white-space: pre-wrap;
+
 
         img {
           width: 100%;
@@ -72,12 +75,12 @@ $purple: #63049b;
         h3 {
           font-family: Orbitron;
           color: #fff;
-          font-size: 32px;
+          font-size: 27px;
           letter-spacing: 1px;
         }
         p {
           text-align: left;
-          font-size: 16px;
+          font-size: 5px;
         }
       }
 
@@ -88,18 +91,9 @@ $purple: #63049b;
         align-items: center;
         h3 {
           font-family: Orbitron;
-          font-size: 32px;
+          font-size: 27px;
         }
-        a {
-          width: 203px;
-          padding: 20px 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 12px;
-          background: $purple;
-          font-size: 20px;
-        }
+       
       }
     }
   }
