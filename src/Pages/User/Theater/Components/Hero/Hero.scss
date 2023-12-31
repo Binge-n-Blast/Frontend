@@ -263,6 +263,7 @@ $purple: #63049b;
       gap: 10px;
       input,
       select {
+        text-align: center;
         width: 280px;
         padding: 13px 7px;
       }
@@ -297,6 +298,8 @@ $purple: #63049b;
     .form {
       input,
       select {
+        appearance: none;
+        -webkit-appearance: none !important;
         text-align: center;
         width: 100%;
         padding: 15px 7px;
