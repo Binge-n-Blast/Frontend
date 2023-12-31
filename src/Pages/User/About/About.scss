@@ -85,6 +85,22 @@
     margin-top: 130px;
     padding: 50px;
 
+    .red-blob {
+      right: 0;
+      bottom: 20px;
+      width: 421px;
+      height: 421px;
+      border-radius: 421px;
+    }
+
+    .blue-blob {
+      left: 0;
+      top: -200px;
+      width: 564px;
+      height: 564px;
+      border-radius: 564px;
+    }
+
     p {
       font-size: 24px;
       line-height: 54px;
@@ -117,16 +133,24 @@
   }
 }
 
-
 @media (max-width: 600px) {
   .about {
     height: auto;
     margin: 50px 30px;
     margin-top: 100px;
     padding: 30px;
-  
-  
-  
+    .red-blob {
+      width: 300px;
+      height: 300px;
+      border-radius: 300px;
+    }
+
+    .blue-blob {
+      width: 300px;
+      height: 300px;
+      border-radius: 300px;
+    }
+
     p {
       font-size: 18px;
       line-height: 34px;
@@ -135,12 +159,8 @@
   }
 }
 
-
 @media (max-width: 400px) {
   .about {
-  
-  
-  
     p {
       font-size: 16px;
       line-height: 32px;
