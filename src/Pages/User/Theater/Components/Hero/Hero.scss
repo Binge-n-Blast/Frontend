@@ -308,3 +308,30 @@ $purple: #63049b;
     }
   }
 }
+
+
+@media (max-width: 450px) {
+  .theater-hero {
+   
+
+    .blue-blob1 {
+      top: 100px;
+      left: 0px;
+      width: 300px;
+      height: 300px;
+      border-radius: 300px;
+    }
+
+    .blue-blob2 {
+      top: 500px;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      border-radius: 300px;
+    }
+  
+
+
+   
+  }
+}
