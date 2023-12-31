@@ -28,8 +28,8 @@ $purple: #63049b;
 
   img {
     position: absolute;
-    top: 210px;
-    right: 70px;
+    top: 25%;
+    right: 2%;
     z-index: -1;
   }
   .content {
@@ -93,9 +93,8 @@ $purple: #63049b;
     }
 
     img {
-      width: 850px;
-      top: 150px;
-      right: 40px;
+      width: 800px;
+      right: 5%;
     }
     .content {
       p {
@@ -140,8 +139,6 @@ $purple: #63049b;
 
     img {
       width: 780px;
-      top: 240px;
-      right: 90px;
     }
     .content {
       p {
@@ -173,8 +170,8 @@ $purple: #63049b;
   .hero {
     img {
       width: 700px;
-      top: 240px;
-      right: 90px;
+      top: 30%;
+      right: 1%;
     }
     .content {
       p {
@@ -202,7 +199,7 @@ $purple: #63049b;
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1150px) {
   .hero {
     height: auto;
     padding: 100px 50px;
@@ -220,7 +217,7 @@ $purple: #63049b;
 
     img {
       width: 500px;
-      top: 210px;
+      top: 20%;
       right: 25%;
     }
     .content {
@@ -249,6 +246,7 @@ $purple: #63049b;
 @media (max-width: 850px) {
   .hero {
     padding-top: 350px;
+    margin-bottom: 70px;
 
     .gradient {
       top: 25%;
@@ -260,8 +258,7 @@ $purple: #63049b;
 
     img {
       width: 400px;
-      top: 210px;
-      right: 20%;
+      right: 25%;
     }
     .content {
       text-align: center;
@@ -292,8 +289,8 @@ $purple: #63049b;
 
 @media (max-width: 650px) {
   .hero {
-    padding: 100px 10px;
-    padding-top: 250px;
+    padding: 10px 10px;
+    padding-top: 300px;
     gap: 30px;
 
     .gradient {
@@ -306,8 +303,8 @@ $purple: #63049b;
 
     img {
       width: 320px;
-      top: 120px;
-      right: 18%;
+      top: 30%;
+      right: 25%;
     }
     .content {
       text-align: center;
@@ -337,6 +334,24 @@ $purple: #63049b;
         font-size: 14px;
         border-radius: 8px;
       }
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    img {
+      top: 30%;
+      right: 20%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .hero {
+    img {
+      top: 30%;
+      right: 12%;
     }
   }
 }

@@ -24,7 +24,7 @@ const Popup = () => {
     dispatch(logout());
     toast.success("Logged out!");
     navigate("/admin/login");
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     dispatch(handlePopupClose());
   };
 

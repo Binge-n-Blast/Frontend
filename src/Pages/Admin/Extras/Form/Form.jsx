@@ -1,5 +1,4 @@
 import "./Form.scss";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 // MUi
@@ -7,46 +6,68 @@ import { Box, Modal } from "@mui/material";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
-import { handleFormClose } from "../../../../Redux/Slices/Admin/formSlice";
+import {
+  handleFormClose,
+  setFormData,
+  setEditItem,
+} from "../../../../Redux/Slices/Admin/formSlice";
 import {
   useAddCakeMutation,
+  useEditCakeMutation,
 } from "../../../../Redux/Api/Admin/adminSlice";
 
 const Form = () => {
   const dispatch = useDispatch();
   const open = useSelector((state) => state.form.open);
   const title = useSelector((state) => state.form.title);
+  const formData = useSelector((state) => state.form.formData);
+  const isEdit = useSelector((state) => state.form.isEdit);
 
+  console.log(isEdit);
   //Popup
   const handleCloseModal = () => {
     dispatch(handleFormClose());
+    dispatch(setEditItem(false));
+    dispatch(setFormData({ itemsName: "", details: "", price: "" }));
   };
 
   // Main
   const [addCake] = useAddCakeMutation();
-
-  const [item, setItem] = useState({
-    itemsName: "",
-    details: "",
-    price: "",
-  });
+  const [editCake] = useEditCakeMutation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setItem({ ...item, [name]: value });
+    dispatch(setFormData({ [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await addCake(item);
+    const response = await addCake(formData);
     if (response.data) {
       toast.success("Added Successfully!");
       handleCloseModal();
-      setItem({
-        itemsName: "",
-        details: "",
-        price: "",
-      });
+      dispatch(setFormData({ itemsName: "", details: "", price: "" }));
+      dispatch(setEditItem(false));
+    }
+    if (response.error) {
+      toast.error(response.error.data.errors[0].message);
+    }
+  };
+
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    const response = await editCake(formData);
+    if (response.data) {
+      toast.success("Edited Successfully!");
+      handleCloseModal();
+      dispatch(
+        setFormData({
+          itemsName: "",
+          details: "",
+          price: "",
+        })
+      );
+      dispatch(setEditItem(false));
     }
     if (response.error) {
       toast.error(response.error.data.errors[0].message);
@@ -69,27 +90,27 @@ const Form = () => {
               type="text"
               placeholder="Name"
               onChange={handleChange}
-              value={item.itemsName}
+              value={formData.itemsName}
               name="itemsName"
             />
             <input
               type="text"
               placeholder="Description"
               onChange={handleChange}
-              value={item.details}
+              value={formData.details}
               name="details"
             />
             <input
               type="text"
               placeholder="Price"
               onChange={handleChange}
-              value={item.price}
+              value={formData.price}
               name="price"
             />
             <input type="file" />
           </div>
-          <div className="buttons" onClick={handleSubmit}>
-            <button>Save</button>
+          <div className="buttons" onClick={isEdit ? handleEdit : handleSubmit}>
+            <button>{isEdit ? "Edit" : "Save"}</button>
           </div>
         </Box>
       </Modal>

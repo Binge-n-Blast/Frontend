@@ -1,5 +1,5 @@
 import "./Celebrations.scss";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 // Images
 import img1 from "../../Assets/img1.png";
@@ -11,9 +11,13 @@ import img6 from "../../Assets/img6.png";
 import img7 from "../../Assets/img7.png";
 import img8 from "../../Assets/img8.png";
 
-const Celebrations = () => {
-  
+// Swiper JS
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
+const Celebrations = () => {
   const cardsData = [
     {
       img: img1,
@@ -62,6 +66,7 @@ const Celebrations = () => {
       <div className="blue-blob1"></div>
       <div className="blue-blob2"></div>
       <div className="red-blob"></div>
+
       <div className="content">
         <h2>
           We’ll make your next <br />
@@ -74,9 +79,10 @@ const Celebrations = () => {
           system.
         </p>
       </div>
-      <div className="cards">
-        {
-          cardsData.map((card,index)=>(
+
+      {window.innerWidth > 850 ? (
+        <div className="cards">
+          {cardsData.map((card, index) => (
             <div className="card" key={index}>
               <div className="content">
                 <img src={card.img} alt="" />
@@ -87,9 +93,31 @@ const Celebrations = () => {
                 <Link to="/theaters">Book now !</Link>
               </div>
             </div>
-          ))
-        }
-      </div>
+          ))}
+        </div>
+      ) : (
+        <Swiper
+          loop={true}
+          grabCursor={true}
+          pagination={true}
+          modules={[Pagination]}
+          slidesPerView={1}
+          className="carousel"
+        >
+          {cardsData.map((card, index) => (
+            <SwiperSlide key={index} className="card">
+              <div className="content">
+                <img src={card.img} alt="" />
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
+              </div>
+              <div className="button">
+                <Link to="/theaters">Book now !</Link>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </section>
   );
 };

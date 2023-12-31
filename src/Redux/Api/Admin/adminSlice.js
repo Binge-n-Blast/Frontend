@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const accessToken = localStorage.getItem("token");
+const accessToken = sessionStorage.getItem("token");
 
 export const adminApi = createApi({
   baseQuery: fetchBaseQuery({
@@ -60,6 +60,17 @@ export const adminApi = createApi({
       }),
       invalidatesTags: ["Cakes"],
     }),
+    editCake: builder.mutation({
+      query: (cake) => ({
+        url: `extra-items/update`,
+        method: "PUT",
+        body:cake,
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      }),
+      invalidatesTags: ["Cakes"],
+    }),
   }),
 });
 
@@ -69,4 +80,5 @@ export const {
   useGetCakesQuery,
   useAddCakeMutation,
   useDeleteCakeMutation,
+  useEditCakeMutation
 } = adminApi;

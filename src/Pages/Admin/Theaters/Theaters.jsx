@@ -6,26 +6,12 @@ import Navbar from "../../../Components/Admin/Navbar/Navbar";
 //Images
 import theater from "../../../Components/Admin/Sidebar/Assets/theater.png";
 import img1 from "../../User/Theaters/Assets/img1.png";
-import img2 from "../../User/Theaters/Assets/img2.png";
 
 //Redux
 import { useGetTheatersQuery } from "../../../Redux/Api/Admin/adminSlice";
 
 const Theaters = () => {
-  const cardsData = [
-    {
-      img: img1,
-      title: "Blockbuster Bliss",
-      desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
-      price: 1800,
-    },
-    {
-      img: img2,
-      title: "Flicks ‘N Fun",
-      desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
-      price: 1800,
-    },
-  ];
+ 
   const { data, error, isLoading } = useGetTheatersQuery();
   return (
     <>

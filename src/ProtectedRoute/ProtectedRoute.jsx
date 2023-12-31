@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   if (isAuthenticated || token) {
     return children;

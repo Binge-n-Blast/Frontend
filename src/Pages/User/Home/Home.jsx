@@ -11,7 +11,7 @@ const Home = () => {
       <Hero />
       <Celebrations />
       <CommonSections />
-      <BookEvent />
+      <BookEvent /> 
       <Contact />
     </section>
   );

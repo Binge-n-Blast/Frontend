@@ -15,6 +15,8 @@ import { useDispatch } from "react-redux";
 import {
   handleFormOpen,
   handleFormTitle,
+  setFormData,
+  setEditItem,
 } from "../../../../Redux/Slices/Admin/formSlice";
 import {
   useGetCakesQuery,
@@ -24,10 +26,9 @@ import {
 const Cake = () => {
   const dispatch = useDispatch();
 
-  const handleFormOpenModal = (data) => {
+  const handleFormOpenModal = () => {
     dispatch(handleFormOpen());
     dispatch(handleFormTitle("Add new cake"));
-    console.log(data);
   };
 
   //API
@@ -42,7 +43,12 @@ const Cake = () => {
       toast.error(response.error.data.errors[0].message);
     }
   };
-
+  const handleEdit = (data) => {
+    dispatch(handleFormTitle("Edit cake details"));
+    dispatch(handleFormOpen());
+    dispatch(setFormData(data));
+    dispatch(setEditItem(true));
+  };
   return (
     <>
       <Form />
@@ -58,7 +64,9 @@ const Cake = () => {
           </div>
         ) : (
           <div className="cards">
-            {data &&
+            {data && data.data.length === 0 ? (
+              <h1>No Data!</h1>
+            ) : (
               data.data.map((card) => {
                 const { uid, price, itemsName, details } = card;
                 return (
@@ -75,14 +83,13 @@ const Cake = () => {
                       <p>{details}</p>
                       <div className="action">
                         <p>₹ {price}</p>
-                        <button onClick={() => handleFormOpenModal(card)}>
-                          Edit
-                        </button>
+                        <button onClick={() => handleEdit(card)}>Edit</button>
                       </div>
                     </div>
                   </div>
                 );
-              })}
+              })
+            )}
           </div>
         )}
       </section>
