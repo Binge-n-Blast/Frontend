@@ -246,14 +246,15 @@ $purple: #63049b;
 @media (max-width: 850px) {
   .hero {
     padding-top: 350px;
-    margin-bottom: 70px;
+    margin-bottom: 100px;
 
     .gradient {
-      top: 25%;
-      left: 20px;
-      width: 250px;
-      height: 250px;
-      border-radius: 250px;
+      // top: 25%;
+      // left: 20px;
+      // width: 250px;
+      // height: 250px;
+      // border-radius: 250px;
+      display: none;
     }
 
     img {
