@@ -11,10 +11,10 @@ const Theater = () => {
   return (
     <section className="theater">
       <Hero />
-      <Checkout />
+      {/* <Checkout />
       <Event />
       <Cakes />
-      <AddOns />
+      <AddOns /> */}
     </section>
   );
 };

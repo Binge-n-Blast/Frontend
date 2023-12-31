@@ -3,11 +3,11 @@ import { useState, useEffect, ChangeEvent } from "react";
 
 // Swiper JS
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCreative, Navigation } from "swiper/modules";
+import { EffectCreative, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-creative";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 //Images
 import theaterImg from "../../Assets/theaterImg.png";
@@ -41,6 +41,7 @@ const Hero = () => {
             navigation={true}
             grabCursor={true}
             effect={"creative"}
+            pagination={true}
             creativeEffect={{
               prev: {
                 shadow: true,
@@ -50,7 +51,7 @@ const Hero = () => {
                 translate: ["100%", 0, 0],
               },
             }}
-            modules={[Navigation, EffectCreative]}
+            modules={[Pagination, EffectCreative]}
             slidesPerView={1}
             className="carousel"
           >
