@@ -19,7 +19,7 @@ const Footer = () => {
   const links2 = [
     {
       path: "/refund",
-      name: "Refund Policy",
+      name: "Refund",
     },
     {
       path: "/privacy-policy",
