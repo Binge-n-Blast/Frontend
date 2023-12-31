@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Corinthia&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,700&family=Orbitron:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Corinthia&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,700&family=Orbitron:wght@400;500&display=swap");
 
 // Colors
-$purple:#63049B;
+$purple: #63049b;
 
 * {
   margin: 0;
@@ -9,6 +9,7 @@ $purple:#63049B;
   box-sizing: border-box;
   scroll-behavior: smooth;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 body {
@@ -21,42 +22,41 @@ body {
   display: none;
 }
 
-
 a {
   text-decoration: none;
   color: white;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 button {
   border: none;
   outline: none;
 }
 
-input,textarea {
+input,
+textarea {
   border: none;
   outline: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
-p{
-  font-family: 'DM Sans', sans-serif;
+p {
+  font-family: "DM Sans", sans-serif;
 }
 
-button{
+button {
   cursor: pointer;
   border: none;
   outline: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
-
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
-  h1{
-    font-family: 'DM Sans', sans-serif;
-    font-size: 20px; 
+  h1 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
     text-align: center;
   }
 }
