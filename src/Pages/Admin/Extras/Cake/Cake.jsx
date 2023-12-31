@@ -90,9 +90,7 @@ const Cake = () => {
                       <p>{details}</p>
                       <div className="action">
                         <p>₹ {price}</p>
-                        <button onClick={() => handleEdit(uid)}>
-                          Edit
-                        </button>
+                        <button onClick={() => handleEdit(uid)}>Edit</button>
                       </div>
                     </div>
                   </div>

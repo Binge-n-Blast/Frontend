@@ -6,13 +6,7 @@ import Form from "../Form/Form";
 
 // Images
 import decoration from "../../../../Components/Admin/Sidebar/Assets/decoration.png";
-
 import eventImg1 from "../../../User/Theater/Assets/eventImg1.png";
-import eventImg2 from "../../../User/Theater/Assets/eventImg2.png";
-import eventImg3 from "../../../User/Theater/Assets/eventImg3.png";
-import eventImg4 from "../../../User/Theater/Assets/eventImg4.png";
-import eventImg5 from "../../../User/Theater/Assets/eventImg5.png";
-import eventImg6 from "../../../User/Theater/Assets/eventImg6.png";
 import deleteIcon from "../Cake/Assets/delete.png";
 
 // Redux
