@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <section className="home">
       <Hero />
-      <Celebrations />
+      {/* <Celebrations /> */}
       <CommonSections />
       <BookEvent /> 
       <Contact />
