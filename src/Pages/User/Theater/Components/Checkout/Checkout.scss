@@ -164,3 +164,61 @@ $purple: #63049b;
     }
   }
 }
+
+@media (max-width: 800px) {
+  .checkout {
+    width: 100%;
+    padding: 15px 30px;
+    bottom: 0;
+    right: 0;
+    .top {
+      h2 {
+        font-size: 18px;
+      }
+    }
+
+    .main {
+      margin-top: 25px;
+      gap: 10px;
+
+      .data {
+        h3 {
+          font-size: 15px;
+        }
+        p {
+          font-size: 11px;
+        }
+      }
+
+      .date {
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+
+    .rest {
+      gap: 11px;
+      h3 {
+        font-size: 15px;
+      }
+      .data {
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+
+    .total {
+      margin: 22px 0;
+      h2 {
+        font-size: 18px;
+      }
+    }
+
+    button {
+      padding: 13px 35px;
+      font-size: 14px;
+    }
+  }
+}
