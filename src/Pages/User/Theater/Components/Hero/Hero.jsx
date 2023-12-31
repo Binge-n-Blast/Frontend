@@ -1,5 +1,9 @@
 import "./Hero.scss";
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect } from "react";
+import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
 
 // Swiper JS
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -84,6 +88,7 @@ const Hero = () => {
             value={selectedDate}
             onChange={handleDateChange}
           />
+
           <select name="slots">
             <option value="">Slots</option>
             <option value="morning">10:00 am - 12:30 pm</option>
