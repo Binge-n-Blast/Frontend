@@ -170,3 +170,41 @@ $purple: #63049b;
     }
   }
 }
+
+
+@media (max-width: 600px) {
+
+    .cakes-container {
+      padding: 50px 30px;
+      padding-bottom: 70px;
+      gap: 20px;
+
+      h3 {
+        font-size: 26px;
+      }
+      .cards {
+        gap: 20px;
+
+        .card {
+          .content {
+            h4 {
+              font-size: 14px;
+            }
+            p {
+              font-size: 11px;
+            }
+            .action {
+              p {
+                font-size: 15px;
+              }
+              button {
+                width: 70px;
+                height: 24px;
+                padding: 7px 22px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
