@@ -78,13 +78,10 @@ $purple: #63049b;
   }
 }
 
-
-@media(max-width:1864px){
+@media (max-width: 1864px) {
   .cakes-container {
     padding: 80px 200px;
-
     padding-bottom: 80px;
-
     gap: 40px;
 
     h3 {
@@ -120,6 +117,52 @@ $purple: #63049b;
               width: 90px;
               height: 30px;
               padding: 9px 26px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1400px) {
+  .cakes-container {
+    padding: 70px 100px;
+    padding-bottom: 70px;
+    gap: 30px;
+
+    h3 {
+      font-size: 35px;
+    }
+    .cards {
+      gap: 30px;
+
+      .card {
+        padding: 18px;
+        width: 320px;
+        height: 130px;
+        gap: 14px;
+
+        img {
+          width: 90px;
+        }
+
+        .content {
+          h4 {
+            font-size: 16px;
+          }
+          p {
+            font-size: 12px;
+          }
+          .action {
+            p {
+              font-size: 16px;
+            }
+            button {
+              width: 80px;
+              height: 26px;
+              padding: 8px 24px;
             }
           }
         }

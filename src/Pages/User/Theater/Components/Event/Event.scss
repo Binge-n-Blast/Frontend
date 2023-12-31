@@ -206,3 +206,145 @@ $purple: #63049b;
     }
   }
 }
+
+@media (max-width: 1400px) {
+  .main-container {
+    gap: 40px;
+    padding: 0 40px;
+
+    .blue-blob {
+      top: 200px;
+      width: 400px;
+      height: 400px;
+    }
+
+    .red-blob {
+      top: 10px;
+      width: 400px;
+      height: 400px;
+      border-radius: 400px;
+    }
+
+    .heading {
+      gap: 18px;
+
+      h2 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    .event-container {
+      padding: 70px 100px;
+      padding-bottom: 70px;
+      gap: 30px;
+
+      h3 {
+        font-size: 35px;
+      }
+      .cards {
+        gap: 30px;
+
+        .card {
+          padding: 18px;
+          width: 320px;
+          height: 130px;
+          gap: 14px;
+
+          img {
+            width: 90px;
+          }
+
+          .content {
+            h4 {
+              font-size: 16px;
+            }
+            p {
+              font-size: 12px;
+            }
+            .action {
+              p {
+                font-size: 16px;
+              }
+              button {
+                width: 80px;
+                height: 26px;
+                padding: 8px 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    margin-top: 30px;
+    gap: 10px;
+
+    .blue-blob {
+      top: 100px;
+      width: 300px;
+      height: 300px;
+    }
+
+    .red-blob {
+      bottom: 10px;
+      width: 300px;
+      height: 300px;
+      border-radius: 300px;
+    }
+
+    .heading {
+      gap: 18px;
+      margin-top: 50px;
+
+      h2 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 11px;
+      }
+    }
+
+    .event-container {
+      padding: 50px 30px;
+      padding-bottom: 70px;
+      gap: 20px;
+
+      h3 {
+        font-size: 26px;
+      }
+      .cards {
+        gap: 20px;
+
+        .card {
+          .content {
+            h4 {
+              font-size: 14px;
+            }
+            p {
+              font-size: 11px;
+            }
+            .action {
+              p {
+                font-size: 15px;
+              }
+              button {
+                width: 70px;
+                height: 24px;
+                padding: 7px 22px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
