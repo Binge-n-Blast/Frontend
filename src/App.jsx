@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 //CSS
@@ -16,6 +16,7 @@ import Error from "./Components/Error/Error";
 // Layouts
 import UserLayout from "./Layouts/User/UserLayout";
 import AdminLayout from "./Layouts/Admin/AdminLayout";
+import Wrapper from "./Components/Admin/Wrapper/Wrapper";
 
 // User Routes
 import {
@@ -36,8 +37,8 @@ import {
   Decoration,
   Addon,
   AddTheater,
+  MobileScreen,
 } from "./PagesImport/AdminPagesImport";
-import Wrapper from "./Components/Admin/Wrapper/Wrapper";
 
 //Protected Routes
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
@@ -161,9 +162,13 @@ function App() {
               path="login"
               element={
                 <Suspense fallback={<Fallback />}>
-                  <UserLayout>
-                    <Login />
-                  </UserLayout>
+                  {window.innerWidth > 1000 ? (
+                    <UserLayout>
+                      <Login />
+                    </UserLayout>
+                  ) : (
+                    <MobileScreen />
+                  )}
                 </Suspense>
               }
             />
@@ -173,9 +178,13 @@ function App() {
                 path={route.path}
                 element={
                   <Suspense fallback={<Fallback />}>
-                    <AdminLayout>
-                      <Wrapper>{route.element}</Wrapper>
-                    </AdminLayout>
+                    {window.innerWidth > 1100 ? (
+                      <AdminLayout>
+                        <Wrapper>{route.element}</Wrapper>
+                      </AdminLayout>
+                    ) : (
+                      <MobileScreen />
+                    )}
                   </Suspense>
                 }
               />

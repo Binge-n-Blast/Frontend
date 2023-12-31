@@ -24,3 +24,7 @@ export const Addon = lazy(
 export const AddTheater = lazy(
   () => import("../Pages/Admin/AddTheater/AddTheater")
 );
+export const MobileScreen = lazy(
+  () => import("../Pages/Admin/MobileScreen/MobileScreen")
+);
+
