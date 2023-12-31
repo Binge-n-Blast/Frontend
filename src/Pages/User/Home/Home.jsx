@@ -11,8 +11,8 @@ const Home = () => {
       <Hero />
       <Celebrations />
       <CommonSections />
-    {/*   <BookEvent /> 
-      <Contact /> */}
+      <BookEvent /> 
+      <Contact /> 
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import "./Common.scss";
+import "./CommonSections.scss";
 
 //Images
 
@@ -11,9 +11,7 @@ import homeImg6 from "../../Assets/homeImg6.png";
 import { Link } from "react-router-dom";
 
 const CommonSections = () => {
- 
-
-  const commonData= [
+  const commonData = [
     {
       id: 1,
       title: "Decoration",
@@ -70,10 +68,7 @@ const CommonSections = () => {
       {commonData.map((item) => (
         <div className={`card ${item.className}`} key={item.id}>
           <div className={`container ${item.className}`}>
-
-            {
-              item.className === "reverse" && <div className="blob"></div>
-            }
+            {item.className === "reverse" && <div className="blob"></div>}
             <div className="data">
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
