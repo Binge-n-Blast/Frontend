@@ -4,6 +4,7 @@ const initialState = {
   open: false,
   title: "",
   formData: { itemsName: "", details: "", price: "" },
+  path:"",
   isEdit: false,
 };
 
@@ -14,11 +15,17 @@ const formSlice = createSlice({
     handleFormTitle(state, action) {
       state.title = action.payload;
     },
-    handleFormOpen(state) {
+    handleFormOpen(state,action) {
       state.open = true;
+
     },
     handleFormClose(state) {
       state.open = false;
+      state.path = ""
+
+    },
+    handlePath(state,action){
+      state.path = action.payload
     },
     setFormData(state, action) {
       state.formData = { ...state.formData, ...action.payload };
@@ -35,5 +42,6 @@ export const {
   handleFormTitle,
   setFormData,
   setEditItem,
+  handlePath
 } = formSlice.actions;
 export default formSlice.reducer;

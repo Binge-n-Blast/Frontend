@@ -6,7 +6,7 @@ import formReducer from "../Slices/Admin/formSlice";
 import authReducer from "../Slices/Admin/authSlice";
 
 //APIs
-import { adminApi } from "../Api/Admin/adminSlice";
+import { adminApi } from "../Api/Admin/adminApiSlice";
 
 export const store = configureStore({
   reducer: {

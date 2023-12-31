@@ -1,10 +1,8 @@
 import "./Decoration.scss";
-import { useEffect } from "react";
 
 // Components
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";
 import Form from "../Form/Form";
-
 
 // Images
 import decoration from "../../../../Components/Admin/Sidebar/Assets/decoration.png";
@@ -19,101 +17,92 @@ import deleteIcon from "../Cake/Assets/delete.png";
 
 // Redux
 import { useDispatch } from "react-redux";
-import { handlePopupOpen } from "../../../../Redux/Slices/Admin/popupSlice";
-import { handleFormOpen,handleFormTitle } from "../../../../Redux/Slices/Admin/formSlice";
 
+//State Slice
+import {
+  handleFormOpen,
+  handleFormTitle,
+  handlePath,
+} from "../../../../Redux/Slices/Admin/formSlice";
+
+//Api Slice
+import {
+  useGetDecorationsQuery,
+  useDeleteDecorationMutation,
+} from "../../../../Redux/Api/Admin/adminApiSlice";
 
 const Decoration = () => {
   const dispatch = useDispatch();
 
-  const handlePopupOpenModal = () => {
-    dispatch(handlePopupOpen());
-  };
+  const { data, error, isLoading } = useGetDecorationsQuery();
+  const [deleteDecoration] = useDeleteDecorationMutation();
 
   const handleFormOpenModal = () => {
     dispatch(handleFormOpen());
+    dispatch(handleFormTitle("Add new decoration"));
+    dispatch(handlePath(`${window.location.pathname}`));
   };
 
-  useEffect(() => {
-    dispatch(handleFormTitle("Add new decoration"));
-  }, []);
+  const handleDelete = async (id) => {
+    const response = await deleteDecoration(id);
+    if (response.data) {
+      toast.success("Deleted!");
+    }
+    if (response.error) {
+      toast.error(response.error.data.errors[0].message);
+    }
+  };
+  const handleEdit = (id) => {
+    console.log(id);
+    // dispatch(handleFormTitle("Edit cake details"));
+    // dispatch(handleFormOpen());
+    // dispatch(setFormData(id));
+    // dispatch(setEditItem(true));
+  };
 
-
-
-  const decorationData = [
-    {
-      id: 1,
-      img: eventImg1,
-      title: "Birthday",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 2,
-      img: eventImg2,
-      title: "Anniversary",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 3,
-      img: eventImg3,
-      title: "Proposal",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 4,
-      img: eventImg4,
-      title: "Bride to Be",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 5,
-      img: eventImg5,
-      title: "Baby Shower",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 6,
-      img: eventImg6,
-      title: "Mom to Be",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-  ];
   return (
     <>
-    <Form/>
+      <Form />
       <Navbar title="Decorations" image={decoration} />
       <section className="decoration">
         <div className="add">
           <button onClick={handleFormOpenModal}>Add New Decoration!</button>
         </div>
 
-        <div className="cards">
-          {decorationData.map((card) => (
-            <div className="card" key={card.id}>
-              <img
-                src={deleteIcon}
-                onClick={handlePopupOpenModal}
-                className="delete"
-                alt=""
-              />
-              <img src={card.img} alt="" className="cake-image" />
-              <div className="content">
-                <h4>{card.title}</h4>
-                <p>{card.desc}</p>
-                <div className="action">
-                  <p>₹ {card.price}</p>
-                  <button onClick={handleFormOpenModal}>Edit</button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="loading">
+            <h1>Loading...</h1>
+          </div>
+        ) : (
+          <div className="cards">
+            {data && data.data.length === 0 ? (
+              <h1>No Data!</h1>
+            ) : (
+              data.data.map((card) => {
+                const { uid, price, itemsName, details } = card;
+                return (
+                  <div className="card" key={uid}>
+                    <img
+                      src={deleteIcon}
+                      onClick={() => handleDelete(uid)}
+                      className="delete"
+                      alt=""
+                    />
+                    <img src={eventImg1} alt="" className="cake-image" />
+                    <div className="content">
+                      <h4>{itemsName}</h4>
+                      <p>{details}</p>
+                      <div className="action">
+                        <p>₹ {price}</p>
+                        <button onClick={() => handleEdit(uid)}>Edit</button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </div>
+        )}
       </section>
     </>
   );

@@ -27,15 +27,19 @@ $purple: #63049b;
     align-items: center;
     flex-wrap: wrap;
     gap: 40px;
+    h1 {
+      font-family: "DM Sans", sans-serif;
+      font-size: 20px;
+    }
 
     .card {
       padding: 20px;
       border-radius: 0px 40px;
-      width: 428px;
+      width: 380px;
       height: 168px;
       border-radius: 0px 40px;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
       gap: 20px;
       background: rgba(255, 255, 255, 0.09);
@@ -73,8 +77,9 @@ $purple: #63049b;
         .action {
           width: 100%;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
+          gap: 20px;
           p {
             font-family: Orbitron;
             letter-spacing: 1px;
@@ -113,8 +118,8 @@ $purple: #63049b;
 
       .card {
         padding: 16px;
-        width: 370px;
-        height: 150px;
+        width: 300px;
+        height: 130px;
         gap: 16px;
 
         .delete {

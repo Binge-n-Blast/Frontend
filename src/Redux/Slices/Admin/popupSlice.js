@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { open: false };
+const initialState = { open: false,  };
 
 const popupSlice = createSlice({
   name: "popup",

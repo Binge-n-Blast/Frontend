@@ -29,8 +29,8 @@ import {
 
 //Admin Routes
 import {
-  TodaysBooking,
   Login,
+  TodaysBooking,
   Payments,
   AdminTheaters,
   Cake,

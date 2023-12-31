@@ -12,28 +12,35 @@ import deleteIcon from "./Assets/delete.png";
 
 // Redux
 import { useDispatch } from "react-redux";
+
+// State Slices
 import {
   handleFormOpen,
+  handlePath,
   handleFormTitle,
   setFormData,
   setEditItem,
 } from "../../../../Redux/Slices/Admin/formSlice";
+
+// API Slices
 import {
   useGetCakesQuery,
   useDeleteCakeMutation,
-} from "../../../../Redux/Api/Admin/adminSlice";
+} from "../../../../Redux/Api/Admin/adminApiSlice";
 
 const Cake = () => {
   const dispatch = useDispatch();
 
-  const handleFormOpenModal = () => {
-    dispatch(handleFormOpen());
-    dispatch(handleFormTitle("Add new cake"));
-  };
-
   //API
   const { data, error, isLoading } = useGetCakesQuery();
   const [deleteCake] = useDeleteCakeMutation();
+
+  const handleFormOpenModal = () => {
+    dispatch(handleFormOpen());
+    dispatch(handleFormTitle("Add new cake"));
+    dispatch(handlePath(`${window.location.pathname}`));
+  };
+
   const handleDelete = async (id) => {
     const response = await deleteCake(id);
     if (response.data) {
@@ -43,10 +50,10 @@ const Cake = () => {
       toast.error(response.error.data.errors[0].message);
     }
   };
-  const handleEdit = (data) => {
+  const handleEdit = (id) => {
     dispatch(handleFormTitle("Edit cake details"));
     dispatch(handleFormOpen());
-    dispatch(setFormData(data));
+    dispatch(setFormData(id));
     dispatch(setEditItem(true));
   };
   return (
@@ -83,7 +90,9 @@ const Cake = () => {
                       <p>{details}</p>
                       <div className="action">
                         <p>₹ {price}</p>
-                        <button onClick={() => handleEdit(card)}>Edit</button>
+                        <button onClick={() => handleEdit(uid)}>
+                          Edit
+                        </button>
                       </div>
                     </div>
                   </div>

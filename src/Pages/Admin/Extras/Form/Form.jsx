@@ -6,34 +6,42 @@ import { Box, Modal } from "@mui/material";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
+
+//State Slice
 import {
   handleFormClose,
   setFormData,
   setEditItem,
 } from "../../../../Redux/Slices/Admin/formSlice";
+
+//API Slice
 import {
   useAddCakeMutation,
   useEditCakeMutation,
-} from "../../../../Redux/Api/Admin/adminSlice";
+  useAddDecorationMutation,
+  useAddAddonMutation,
+} from "../../../../Redux/Api/Admin/adminApiSlice";
 
 const Form = () => {
   const dispatch = useDispatch();
+
+  const path = useSelector((state) => state.form.path);
   const open = useSelector((state) => state.form.open);
   const title = useSelector((state) => state.form.title);
   const formData = useSelector((state) => state.form.formData);
   const isEdit = useSelector((state) => state.form.isEdit);
 
-  console.log(isEdit);
+  const [addCake] = useAddCakeMutation();
+  const [editCake] = useEditCakeMutation();
+  const [addDecoration] = useAddDecorationMutation();
+  const [addAddon] = useAddAddonMutation();
+
   //Popup
   const handleCloseModal = () => {
     dispatch(handleFormClose());
     dispatch(setEditItem(false));
     dispatch(setFormData({ itemsName: "", details: "", price: "" }));
   };
-
-  // Main
-  const [addCake] = useAddCakeMutation();
-  const [editCake] = useEditCakeMutation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,15 +50,41 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await addCake(formData);
-    if (response.data) {
-      toast.success("Added Successfully!");
-      handleCloseModal();
-      dispatch(setFormData({ itemsName: "", details: "", price: "" }));
-      dispatch(setEditItem(false));
+    if (path === "/admin/cakes") {
+      const response = await addCake(formData);
+      if (response.data) {
+        toast.success("Added Successfully!");
+        handleCloseModal();
+        dispatch(setFormData({ itemsName: "", details: "", price: "" }));
+        dispatch(setEditItem(false));
+      }
+      if (response.error) {
+        toast.error(response.error.data.errors[0].message);
+      }
     }
-    if (response.error) {
-      toast.error(response.error.data.errors[0].message);
+    if (path === "/admin/decorations") {
+      const response = await addDecoration(formData);
+      if (response.data) {
+        toast.success("Added Successfully!");
+        handleCloseModal();
+        dispatch(setFormData({ itemsName: "", details: "", price: "" }));
+        dispatch(setEditItem(false));
+      }
+      if (response.error) {
+        toast.error(response.error.data.errors[0].message);
+      }
+    }
+    if (path === "/admin/add-ons") {
+      const response = await addAddon(formData);
+      if (response.data) {
+        toast.success("Added Successfully!");
+        handleCloseModal();
+        dispatch(setFormData({ itemsName: "", details: "", price: "" }));
+        dispatch(setEditItem(false));
+      }
+      if (response.error) {
+        toast.error(response.error.data.errors[0].message);
+      }
     }
   };
 
