@@ -8,8 +8,6 @@ import img3 from "./Assets/img3.png";
 import img4 from "./Assets/img4.png";
 
 const Theaters = () => {
-
-
   const cardsData = [
     {
       img: img1,
