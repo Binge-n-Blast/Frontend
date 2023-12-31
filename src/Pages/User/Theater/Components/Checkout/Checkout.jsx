@@ -8,7 +8,6 @@ const Checkout = () => {
   const [active, setActive] = useState(false);
   const handleCheckoutActive = () => {
     setActive(!active);
-    alert;
   };
   return (
     <section className="checkout">
@@ -71,6 +70,8 @@ const Checkout = () => {
         </div>
       )}
     </section>
+
+ 
   );
 };
 
