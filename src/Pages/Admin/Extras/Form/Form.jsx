@@ -19,7 +19,9 @@ import {
   useAddCakeMutation,
   useEditCakeMutation,
   useAddDecorationMutation,
+  useEditDecorationMutation,
   useAddAddonMutation,
+  useEditAddonMutation,
 } from "../../../../Redux/Api/Admin/adminApiSlice";
 
 const Form = () => {
@@ -29,12 +31,16 @@ const Form = () => {
   const open = useSelector((state) => state.form.open);
   const title = useSelector((state) => state.form.title);
   const formData = useSelector((state) => state.form.formData);
+  const id = useSelector((state) => state.form.id);
   const isEdit = useSelector((state) => state.form.isEdit);
 
   const [addCake] = useAddCakeMutation();
-  const [editCake] = useEditCakeMutation();
   const [addDecoration] = useAddDecorationMutation();
   const [addAddon] = useAddAddonMutation();
+  const [editCake] = useEditCakeMutation();
+  const [editDecoration] = useEditDecorationMutation();
+  const [editAddon] = useEditDecorationMutation();
+
 
   //Popup
   const handleCloseModal = () => {
@@ -90,21 +96,44 @@ const Form = () => {
 
   const handleEdit = async (e) => {
     e.preventDefault();
-    const response = await editCake(formData);
-    if (response.data) {
-      toast.success("Edited Successfully!");
-      handleCloseModal();
-      dispatch(
-        setFormData({
-          itemsName: "",
-          details: "",
-          price: "",
-        })
-      );
-      dispatch(setEditItem(false));
+    if (path === "/admin/cakes") {
+      const cake = { ...formData, itemType: "CAKE", uid: id };
+      const response = await editCake(cake);
+      if (response.data) {
+        toast.success("Edited Successfully!");
+        handleCloseModal();
+        dispatch(setFormData({ itemsName: "", details: "", price: "" }));
+        dispatch(setEditItem(false));
+      }
+      if (response.error) {
+        toast.error(response.error.data.errors[0].message);
+      }
     }
-    if (response.error) {
-      toast.error(response.error.data.errors[0].message);
+    if (path === "/admin/decorations") {
+      const cake = { ...formData, itemType: "DECORATION", uid: id };
+      const response = await editDecoration(cake);
+      if (response.data) {
+        toast.success("Edited Successfully!");
+        handleCloseModal();
+        dispatch(setFormData({ itemsName: "", details: "", price: "" }));
+        dispatch(setEditItem(false));
+      }
+      if (response.error) {
+        toast.error(response.error.data.errors[0].message);
+      }
+    }
+    if (path === "/admin/add-ons") {
+      const cake = { ...formData, itemType: "ADD_ON", uid: id };
+      const response = await editAddon(cake);
+      if (response.data) {
+        toast.success("Edited Successfully!");
+        handleCloseModal();
+        dispatch(setFormData({ itemsName: "", details: "", price: "" }));
+        dispatch(setEditItem(false));
+      }
+      if (response.error) {
+        toast.error(response.error.data.errors[0].message);
+      }
     }
   };
 

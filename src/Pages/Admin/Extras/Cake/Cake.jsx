@@ -11,15 +11,16 @@ import cakesImg1 from "../../../User/Theater/Assets/cakesImg1.png";
 import deleteIcon from "./Assets/delete.png";
 
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // State Slices
 import {
   handleFormOpen,
   handlePath,
   handleFormTitle,
-  setFormData,
+  getItemId,
   setEditItem,
+  setFormData,
 } from "../../../../Redux/Slices/Admin/formSlice";
 
 // API Slices
@@ -30,7 +31,7 @@ import {
 
 const Cake = () => {
   const dispatch = useDispatch();
-
+  const id = useSelector((state) => state.form.id);
   //API
   const { data, error, isLoading } = useGetCakesQuery();
   const [deleteCake] = useDeleteCakeMutation();
@@ -50,11 +51,19 @@ const Cake = () => {
       toast.error(response.error.data.errors[0].message);
     }
   };
-  const handleEdit = (id) => {
+  const handleEdit = (card) => {
+    dispatch(handlePath(`${window.location.pathname}`));
     dispatch(handleFormTitle("Edit cake details"));
     dispatch(handleFormOpen());
-    dispatch(setFormData(id));
     dispatch(setEditItem(true));
+    dispatch(getItemId(card.uid));
+    dispatch(
+      setFormData({
+        itemsName: card.itemsName,
+        details: card.details,
+        price: card.price,
+      })
+    );
   };
   return (
     <>
@@ -72,7 +81,7 @@ const Cake = () => {
         ) : (
           <div className="cards">
             {data && data.data.length === 0 ? (
-              <h1>No Data!</h1>
+              <h1 className="no-data">No Data!</h1>
             ) : (
               data.data.map((card) => {
                 const { uid, price, itemsName, details } = card;
@@ -90,7 +99,7 @@ const Cake = () => {
                       <p>{details}</p>
                       <div className="action">
                         <p>₹ {price}</p>
-                        <button onClick={() => handleEdit(uid)}>Edit</button>
+                        <button onClick={() => handleEdit(card)}>Edit</button>
                       </div>
                     </div>
                   </div>

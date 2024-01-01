@@ -33,15 +33,6 @@ export const adminApi = createApi({
       }),
       providesTags: ["Cakes"],
     }),
-    getCake: builder.query({
-      query: (id) => ({
-        url: `extra-items/${id}`,
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + accessToken,
-        },
-      }),
-    }),
     addCake: builder.mutation({
       query: (cake) => ({
         url: "extra-items/CAKE",
@@ -64,10 +55,10 @@ export const adminApi = createApi({
       invalidatesTags: ["Cakes"],
     }),
     editCake: builder.mutation({
-      query: (id) => ({
-        url: `extra-items/${id}`,
+      query: (data) => ({
+        url: `extra-items/${data.uid}`,
         method: "PATCH",
-        body: cake,
+        body: data,
         headers: {
           Authorization: "Bearer " + accessToken,
         },
@@ -104,6 +95,17 @@ export const adminApi = createApi({
       }),
       invalidatesTags: ["Decorations"],
     }),
+    editDecoration: builder.mutation({
+      query: (data) => ({
+        url: `extra-items/${data.uid}`,
+        method: "PATCH",
+        body: data,
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      }),
+      invalidatesTags: ["Decorations"],
+    }),
 
     //Add-ons
     getAddons: builder.query({
@@ -134,20 +136,37 @@ export const adminApi = createApi({
       }),
       invalidatesTags: ["Addon"],
     }),
+    editAddon: builder.mutation({
+      query: (data) => ({
+        url: `extra-items/${data.uid}`,
+        method: "PATCH",
+        body: data,
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      }),
+      invalidatesTags: ["Addon"],
+    }),
   }),
 });
 
 export const {
   useAdminLoginMutation,
+
   useGetTheatersQuery,
+
   useGetCakesQuery,
   useAddCakeMutation,
   useDeleteCakeMutation,
   useEditCakeMutation,
+
   useGetDecorationsQuery,
   useAddDecorationMutation,
   useDeleteDecorationMutation,
+  useEditDecorationMutation,
+
   useGetAddonsQuery,
   useAddAddonMutation,
   useDeleteAddonMutation,
+  useEditAddonMutation,
 } = adminApi;
