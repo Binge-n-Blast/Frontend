@@ -4,6 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import todoReducer from "../Slices/Admin/popupSlice";
 import formReducer from "../Slices/Admin/formSlice";
 import authReducer from "../Slices/Admin/authSlice";
+import checkoutReducer from "../Slices/User/checkoutSlice";
 
 //APIs
 import { adminApi } from "../Api/Admin/adminApiSlice";
@@ -13,6 +14,7 @@ export const store = configureStore({
     auth: authReducer,
     popup: todoReducer,
     form: formReducer,
+    checkout: checkoutReducer,
     [adminApi.reducerPath]: adminApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

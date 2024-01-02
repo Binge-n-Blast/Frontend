@@ -54,12 +54,22 @@ $purple: #63049b;
       }
       p {
         font-size: 13px;
+       
       }
     }
 
     .date {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
       p {
-        font-size: 13px;
+        font-size: 12px;
+        span{
+          font-size: 13px;
+          font-weight: 600;
+        }
       }
     }
   }

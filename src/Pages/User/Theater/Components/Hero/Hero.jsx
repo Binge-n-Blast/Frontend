@@ -10,7 +10,16 @@ import "swiper/css/pagination";
 
 //Images
 import theaterImg from "../../../../../Assets/theaterImg.png";
-import deleteImg from "../../../../../Assets/delete.png"
+
+//Redux
+import { useSelector, useDispatch } from "react-redux";
+
+// State Slice
+import {
+  setDate,
+  setSlot,
+  setPerson,
+} from "../../../../../Redux/Slices/User/checkoutSlice";
 
 const Hero = () => {
   const theaterData = {
@@ -21,17 +30,18 @@ const Hero = () => {
     persons: 6,
   };
 
-  const [selectedDate, setSelectedDate] = useState("");
+  const dispatch = useDispatch();
+  const date = useSelector((state) => state.checkout.date);
+  const slot = useSelector((state) => state.checkout.slot);
+  const person = useSelector((state) => state.checkout.person);
 
+  // Todays date
   useEffect(() => {
     const today = new Date();
     const formattedDate = today.toISOString().split("T")[0];
-    setSelectedDate(formattedDate);
+    dispatch(setDate(formattedDate));
   }, []);
 
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
   return (
     <>
       <section className="theater-hero">
@@ -81,19 +91,27 @@ const Hero = () => {
             type="date"
             placeholder="Select Date"
             name="dateInput"
-            value={selectedDate}
-            min={selectedDate}
-            onChange={handleDateChange}
+            value={date}
+            min={date}
+            onChange={(event) => dispatch(setDate(event.target.value))}
           />
-          <select name="slots">
+          <select
+            name="slots"
+            onChange={(event) => dispatch(setSlot(event.target.value))}
+            value={slot}
+          >
             <option value="">Slots</option>
-            <option value="morning">10:00 am - 12:30 pm</option>
-            <option value="afternoon">1:00 pm - 3:30 pm</option>
-            <option value="evening">4:00 pm - 6:30 pm</option>
-            <option value="lateEvening">7:00 pm - 9:30 pm</option>
-            <option value="night">10:30 pm - 1:00 am</option>
+            <option value="10:00 am - 12:30 pm">10:00 am - 12:30 pm</option>
+            <option value="1:00 pm - 3:30 pm">1:00 pm - 3:30 pm</option>
+            <option value="4:00 pm - 6:30 pm">4:00 pm - 6:30 pm</option>
+            <option value="7:00 pm - 9:30 pm">7:00 pm - 9:30 pm</option>
+            <option value="10:30 pm - 1:00 am">10:30 pm - 1:00 am</option>
           </select>
-          <select name="persons">
+          <select
+            name="persons"
+            onChange={(event) => dispatch(setPerson(event.target.value))}
+            value={person}
+          >
             <option>Number of People</option>
             <option value="2">2</option>
             <option value="3">3</option>

@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 // Images
 import cakesImg1 from "../../../../../Assets/cakesImg1.png";
 
-
 // Api Slices
 import { useGetCakesQuery } from "../../../../../Redux/Api/Admin/adminApiSlice";
 
