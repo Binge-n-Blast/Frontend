@@ -4,14 +4,13 @@ const accessToken = sessionStorage.getItem("token");
 
 export const adminApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://binge-browser.onrender.com/api/v1/admin/",
+    baseUrl: "https://binge-browser.onrender.com/api/v1/",
   }),
-  tagTypes: ["Cakes"],
   endpoints: (builder) => ({
     //Login
     adminLogin: builder.mutation({
       query: (login) => ({
-        url: "auth/login",
+        url: "admin/auth/login",
         method: "POST",
         body: login,
       }),
@@ -20,7 +19,7 @@ export const adminApi = createApi({
     //Theaters
     getTheaters: builder.query({
       query: () => ({
-        url: "theater/list",
+        url: "admin/theater/list",
         method: "GET",
       }),
     }),
@@ -28,14 +27,14 @@ export const adminApi = createApi({
     //Cakes
     getCakes: builder.query({
       query: () => ({
-        url: "extra-items/CAKE",
+        url: "admin/extra-items/CAKE",
         method: "GET",
       }),
       providesTags: ["Cakes"],
     }),
     addCake: builder.mutation({
       query: (cake) => ({
-        url: "extra-items/CAKE",
+        url: "admin/extra-items/CAKE",
         method: "POST",
         body: cake,
         headers: {
@@ -46,7 +45,7 @@ export const adminApi = createApi({
     }),
     deleteCake: builder.mutation({
       query: (id) => ({
-        url: `extra-items/${id}`,
+        url: `admin/extra-items/${id}`,
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + accessToken,
@@ -56,7 +55,7 @@ export const adminApi = createApi({
     }),
     editCake: builder.mutation({
       query: (data) => ({
-        url: `extra-items/${data.uid}`,
+        url: `admin/extra-items/${data.uid}`,
         method: "PATCH",
         body: data,
         headers: {
@@ -69,14 +68,14 @@ export const adminApi = createApi({
     //Decorations
     getDecorations: builder.query({
       query: () => ({
-        url: "extra-items/DECORATION",
+        url: "admin/extra-items/DECORATION",
         method: "GET",
       }),
       providesTags: ["Decorations"],
     }),
     addDecoration: builder.mutation({
       query: (cake) => ({
-        url: "extra-items/DECORATION",
+        url: "admin/extra-items/DECORATION",
         method: "POST",
         body: cake,
         headers: {
@@ -87,7 +86,7 @@ export const adminApi = createApi({
     }),
     deleteDecoration: builder.mutation({
       query: (id) => ({
-        url: `extra-items/${id}`,
+        url: `admin/extra-items/${id}`,
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + accessToken,
@@ -97,7 +96,7 @@ export const adminApi = createApi({
     }),
     editDecoration: builder.mutation({
       query: (data) => ({
-        url: `extra-items/${data.uid}`,
+        url: `admin/extra-items/${data.uid}`,
         method: "PATCH",
         body: data,
         headers: {
@@ -110,14 +109,14 @@ export const adminApi = createApi({
     //Add-ons
     getAddons: builder.query({
       query: () => ({
-        url: "extra-items/ADD_ON",
+        url: "admin/extra-items/ADD_ON",
         method: "GET",
       }),
       providesTags: ["Addon"],
     }),
     addAddon: builder.mutation({
       query: (cake) => ({
-        url: "extra-items/ADD_ON",
+        url: "admin/extra-items/ADD_ON",
         method: "POST",
         body: cake,
         headers: {
@@ -128,7 +127,7 @@ export const adminApi = createApi({
     }),
     deleteAddon: builder.mutation({
       query: (id) => ({
-        url: `extra-items/${id}`,
+        url: `admin/extra-items/${id}`,
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + accessToken,
@@ -138,7 +137,7 @@ export const adminApi = createApi({
     }),
     editAddon: builder.mutation({
       query: (data) => ({
-        url: `extra-items/${data.uid}`,
+        url: `admin/extra-items/${data.uid}`,
         method: "PATCH",
         body: data,
         headers: {
@@ -146,6 +145,14 @@ export const adminApi = createApi({
         },
       }),
       invalidatesTags: ["Addon"],
+    }),
+
+    postMessage: builder.mutation({
+      query: (user) => ({
+        url: "contact-us",
+        method: "POST",
+        body: user,
+      }),
     }),
   }),
 });
@@ -169,4 +176,6 @@ export const {
   useAddAddonMutation,
   useDeleteAddonMutation,
   useEditAddonMutation,
+
+  usePostMessageMutation,
 } = adminApi;

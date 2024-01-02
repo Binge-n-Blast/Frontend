@@ -7,7 +7,7 @@ import authReducer from "../Slices/Admin/authSlice";
 import checkoutReducer from "../Slices/User/checkoutSlice";
 
 //APIs
-import { adminApi } from "../Api/Admin/adminApiSlice";
+import { adminApi } from "../Api/apiSlice";
 
 export const store = configureStore({
   reducer: {

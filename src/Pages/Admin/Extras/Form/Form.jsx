@@ -22,7 +22,7 @@ import {
   useEditDecorationMutation,
   useAddAddonMutation,
   useEditAddonMutation,
-} from "../../../../Redux/Api/Admin/adminApiSlice";
+} from "../../../../Redux/Api/apiSlice";
 
 const Form = () => {
   const dispatch = useDispatch();

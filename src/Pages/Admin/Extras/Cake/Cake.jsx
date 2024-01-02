@@ -27,7 +27,7 @@ import {
 import {
   useGetCakesQuery,
   useDeleteCakeMutation,
-} from "../../../../Redux/Api/Admin/adminApiSlice";
+} from "../../../../Redux/Api/apiSlice";
 
 const Cake = () => {
   const dispatch = useDispatch();
