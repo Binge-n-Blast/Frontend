@@ -1,14 +1,13 @@
 import "./CommonSections.scss";
+import { Link } from "react-router-dom";
 
 //Images
-
-import homeImg1 from "../../Assets/homeImg1.png";
-import homeImg2 from "../../Assets/homeImg2.png";
-import homeImg3 from "../../Assets/homeImg3.png";
-import homeImg4 from "../../Assets/homeImg4.png";
-import homeImg5 from "../../Assets/homeImg5.png";
-import homeImg6 from "../../Assets/homeImg6.png";
-import { Link } from "react-router-dom";
+import homeImg1 from "../../../../../Assets/homeImg1.png";
+import homeImg2 from "../../../../../Assets/homeImg2.png";
+import homeImg3 from "../../../../../Assets/homeImg3.png";
+import homeImg4 from "../../../../../Assets/homeImg4.png";
+import homeImg5 from "../../../../../Assets/homeImg5.png";
+import homeImg6 from "../../../../../Assets/homeImg6.png";
 
 const CommonSections = () => {
   const commonData = [

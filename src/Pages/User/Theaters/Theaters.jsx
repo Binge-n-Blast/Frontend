@@ -2,38 +2,15 @@ import "./Theaters.scss";
 import { Link } from "react-router-dom";
 
 // Images
-import img1 from "./Assets/img1.png";
-import img2 from "./Assets/img2.png";
-import img3 from "./Assets/img3.png";
-import img4 from "./Assets/img4.png";
+import img1 from "../../../Assets/userTheaterImg1.png";
+
+
+import { useGetTheatersQuery } from "../../../Redux/Api/Admin/adminApiSlice";
 
 const Theaters = () => {
-  const cardsData = [
-    {
-      img: img1,
-      title: "Blockbuster Bliss",
-      desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
-      price: 1800,
-    },
-    {
-      img: img2,
-      title: "Flicks ‘N Fun",
-      desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
-      price: 1800,
-    },
-    {
-      img: img3,
-      title: "Blockbuster Bliss",
-      desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
-      price: 1800,
-    },
-    {
-      img: img4,
-      title: "Drama Delight",
-      desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
-      price: 1800,
-    },
-  ];
+  const { data, error, isLoading } = useGetTheatersQuery();
+
+
   return (
     <section className="theaters">
       <div className="blue-blob1"></div>
@@ -51,21 +28,43 @@ const Theaters = () => {
           system.
         </p>
       </div>
-      <div className="cards">
-        {cardsData.map((card, index) => (
-          <div className="card" key={index}>
-            <div className="content">
-              <img src={card.img} alt="" />
-              <h3>{card.title}</h3>
-              <p>{card.desc}</p>
+
+      {data && data.data.length === 0 ? (
+        <h1 className="no-data">No data!</h1>
+      ) : (
+        <>
+          {isLoading ? (
+            <div className="loading">
+              <h1>Loading...</h1>
             </div>
-            <div className="action">
-              <h3>₹ {card.price}</h3>
-              <Link to="/theater/123">Book now !</Link>
+          ) : (
+            <div className="cards">
+              {data &&
+                data.data.map((card) => {
+                  const {
+                    uid,
+                    theaterName,
+                    details,
+                    price,
+                  } = card;
+                  return (
+                    <div className="card" key={uid}>
+                      <div className="content">
+                        <img src={img1} alt="" />
+                        <h3>{theaterName}</h3>
+                        <p>{details}</p>
+                      </div>
+                      <div className="action">
+                        <h3>₹ {price}</h3>
+                        <Link to="/theater/123">Book now !</Link>
+                      </div>
+                    </div>
+                  );
+                })}
             </div>
-          </div>
-        ))}
-      </div>
+          )}
+        </>
+      )}
     </section>
   );
 };

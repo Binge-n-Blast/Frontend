@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 // Images
-import logo from "./Assets/logo.png";
+import logo from "../../../Assets/logo.png";
 
 // Icons
 import { FaTimes, FaBars } from "react-icons/fa";

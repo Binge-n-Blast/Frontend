@@ -2,14 +2,14 @@ import "./Celebrations.scss";
 import { Link } from "react-router-dom";
 
 // Images
-import img1 from "../../Assets/img1.png";
-import img2 from "../../Assets/img2.png";
-import img3 from "../../Assets/img3.png";
-import img4 from "../../Assets/img4.png";
-import img5 from "../../Assets/img5.png";
-import img6 from "../../Assets/img6.png";
-import img7 from "../../Assets/img7.png";
-import img8 from "../../Assets/img8.png";
+import img1 from "../../../../../Assets/img1.png";
+import img2 from "../../../../../Assets/img2.png";
+import img3 from "../../../../../Assets/img3.png";
+import img4 from "../../../../../Assets/img4.png";
+import img5 from "../../../../../Assets/img5.png";
+import img6 from "../../../../../Assets/img6.png";
+import img7 from "../../../../../Assets/img7.png";
+import img8 from "../../../../../Assets/img8.png";
 
 // Swiper JS
 import { Swiper, SwiperSlide } from "swiper/react";

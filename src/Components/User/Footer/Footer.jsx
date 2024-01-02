@@ -2,7 +2,7 @@ import "./Footer.scss";
 import { Link } from "react-router-dom";
 
 // Images
-import logo from "../Navbar/Assets/logo.png";
+import logo from "../../../Assets/logo.png";
 
 const Footer = () => {
   const links1 = [

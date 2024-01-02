@@ -26,9 +26,8 @@ $purple: #63049b;
       border-radius: 0px 40px;
       width: 428px;
       height: 168px;
-      border-radius: 0px 40px;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
       gap: 20px;
       background: rgba(255, 255, 255, 0.09);
@@ -54,8 +53,9 @@ $purple: #63049b;
         .action {
           width: 100%;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
+          gap: 30px;
           p {
             font-family: Orbitron;
             letter-spacing: 1px;
@@ -94,7 +94,6 @@ $purple: #63049b;
         padding: 18px;
         width: 350px;
         height: 140px;
-        gap: 15px;
         border-radius: 0px 30px;
 
         img {
@@ -110,6 +109,8 @@ $purple: #63049b;
             font-size: 13px;
           }
           .action {
+            gap: 28px;
+
             p {
               font-size: 18px;
             }
@@ -124,7 +125,6 @@ $purple: #63049b;
     }
   }
 }
-
 
 @media (max-width: 1400px) {
   .cakes-container {
@@ -156,6 +156,8 @@ $purple: #63049b;
             font-size: 12px;
           }
           .action {
+            gap: 26px;
+
             p {
               font-size: 16px;
             }
@@ -171,40 +173,40 @@ $purple: #63049b;
   }
 }
 
-
 @media (max-width: 600px) {
+  .cakes-container {
+    padding: 50px 30px;
+    padding-bottom: 70px;
+    gap: 20px;
 
-    .cakes-container {
-      padding: 50px 30px;
-      padding-bottom: 70px;
+    h3 {
+      font-size: 26px;
+    }
+    .cards {
       gap: 20px;
 
-      h3 {
-        font-size: 26px;
-      }
-      .cards {
-        gap: 20px;
+      .card {
+        .content {
+          h4 {
+            font-size: 14px;
+          }
+          p {
+            font-size: 11px;
+          }
+          .action {
+            gap: 24px;
 
-        .card {
-          .content {
-            h4 {
-              font-size: 14px;
-            }
             p {
-              font-size: 11px;
+              font-size: 15px;
             }
-            .action {
-              p {
-                font-size: 15px;
-              }
-              button {
-                width: 70px;
-                height: 24px;
-                padding: 7px 22px;
-              }
+            button {
+              width: 70px;
+              height: 24px;
+              padding: 7px 22px;
             }
           }
         }
       }
     }
   }
+}

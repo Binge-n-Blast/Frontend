@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import Popup from "../../Popup/Popup";
 
 // Images
-import logo from "../../User/Navbar/Assets/logo.png";
-import booking from "./Assets/calendar.png";
-import payment from "./Assets/money.png";
-import theater from "./Assets/theater.png";
-import decoration from "./Assets/decoration.png";
-import addon from "./Assets/addon.png";
-import cake from "./Assets/cake.png";
-import logout from "./Assets/logout.png";
+import logo from "../../../Assets/logo.png";
+import booking from "../../../Assets/calendar.png";
+import payment from "../../../Assets/money.png";
+import theater from "../../../Assets/theater.png";
+import decoration from "../../../Assets/decoration.png";
+import addon from "../../../Assets/addon.png";
+import cake from "../../../Assets/cake.png";
+import logout from "../../../Assets/logout.png";
 
 //Redux
 import { useDispatch } from "react-redux";

@@ -2,7 +2,7 @@ import "./Hero.scss";
 import { Link } from "react-router-dom";
 
 // Images
-import heroImg from "../../Assets/heroImg.png";
+import heroImg from "../../../../../Assets/heroImg.png";
 
 const Hero = () => {
   return (

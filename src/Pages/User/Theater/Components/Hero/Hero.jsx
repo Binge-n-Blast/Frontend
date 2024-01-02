@@ -1,20 +1,16 @@
 import "./Hero.scss";
 import { useState, useEffect } from "react";
-import TextField from "@mui/material/TextField";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
+
 
 // Swiper JS
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/effect-creative";
 import "swiper/css/pagination";
 
 //Images
-import theaterImg from "../../Assets/theaterImg.png";
+import theaterImg from "../../../../../Assets/theaterImg.png";
 
 const Hero = () => {
   const theaterData = {

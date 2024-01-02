@@ -1,83 +1,52 @@
-import "./Cakes.scss"
+import "./Cakes.scss";
+import { toast } from "react-hot-toast";
 
 // Images
-import cakesImg1 from "../../Assets/cakesImg1.png";
-import cakesImg2 from "../../Assets/cakesImg2.png";
-import cakesImg3 from "../../Assets/cakesImg3.png";
-import cakesImg4 from "../../Assets/cakesImg4.png";
-import cakesImg5 from "../../Assets/cakesImg5.png";
-import cakesImg6 from "../../Assets/cakesImg6.png";
+import cakesImg1 from "../../../../../Assets/cakesImg1.png";
+
+
+// Api Slices
+import { useGetCakesQuery } from "../../../../../Redux/Api/Admin/adminApiSlice";
 
 const Cakes = () => {
+  const { data, error, isLoading } = useGetCakesQuery();
 
-
-
-  const cakesData = [
-    {
-      id: 1,
-      img: cakesImg1,
-      title: "Red Velvet",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 2,
-      img: cakesImg2,
-      title: "Strawberry Cake",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 3,
-      img: cakesImg3,
-      title: "Oreo Cake",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 4,
-      img: cakesImg4,
-      title: "Dark Chocolate Cake",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 5,
-      img: cakesImg5,
-      title: "Raspberry Cake",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-    {
-      id: 6,
-      img: cakesImg6,
-      title: "Chocolate Cake",
-      desc: "Celebrate your special day with Special people.",
-      price: 699,
-    },
-  ];
-
+  if (error) {
+    toast("Something went wrong!");
+  }
   return (
     <section className="cakes-container">
       <h3>Cakes</h3>
-
-      <div className="cards">
-        {cakesData.map((card) => (
-          <div className="card" key={card.id}>
-            <img src={card.img} alt="" />
-            <div className="content">
-              <h4>{card.title}</h4>
-              <p>{card.desc}</p>
-              <div className="action">
-                <p>₹ {card.price}</p>
-                <button>Add</button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="loading">
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        <div className="cards">
+          {data && data.data.length === 0 ? (
+            <h1 className="no-data">No Data!</h1>
+          ) : (
+            data.data.map((card) => {
+              const { id, uid, price, itemsName, details } = card;
+              return (
+                <div className="card" key={id}>
+                  <img src={cakesImg1} alt="" />
+                  <div className="content">
+                    <h4>{itemsName}</h4>
+                    <p>{details}</p>
+                    <div className="action">
+                      <p>₹ {price}</p>
+                      <button>Add</button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+      )}
     </section>
-  )
-}
+  );
+};
 
-export default Cakes
+export default Cakes;

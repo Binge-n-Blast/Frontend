@@ -86,7 +86,7 @@ $purple: #63049b;
         width: 428px;
         height: 168px;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         gap: 20px;
         background: rgba(255, 255, 255, 0.09);
@@ -112,8 +112,9 @@ $purple: #63049b;
           .action {
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 30px;
             p {
               font-family: Orbitron;
               letter-spacing: 1px;
@@ -191,6 +192,8 @@ $purple: #63049b;
               font-size: 13px;
             }
             .action {
+              gap: 28px;
+
               p {
                 font-size: 18px;
               }
@@ -266,6 +269,8 @@ $purple: #63049b;
               font-size: 12px;
             }
             .action {
+              gap: 26px;
+
               p {
                 font-size: 16px;
               }
@@ -333,6 +338,8 @@ $purple: #63049b;
               font-size: 11px;
             }
             .action {
+              gap: 24px;
+
               p {
                 font-size: 15px;
               }

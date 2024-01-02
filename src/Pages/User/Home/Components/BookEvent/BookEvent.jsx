@@ -1,7 +1,7 @@
 import "./BookEvent.scss";
 
 //Images
-import bookEventImg from "../../Assets/bookEventImg.png"
+import bookEventImg from "../../../../../Assets/bookEventImg.png"
 
 const BookEvent = () => {
   return (

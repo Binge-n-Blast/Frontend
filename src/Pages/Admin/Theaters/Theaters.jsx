@@ -29,14 +29,12 @@ const Theaters = () => {
             ) : (
               <div className="cards">
                 {data &&
-                  data.data.map((card, index) => {
+                  data.data.map((card) => {
                     const {
                       uid,
                       theaterName,
                       details,
                       price,
-                      noOfPersons,
-                      extraPersonCost,
                     } = card;
                     return (
                       <div className="card" key={uid}>
