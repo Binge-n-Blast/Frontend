@@ -147,12 +147,24 @@ export const adminApi = createApi({
       invalidatesTags: ["Addon"],
     }),
 
+
+    // Contact Form
     postMessage: builder.mutation({
       query: (user) => ({
         url: "contact-us",
         method: "POST",
         body: user,
       }),
+    }),
+    getMessage: builder.query({
+      query: () => ({
+        url: "contact-us",
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      }),
+      providesTags: ["Message"],
     }),
   }),
 });
@@ -178,4 +190,5 @@ export const {
   useEditAddonMutation,
 
   usePostMessageMutation,
+  useGetMessageQuery
 } = adminApi;

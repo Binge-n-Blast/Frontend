@@ -27,7 +27,7 @@ import {
 import {
   useDeleteAddonMutation,
   useGetAddonsQuery,
-} from "../../../../Redux/Api/Admin/adminApiSlice";
+} from "../../../../Redux/Api/apiSlice";
 
 const Addon = () => {
   const dispatch = useDispatch();

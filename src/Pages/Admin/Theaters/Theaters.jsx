@@ -8,7 +8,7 @@ import theater from "../../../Assets/theater.png";
 import img1 from "../../../Assets/img1.png";
 
 //Redux
-import { useGetTheatersQuery } from "../../../Redux/Api/Admin/adminApiSlice";
+import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
 
 const Theaters = () => {
   const { data, error, isLoading } = useGetTheatersQuery();

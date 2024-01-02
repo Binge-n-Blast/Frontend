@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import eventImg1 from "../../../../../Assets/eventImg1.png";
 
 // Api SLices
-import { useGetDecorationsQuery } from "../../../../../Redux/Api/Admin/adminApiSlice";
+import { useGetDecorationsQuery } from "../../../../../Redux/Api/apiSlice";
 
 const Event = () => {
   const { data, error, isLoading } = useGetDecorationsQuery();

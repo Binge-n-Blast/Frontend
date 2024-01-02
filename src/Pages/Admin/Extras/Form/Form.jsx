@@ -39,7 +39,7 @@ const Form = () => {
   const [addAddon] = useAddAddonMutation();
   const [editCake] = useEditCakeMutation();
   const [editDecoration] = useEditDecorationMutation();
-  const [editAddon] = useEditDecorationMutation();
+  const [editAddon] = useEditAddonMutation();
 
 
   //Popup

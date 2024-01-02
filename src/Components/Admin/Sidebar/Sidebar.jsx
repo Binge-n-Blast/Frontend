@@ -7,6 +7,7 @@ import Popup from "../../Popup/Popup";
 // Images
 import logo from "../../../Assets/logo.png";
 import booking from "../../../Assets/calendar.png";
+import message from "../../../Assets/message.png";
 import payment from "../../../Assets/money.png";
 import theater from "../../../Assets/theater.png";
 import decoration from "../../../Assets/decoration.png";
@@ -39,6 +40,10 @@ const Sidebar = () => {
             <div className="link">
               <img src={booking} alt="" />
               <Link to="/admin/todays-booking">Today's Booking</Link>
+            </div>
+            <div className="link">
+              <img src={message} alt="" />
+              <Link to="/admin/messages">Messages</Link>
             </div>
             <div className="link">
               <img src={payment} alt="" />

@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import cakesImg1 from "../../../../../Assets/cakesImg1.png";
 
 // Api Slices
-import { useGetCakesQuery } from "../../../../../Redux/Api/Admin/adminApiSlice";
+import { useGetCakesQuery } from "../../../../../Redux/Api/apiSlice";
 
 const Cakes = () => {
   const { data, error, isLoading } = useGetCakesQuery();

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import img1 from "../../../Assets/userTheaterImg1.png";
 
 
-import { useGetTheatersQuery } from "../../../Redux/Api/Admin/adminApiSlice";
+import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
 
 const Theaters = () => {
   const { data, error, isLoading } = useGetTheatersQuery();

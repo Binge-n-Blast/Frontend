@@ -7,7 +7,7 @@ import addOnsImg2 from "../../../../../Assets/addOnsImg2.png";
 import addOnsImg3 from "../../../../../Assets/addOnsImg3.png";
 
 // Api SLices
-import { useGetAddonsQuery } from "../../../../../Redux/Api/Admin/adminApiSlice";
+import { useGetAddonsQuery } from "../../../../../Redux/Api/apiSlice";
 
 const AddOns = () => {
   const { data, error, isLoading } = useGetAddonsQuery();

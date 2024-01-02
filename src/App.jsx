@@ -31,12 +31,12 @@ import {
 import {
   Login,
   TodaysBooking,
+  Message,
   Payments,
   AdminTheaters,
   Cake,
   Decoration,
   Addon,
-  AddTheater,
   MobileScreen,
 } from "./PagesImport/AdminPagesImport";
 
@@ -79,7 +79,14 @@ const adminRoutesData = [
       </ProtectedRoute>
     ),
   },
-
+  {
+    path: "messages",
+    element: (
+      <ProtectedRoute>
+        <Message />
+      </ProtectedRoute>
+    ),
+  },
   {
     path: "payments",
     element: (
@@ -119,15 +126,7 @@ const adminRoutesData = [
         <Addon />
       </ProtectedRoute>
     ),
-  },
-  {
-    path: "add-theater",
-    element: (
-      <ProtectedRoute>
-        <AddTheater />
-      </ProtectedRoute>
-    ),
-  },
+  }
 ];
 
 function App() {

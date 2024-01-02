@@ -26,7 +26,7 @@ import {
 import {
   useGetDecorationsQuery,
   useDeleteDecorationMutation,
-} from "../../../../Redux/Api/Admin/adminApiSlice";
+} from "../../../../Redux/Api/apiSlice";
 
 const Decoration = () => {
   const dispatch = useDispatch();
