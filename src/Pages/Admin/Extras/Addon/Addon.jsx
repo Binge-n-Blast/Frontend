@@ -6,9 +6,9 @@ import Navbar from "../../../../Components/Admin/Navbar/Navbar";
 import Form from "../Form/Form";
 
 // Images
-import addon from "../../../../Components/Admin/Sidebar/Assets/addon.png";
-import deleteIcon from "../Cake/Assets/delete.png";
-import addOnsImg1 from "../../../User/Theater/Assets/addOnsImg1.png";
+import addon from "../../../../Assets/addon.png";
+import deleteIcon from "../../../../Assets/delete.png";
+import addOnsImg1 from "../../../../Assets/addOnsImg1.png";
 
 // Redux
 import { useDispatch } from "react-redux";

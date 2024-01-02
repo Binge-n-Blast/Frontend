@@ -4,7 +4,7 @@ import "./TodaysBooking.scss";
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 // Images
-import booking from "../../../Components/Admin/Sidebar/Assets/calendar.png";
+import booking from "../../../Assets/calendar.png";
 
 // Data
 import { data } from "./data";

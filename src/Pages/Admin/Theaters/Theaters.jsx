@@ -4,8 +4,8 @@ import "./Theaters.scss";
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 //Images
-import theater from "../../../Components/Admin/Sidebar/Assets/theater.png";
-import img1 from "../../User/Theaters/Assets/img1.png";
+import theater from "../../../Assets/theater.png";
+import img1 from "../../../Assets/img1.png";
 
 //Redux
 import { useGetTheatersQuery } from "../../../Redux/Api/Admin/adminApiSlice";

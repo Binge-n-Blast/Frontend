@@ -3,6 +3,7 @@ import { useState } from "react";
 
 // Icons
 import { FaPlus, FaMinus } from "react-icons/fa";
+import deleteImg from "../../../../../Assets/delete.png"
 
 const Checkout = () => {
   const [active, setActive] = useState(false);
@@ -33,7 +34,7 @@ const Checkout = () => {
             <h3>Event Decoration</h3>
             <div className="data">
               <p>Birthday</p>
-              <p>₹ 999</p>
+              <p>₹ 999 <img src={deleteImg} alt="" style={{width:"12px", cursor:"pointer"}} /></p>
             </div>
             <hr />
           </div>
@@ -42,7 +43,7 @@ const Checkout = () => {
             <h3>Cakes</h3>
             <div className="data">
               <p>Red Velvet</p>
-              <p>₹ 699</p>
+              <p>₹ 699 <img src={deleteImg} alt="" style={{width:"12px", cursor:"pointer"}} /></p>
             </div>
             <hr />
           </div>
@@ -51,7 +52,7 @@ const Checkout = () => {
             <h3>Add On’s</h3>
             <div className="data">
               <p>HDB Lights</p>
-              <p>₹ 699</p>
+              <p>₹ 699 <img src={deleteImg} alt="" style={{width:"12px", cursor:"pointer"}} /></p>
             </div>
             <hr />
           </div>

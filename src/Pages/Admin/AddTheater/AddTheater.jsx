@@ -2,7 +2,7 @@ import "./AddTheater.scss";
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 // Images
-import store from "../../../Components/Admin/Sidebar/Assets/store.png";
+import store from "../../../Assets/store.png";
 
 const AddTheater = () => {
   return (

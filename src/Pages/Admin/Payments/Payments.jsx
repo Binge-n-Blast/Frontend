@@ -4,7 +4,7 @@ import "./Payments.scss";
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 // Images
-import payment from "../../../Components/Admin/Sidebar/Assets/money.png";
+import payment from "../../../Assets/money.png";
 
 // Data
 import { data } from "./data";
