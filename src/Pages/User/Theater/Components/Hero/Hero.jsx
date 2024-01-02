@@ -1,7 +1,6 @@
 import "./Hero.scss";
 import { useState, useEffect } from "react";
 
-
 // Swiper JS
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Pagination } from "swiper/modules";
@@ -11,6 +10,7 @@ import "swiper/css/pagination";
 
 //Images
 import theaterImg from "../../../../../Assets/theaterImg.png";
+import deleteImg from "../../../../../Assets/delete.png"
 
 const Hero = () => {
   const theaterData = {
@@ -82,9 +82,9 @@ const Hero = () => {
             placeholder="Select Date"
             name="dateInput"
             value={selectedDate}
+            min={selectedDate}
             onChange={handleDateChange}
           />
-
           <select name="slots">
             <option value="">Slots</option>
             <option value="morning">10:00 am - 12:30 pm</option>

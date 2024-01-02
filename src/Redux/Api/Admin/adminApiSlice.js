@@ -4,7 +4,7 @@ const accessToken = sessionStorage.getItem("token");
 
 export const adminApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://binge-browser.onrender.com/api/v1/admin/",
+    baseUrl: import.meta.env.VITE_API_BASE_URL,
   }),
   tagTypes: ["Cakes"],
   endpoints: (builder) => ({
