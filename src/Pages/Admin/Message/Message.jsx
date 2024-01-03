@@ -1,4 +1,5 @@
 import "./Message.scss";
+import { toast } from "react-hot-toast";
 
 // Component
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
@@ -19,12 +20,25 @@ import {
   Pagination,
 } from "@mui/material";
 
-// Redux
-
-import { useGetMessageQuery } from "../../../Redux/Api/apiSlice";
+// Api Slice
+import {
+  useGetMessageQuery,
+  useDeleteMessageMutation,
+} from "../../../Redux/Api/apiSlice";
 
 const Message = () => {
   const { data, error, isLoading } = useGetMessageQuery();
+  const [deleteMessage] = useDeleteMessageMutation();
+
+  const handleDelete = async (id) => {
+    const response = await deleteMessage(id);
+    if (response.data) {
+      toast.success("Deleted!");
+    }
+    if (response.error) {
+      toast.error("Something went wrong!");
+    }
+  };
 
   return (
     <>
@@ -76,6 +90,7 @@ const Message = () => {
                             src={deleteImg}
                             alt=""
                             style={{ width: "20px", cursor: "pointer" }}
+                            onClick={() => handleDelete(row.contactId)}
                           />
                         </TableCell>
                       </TableRow>

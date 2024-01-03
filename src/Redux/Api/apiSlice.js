@@ -147,7 +147,6 @@ export const adminApi = createApi({
       invalidatesTags: ["Addon"],
     }),
 
-
     // Contact Form
     postMessage: builder.mutation({
       query: (user) => ({
@@ -165,6 +164,16 @@ export const adminApi = createApi({
         },
       }),
       providesTags: ["Message"],
+    }),
+    deleteMessage: builder.mutation({
+      query: (id) => ({
+        url: `contact-us/${id}`,
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      }),
+      invalidatesTags: ["Message"],
     }),
   }),
 });
@@ -190,5 +199,6 @@ export const {
   useEditAddonMutation,
 
   usePostMessageMutation,
-  useGetMessageQuery
+  useGetMessageQuery,
+  useDeleteMessageMutation,
 } = adminApi;

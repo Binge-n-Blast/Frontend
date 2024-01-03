@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../../Redux/Slices/Admin/authSlice";
 
 //Api Slice
-import { useAdminLoginMutation } from "../../../Redux/Api/Admin/adminApiSlice";
+import { useAdminLoginMutation } from "../../../Redux/Api/apiSlice";
 
 const Login = () => {
   const navigate = useNavigate();
