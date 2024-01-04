@@ -23,6 +23,12 @@ export const adminApi = createApi({
         method: "GET",
       }),
     }),
+    getTheater: builder.query({
+      query: (id) => ({
+        url: `admin/theater/${id}`,
+        method: "GET",
+      }),
+    }),
 
     //Cakes
     getCakes: builder.query({
@@ -182,6 +188,7 @@ export const {
   useAdminLoginMutation,
 
   useGetTheatersQuery,
+  useGetTheaterQuery,
 
   useGetCakesQuery,
   useAddCakeMutation,

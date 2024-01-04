@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 // Images
 import img1 from "../../../Assets/userTheaterImg1.png";
 
-
 import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
 
 const Theaters = () => {
   const { data, error, isLoading } = useGetTheatersQuery();
-
 
   return (
     <section className="theaters">
@@ -41,12 +39,7 @@ const Theaters = () => {
             <div className="cards">
               {data &&
                 data.data.map((card) => {
-                  const {
-                    uid,
-                    theaterName,
-                    details,
-                    price,
-                  } = card;
+                  const {  uid, theaterName, details, price } = card;
                   return (
                     <div className="card" key={uid}>
                       <div className="content">
@@ -56,7 +49,7 @@ const Theaters = () => {
                       </div>
                       <div className="action">
                         <h3>₹ {price}</h3>
-                        <Link to="/theater/123">Book now !</Link>
+                        <Link to={`/theater/${uid}`}>Book now!</Link>
                       </div>
                     </div>
                   );

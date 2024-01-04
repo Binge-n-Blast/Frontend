@@ -13,6 +13,12 @@ const Cakes = () => {
   if (error) {
     toast("Something went wrong!");
   }
+
+  if(data){
+    console.log(data.data)
+
+  }
+
   return (
     <section className="cakes-container">
       <h3>Cakes</h3>

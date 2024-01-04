@@ -1,5 +1,4 @@
 import "./Checkout.scss";
-import { useState } from "react";
 
 // Icons
 import { FaPlus, FaMinus } from "react-icons/fa";
@@ -9,7 +8,10 @@ import deleteImg from "../../../../../Assets/delete.png";
 import { useSelector, useDispatch } from "react-redux";
 
 // State Slice
-import { setCheckoutActive } from "../../../../../Redux/Slices/User/checkoutSlice";
+import {
+  setCheckoutActive,
+  setPrice,
+} from "../../../../../Redux/Slices/User/checkoutSlice";
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -20,10 +22,40 @@ const Checkout = () => {
   const date = useSelector((state) => state.checkout.date);
   const slot = useSelector((state) => state.checkout.slot);
   const person = useSelector((state) => state.checkout.person);
+  const price = useSelector((state) => state.checkout.price);
+
+  const theater = useSelector((state) => state.checkout.theater);
 
   const handleCheckoutActive = () => {
     dispatch(setCheckoutActive(!isCheckoutActive));
   };
+
+  if (parseInt(person) < 7) {
+    dispatch(setPrice(parseInt(theater.price)));
+  }
+
+  if (parseInt(person) === 7) {
+    dispatch(
+      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost))
+    );
+  }
+
+  if (parseInt(person) === 8) {
+    dispatch(
+      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost) * 2)
+    );
+  }
+  if (parseInt(person) === 9) {
+    dispatch(
+      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost) * 3)
+    );
+  }
+  if (parseInt(person) === 10) {
+    dispatch(
+      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost) * 4)
+    );
+  }
+
   return (
     <section className="checkout">
       {isCheckoutActive ? (
@@ -35,8 +67,8 @@ const Checkout = () => {
 
           <div className="main">
             <div className="data">
-              <h3>Blockbuster Bliss</h3>
-              <p>₹ 1,999</p>
+              <h3>{theater.theaterName}</h3>
+              <p>₹ {price}</p>
             </div>
             <div className="date">
               <p>

@@ -11,8 +11,8 @@ const Theater = () => {
   return (
     <section className="theater">
       <Hero />
-       <Checkout />
-     <Event />
+      <Checkout />
+      <Event />
       <Cakes />
       <AddOns />
     </section>

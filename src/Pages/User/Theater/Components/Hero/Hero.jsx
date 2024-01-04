@@ -1,5 +1,6 @@
 import "./Hero.scss";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 // Swiper JS
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,21 +20,27 @@ import {
   setDate,
   setSlot,
   setPerson,
+  setTheater,
+  setPrice,
 } from "../../../../../Redux/Slices/User/checkoutSlice";
 
+//Api Slice
+import { useGetTheaterQuery } from "../../../../../Redux/Api/apiSlice";
+
 const Hero = () => {
+  const { id } = useParams();
+
+  const { data, error, isLoading } = useGetTheaterQuery(id);
+
   const theaterData = {
     images: [theaterImg, theaterImg, theaterImg],
-    title: "Blockbuster Bliss",
-    desc: "₹1899 for 6 or less people (Rs 299 per extra person), Our theatres are equipped with 120 inch enhanced 4k Video. Powerful Dolby atoms sound system.",
-    price: 1899,
-    persons: 6,
   };
 
   const dispatch = useDispatch();
   const date = useSelector((state) => state.checkout.date);
   const slot = useSelector((state) => state.checkout.slot);
   const person = useSelector((state) => state.checkout.person);
+  const theater = useSelector((state) => state.checkout.theater);
 
   // Todays date
   useEffect(() => {
@@ -41,6 +48,20 @@ const Hero = () => {
     const formattedDate = today.toISOString().split("T")[0];
     dispatch(setDate(formattedDate));
   }, []);
+  useEffect(() => {
+    if (data) {
+      dispatch(
+        setTheater({
+          theaterName: data.data[0].theaterName,
+          price: data.data[0].price,
+          noOfPersons: data.data[0].noOfPersons,
+          extraPersonCost: data.data[0].extraPersonCost,
+        })
+      );
+
+      dispatch(setPrice(theater.price));
+    }
+  }, [data]);
 
   return (
     <>
@@ -72,18 +93,19 @@ const Hero = () => {
             ))}
           </Swiper>
         ) : (
-          <img src={theaterData.images[0]} />
+          <img src={theaterImg} />
         )}
         <div className="blue-blob1"></div>
         <div className="blue-blob2"></div>
 
         <div className="content">
-          <h2>{theaterData.title}</h2>
-          <p>{theaterData.desc}</p>
+          <h2>{data && data.data[0].theaterName}</h2>
+          <p>{data && data.data[0].details}</p>
         </div>
         <div className="detail">
           <h2>
-            ₹{theaterData.price} (up to {theaterData.persons} persons)
+            ₹{data && data.data[0].price} (up to{" "}
+            {data && data.data[0].noOfPersons} persons)
           </h2>
         </div>
         <div className="form">

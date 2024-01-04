@@ -4,7 +4,20 @@ const initialState = {
   isCheckoutActive: false,
   date: "",
   slot: "",
-  person: 4,
+  person: 6,
+  price: "",
+  theater: {
+    theaterName: "",
+    price: "",
+    noOfPersons: "",
+    extraPersonCost: "",
+  },
+  cake:{
+    id:"",
+    itemsName:"",
+    
+  }
+ 
 };
 
 const checkoutSlice = createSlice({
@@ -23,9 +36,21 @@ const checkoutSlice = createSlice({
     setPerson(state, action) {
       state.person = action.payload;
     },
+    setPrice(state, action) {
+      state.price = action.payload;
+    },
+    setTheater(state, action) {
+      state.theater = { ...state.theater, ...action.payload };
+    },
   },
 });
 
-export const { setCheckoutActive, setDate, setSlot, setPerson } =
-  checkoutSlice.actions;
+export const {
+  setCheckoutActive,
+  setDate,
+  setSlot,
+  setPerson,
+  setPrice,
+  setTheater,
+} = checkoutSlice.actions;
 export default checkoutSlice.reducer;
