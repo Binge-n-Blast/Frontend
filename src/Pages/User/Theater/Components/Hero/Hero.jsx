@@ -28,13 +28,10 @@ import {
 import { useGetTheaterQuery } from "../../../../../Redux/Api/apiSlice";
 import { useGetSlotByDateQuery } from "../../../../../Redux/Slices/User/apiSlice";
 
-const Hero = ({info}) => {
+const Hero = ({ info }) => {
   const { id } = useParams();
-  
-  
 
   const { data, error, isLoading } = useGetTheaterQuery(id);
- 
 
   const theaterData = {
     images: [theaterImg, theaterImg, theaterImg],
@@ -45,17 +42,16 @@ const Hero = ({info}) => {
   const slot = useSelector((state) => state.checkout.slot);
   const person = useSelector((state) => state.checkout.person);
   const theater = useSelector((state) => state.checkout.theater);
-  const [booked,setBooked]=useState([])
-   const res= useGetSlotByDateQuery(date);
+  const [booked, setBooked] = useState([]);
+  const res = useGetSlotByDateQuery(date);
 
-   useEffect(()=>{
-    if(res && res.data && res.data.data && res.data.data.length>0){
-      setBooked(res.data.data)
+  useEffect(() => {
+    if (res && res.data && res.data.data && res.data.data.length > 0) {
+      setBooked(res.data.data);
+    } else {
+      setBooked([]);
     }
-    else{
-      setBooked([])
-    }
-   },[res])
+  }, [res]);
   // Todays date
   useEffect(() => {
     const today = new Date();
@@ -77,13 +73,10 @@ const Hero = ({info}) => {
     }
   }, [data]);
 
-const isBooked=(startTime)=>{
-  const includesObject = booked.some(obj => obj.startTime === startTime);
-  return includesObject
-}
-
-
-  
+  const isBooked = (startTime) => {
+    const includesObject = booked.some((obj) => obj.startTime === startTime);
+    return includesObject;
+  };
 
   return (
     <>
@@ -139,34 +132,60 @@ const isBooked=(startTime)=>{
             min={date}
             onChange={(event) => dispatch(setDate(event.target.value))}
           />
-          {booked && booked.length>0?
-              <select
+          {booked && booked.length > 0 ? (
+            <select
               name="slots"
               onChange={(event) => dispatch(setSlot(event.target.value))}
               value={slot}
             >
               <option value="">Slots</option>
-              <option value="10:00 am - 12:30 pm" disabled={isBooked(date+"T"+"10:00 am")}>10:00 am - 12:30 pm</option>
-              <option value="1:00 pm - 3:30 pm" disabled={isBooked(date+"T"+"1:00 am")}>1:00 pm - 3:30 pm</option>
-              <option value="4:00 pm - 6:30 pm" disabled={isBooked(date+"T"+"4:00 am")}>4:00 pm - 6:30 pm</option>
-              <option value="7:00 pm - 9:30 pm" disabled={isBooked(date+"T"+"7:00 am")}>7:00 pm - 9:30 pm</option>
-              <option value="10:30 pm - 1:00 am" disabled={isBooked(date+"T"+"10:30 pm")}>10:30 pm - 1:00 am</option>
-            </select>:
-            // 
+              <option
+                value="10:00 am - 12:30 pm"
+                disabled={isBooked(date + "T" + "10:00 am")}
+              >
+                10:00 am - 12:30 pm
+              </option>
+              <option
+                value="1:00 pm - 3:30 pm"
+                disabled={isBooked(date + "T" + "1:00 am")}
+              >
+                1:00 pm - 3:30 pm
+              </option>
+              <option
+                value="4:00 pm - 6:30 pm"
+                disabled={isBooked(date + "T" + "4:00 am")}
+              >
+                4:00 pm - 6:30 pm
+              </option>
+              <option
+                value="7:00 pm - 9:30 pm"
+                disabled={isBooked(date + "T" + "7:00 am")}
+              >
+                7:00 pm - 9:30 pm
+              </option>
+              <option
+                value="10:30 pm - 1:00 am"
+                disabled={isBooked(date + "T" + "10:30 pm")}
+              >
+                10:30 pm - 1:00 am
+              </option>
+            </select>
+          ) : (
+            //
             <select
-            name="slots"
-            onChange={(event) => dispatch(setSlot(event.target.value))}
-            value={slot}
-          >
-            <option value="">Slots</option>
-            <option value="10:00 am - 12:30 pm" >10:00 ammmmm - 12:30 pm</option>
-            <option value="1:00 pm - 3:30 pm">1:00 pm - 3:30 pm</option>
-            <option value="4:00 pm - 6:30 pm">4:00 pm - 6:30 pm</option>
-            <option value="7:00 pm - 9:30 pm">7:00 pm - 9:30 pm</option>
-            <option value="10:30 pm - 1:00 am">10:30 pm - 1:00 am</option>
-          </select>
-          }
-      
+              name="slots"
+              onChange={(event) => dispatch(setSlot(event.target.value))}
+              value={slot}
+            >
+              <option value="">Slots</option>
+              <option value="10:00 am - 12:30 pm">10:00 am - 12:30 pm</option>
+              <option value="1:00 pm - 3:30 pm">1:00 pm - 3:30 pm</option>
+              <option value="4:00 pm - 6:30 pm">4:00 pm - 6:30 pm</option>
+              <option value="7:00 pm - 9:30 pm">7:00 pm - 9:30 pm</option>
+              <option value="10:30 pm - 1:00 am">10:30 pm - 1:00 am</option>
+            </select>
+          )}
+
           <select
             name="persons"
             onChange={(event) => dispatch(setPerson(event.target.value))}

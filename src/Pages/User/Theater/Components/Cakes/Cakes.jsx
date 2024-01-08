@@ -6,7 +6,6 @@ import cakesImg1 from "../../../../../Assets/cakesImg1.png";
 
 // Api Slices
 import { useGetCakesQuery } from "../../../../../Redux/Api/apiSlice";
-import { useEffect } from "react";
 import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
 
 const Cakes = ({changeHandler,info}) => {
@@ -16,12 +15,7 @@ const Cakes = ({changeHandler,info}) => {
     toast("Something went wrong!");
   }
 
-  useEffect(()=>{
-    if(data){
-      console.log(data)
-    }
 
-  },[data,isLoading])
 
   return (
     <section className="cakes-container">
@@ -40,14 +34,13 @@ const Cakes = ({changeHandler,info}) => {
               return (
                 <div className="card" key={id}>
                   {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} />:<img src={cakesImg1} alt="" /> }
-                  {/* <img src={cakesImg1} alt="" /> */}
                   <div className="content">
                     <h4>{itemsName}</h4>
                     <p>{details}</p>
                     <div className="action">
                       <p>₹ {price}</p>
                       {
-                          info && info.cake && info.cake.id==id? <button className="button_remove" onClick={()=>{changeHandler({cake:null})}}>Remove</button>:
+                          info && info.cake && info.cake.id==id? <button className="button_remove" onClick={()=>{changeHandler({cake:null})}}>remove</button>:
                           <button onClick={()=>{changeHandler({cake:{id,price,itemsName}})}}>add</button>
                         }
                     </div>
