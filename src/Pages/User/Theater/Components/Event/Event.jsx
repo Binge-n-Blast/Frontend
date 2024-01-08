@@ -6,6 +6,7 @@ import eventImg1 from "../../../../../Assets/eventImg1.png";
 
 // Api SLices
 import { useGetDecorationsQuery } from "../../../../../Redux/Api/apiSlice";
+import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
 
 const Event = ({changeHandler,info}) => {
   const { data, error, isLoading } = useGetDecorationsQuery();
@@ -39,10 +40,10 @@ const Event = ({changeHandler,info}) => {
               <h1 className="no-data">No Data!</h1>
             ) : (
               data && data.data && data.data.map((card) => {
-                const { id, uid, price, itemsName, details } = card;
+                const { id, imagesJsonArray, price, itemsName, details } = card;
                 return (
                   <div className="card" key={id}>
-                    <img src={eventImg1} alt="" />
+                  {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} />:<img src={eventImg1} alt="" /> }
                     <div className="content">
                       <h4>{itemsName}</h4>
                       <p>{details}</p>

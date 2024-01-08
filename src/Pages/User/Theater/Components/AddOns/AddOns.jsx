@@ -8,6 +8,7 @@ import addOnsImg3 from "../../../../../Assets/addOnsImg3.png";
 
 // Api SLices
 import { useGetAddonsQuery } from "../../../../../Redux/Api/apiSlice";
+import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
 
 const AddOns = ({changeHandler,info}) => {
   const { data, error, isLoading } = useGetAddonsQuery();
@@ -52,10 +53,10 @@ const AddOns = ({changeHandler,info}) => {
             <h1 className="no-data">No Data!</h1>
           ) : (
             data && data.data && data.data.map((card) => {
-              const { id, uid, price, itemsName, details } = card;
+              const { id, uid, price, itemsName, details,imagesJsonArray } = card;
               return (
                 <div className="card" key={id}>
-                  <img src={addOnsImg1} alt="" />
+                  {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} />:<img src={addOnsImg1} alt="" /> }
                   <div className="content">
                     <h4>{itemsName}</h4>
                     <p>{details}</p>
