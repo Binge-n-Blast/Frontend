@@ -34,7 +34,7 @@ const Login = () => {
     if (response.data) {
       toast.success("Login Successful!");
       dispatch(login());
-      sessionStorage.setItem("token", response.data.data.accessToken);
+      sessionStorage.setItem("token",response.data.data.accessToken);
       navigate("/admin/payments");
       setLoginData({
         email: "",

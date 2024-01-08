@@ -9,7 +9,7 @@ import addOnsImg3 from "../../../../../Assets/addOnsImg3.png";
 // Api SLices
 import { useGetAddonsQuery } from "../../../../../Redux/Api/apiSlice";
 
-const AddOns = () => {
+const AddOns = ({changeHandler,info}) => {
   const { data, error, isLoading } = useGetAddonsQuery();
 
   if (error) {
@@ -51,7 +51,7 @@ const AddOns = () => {
           {data && data.data.length === 0 ? (
             <h1 className="no-data">No Data!</h1>
           ) : (
-            data.data.map((card) => {
+            data && data.data && data.data.map((card) => {
               const { id, uid, price, itemsName, details } = card;
               return (
                 <div className="card" key={id}>
@@ -61,7 +61,10 @@ const AddOns = () => {
                     <p>{details}</p>
                     <div className="action">
                       <p>₹ {price}</p>
-                      <button>Add</button>
+                      {
+                          info && info.addOns && info.addOns.id==id? <button className="button_remove" onClick={()=>{changeHandler({addOns:null})}}>Remove</button>:
+                          <button onClick={()=>{changeHandler({addOns:{id,price,itemsName}})}}>add</button>
+                        }
                     </div>
                   </div>
                 </div>

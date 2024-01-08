@@ -3,10 +3,13 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const accessToken = sessionStorage.getItem("token");
 
 export const adminApi = createApi({
+  reducerPath: "admin",
+  tagTypes: [],
   baseQuery: fetchBaseQuery({
     baseUrl: "https://binge-browser.onrender.com/api/v1/",
   }),
   endpoints: (builder) => ({
+
     //Login
     adminLogin: builder.mutation({
       query: (login) => ({

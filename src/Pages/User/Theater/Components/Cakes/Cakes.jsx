@@ -6,23 +6,26 @@ import cakesImg1 from "../../../../../Assets/cakesImg1.png";
 
 // Api Slices
 import { useGetCakesQuery } from "../../../../../Redux/Api/apiSlice";
+import { useEffect } from "react";
 
-const Cakes = () => {
+const Cakes = ({changeHandler,info}) => {
   const { data, error, isLoading } = useGetCakesQuery();
 
   if (error) {
     toast("Something went wrong!");
   }
 
-  if(data){
-    console.log(data.data)
+  useEffect(()=>{
+    if(data){
+      console.log(data)
+    }
 
-  }
+  },[data,isLoading])
 
   return (
     <section className="cakes-container">
       <h3>Cakes</h3>
-      {isLoading ? (
+      {isLoading && !data ? (
         <div className="loading">
           <h1>Loading...</h1>
         </div>
@@ -41,7 +44,10 @@ const Cakes = () => {
                     <p>{details}</p>
                     <div className="action">
                       <p>₹ {price}</p>
-                      <button>Add</button>
+                      {
+                          info && info.cake && info.cake.id==id? <button className="button_remove" onClick={()=>{changeHandler({cake:null})}}>Remove</button>:
+                          <button onClick={()=>{changeHandler({cake:{id,price,itemsName}})}}>add</button>
+                        }
                     </div>
                   </div>
                 </div>

@@ -70,6 +70,18 @@ $purple: #63049b;
             background-color: $purple;
             color: white;
           }
+
+          .button_remove {
+            width: 100px;
+            height: 32px;
+            padding: 10px 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            background-color: red;
+            color: white;
+          }
         }
       }
     }

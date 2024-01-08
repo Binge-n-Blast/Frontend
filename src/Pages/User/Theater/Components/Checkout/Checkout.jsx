@@ -12,8 +12,9 @@ import {
   setCheckoutActive,
   setPrice,
 } from "../../../../../Redux/Slices/User/checkoutSlice";
+import { useBookSlotMutation } from "../../../../../Redux/Slices/User/apiSlice";
 
-const Checkout = () => {
+const Checkout = ({info,theaterUid}) => {
   const dispatch = useDispatch();
 
   const isCheckoutActive = useSelector(
@@ -56,6 +57,20 @@ const Checkout = () => {
     );
   }
 
+const notNull=(val)=>{
+if(val==undefined || val==null){
+return 0
+}
+return parseInt(val)
+}
+// const 
+const [bookSlot]=useBookSlotMutation()
+const handleSubmit=async()=>{
+  const slots=slot.split("-")
+const res=await bookSlot({...theater,...info,theaterUid,bookedDate:date,startTime:date+"T"+slots[0],endtTime:date+"T"+slots[1]})
+console.log(res)
+}
+
   return (
     <section className="checkout">
       {isCheckoutActive ? (
@@ -87,15 +102,19 @@ const Checkout = () => {
           <div className="rest">
             <h3>Event Decoration</h3>
             <div className="data">
-              <p>Birthday</p>
+            {
+              info && info.decoration? <div className="data">
+              <p>{info.decoration.itemsName}</p>
               <p>
-                ₹ 999{" "}
+                ₹ {info.decoration.price}{" "}
                 <img
                   src={deleteImg}
                   alt=""
                   style={{ width: "12px", cursor: "pointer" }}
                 />
               </p>
+            </div>:""
+            }
             </div>
             <hr />
           </div>
@@ -103,41 +122,47 @@ const Checkout = () => {
           <div className="rest">
             <h3>Cakes</h3>
             <div className="data">
-              <p>Red Velvet</p>
+            {
+              info && info.cake? <div className="data">
+              <p>{info.cake.itemsName}</p>
               <p>
-                ₹ 699{" "}
+                ₹ {info.cake.price}{" "}
                 <img
                   src={deleteImg}
                   alt=""
                   style={{ width: "12px", cursor: "pointer" }}
                 />
               </p>
+            </div>:""
+            }
             </div>
             <hr />
           </div>
 
           <div className="rest">
             <h3>Add On’s</h3>
-            <div className="data">
-              <p>HDB Lights</p>
+            {
+              info && info.addOns? <div className="data">
+              <p>{info.addOns.itemsName}</p>
               <p>
-                ₹ 699{" "}
+                ₹ {info.addOns.price}{" "}
                 <img
                   src={deleteImg}
                   alt=""
                   style={{ width: "12px", cursor: "pointer" }}
                 />
               </p>
-            </div>
+            </div>:""
+            }
             <hr />
           </div>
 
           <div className="total">
             <h2>Grand Total</h2>
-            <h2>₹ 3,397</h2>
+            <h2>₹ {notNull(price)+notNull(info && info.addOns?info.addOns.price:0)+notNull(info && info.cake?info.cake.price:0)+notNull(info && info.decoration?info.decoration.price:0)}</h2>
           </div>
 
-          <button>Proceed to checkout</button>
+          <button onClick={handleSubmit}>Proceed to checkout</button>
         </>
       ) : (
         <div className="top" onClick={handleCheckoutActive}>

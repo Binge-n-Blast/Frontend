@@ -7,13 +7,12 @@ import eventImg1 from "../../../../../Assets/eventImg1.png";
 // Api SLices
 import { useGetDecorationsQuery } from "../../../../../Redux/Api/apiSlice";
 
-const Event = () => {
+const Event = ({changeHandler,info}) => {
   const { data, error, isLoading } = useGetDecorationsQuery();
-
+// const {decoration}=info
   if (error) {
     toast("Something went wrong!");
   }
-
 
   return (
     <section className="main-container">
@@ -39,7 +38,7 @@ const Event = () => {
             {data && data.data.length === 0 ? (
               <h1 className="no-data">No Data!</h1>
             ) : (
-              data.data.map((card) => {
+              data && data.data && data.data.map((card) => {
                 const { id, uid, price, itemsName, details } = card;
                 return (
                   <div className="card" key={id}>
@@ -49,7 +48,11 @@ const Event = () => {
                       <p>{details}</p>
                       <div className="action">
                         <p>₹ {price}</p>
-                        <button>Add</button>
+                        {
+                          info && info.decoration && info.decoration.id==id? <button className="button_remove" onClick={()=>{changeHandler({decoration:null})}}>Remove</button>:
+                          <button onClick={()=>{changeHandler({decoration:{id,price,itemsName}})}}>add</button>
+                        }
+                       
                       </div>
                     </div>
                   </div>
