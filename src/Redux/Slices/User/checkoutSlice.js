@@ -12,12 +12,10 @@ const initialState = {
     noOfPersons: "",
     extraPersonCost: "",
   },
-  cake:{
-    id:"",
-    itemsName:"",
-    
-  }
- 
+  cake: {
+    id: "",
+    itemsName: "",
+  },
 };
 
 const checkoutSlice = createSlice({
