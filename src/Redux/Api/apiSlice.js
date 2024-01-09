@@ -6,7 +6,6 @@ export const adminApi = createApi({
   reducerPath: "admin",
   tagTypes: [],
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://binge-browser.onrender.com/api/v1/",
   }),
   endpoints: (builder) => ({
 

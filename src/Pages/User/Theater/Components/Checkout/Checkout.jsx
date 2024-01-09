@@ -69,7 +69,6 @@ const Checkout = ({ info, theaterUid }) => {
       theaterUid,
       bookedDate: date,
       startTime: date + "T" + slots[0],
-      endtTime: date + "T" + slots[1],
     });
     dispatch(setCheckoutActive(!isCheckoutActive));
   };
