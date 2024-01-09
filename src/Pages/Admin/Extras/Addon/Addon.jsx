@@ -8,7 +8,7 @@ import Form from "../Form/Form";
 // Images
 import addon from "../../../../Assets/addon.png";
 import deleteIcon from "../../../../Assets/delete.png";
-import noImg from "../../../../Assets/noImg.jpg";
+import addOnsImg1 from "../../../../Assets/addOnsImg1.png";
 
 // Redux
 import { useDispatch } from "react-redux";
@@ -100,11 +100,11 @@ const Addon = () => {
                     />
                     {imagesJsonArray ? (
                       <HexToImage
-                        styleName="cake-image"
+                        className="cake-image"
                         hexValue={separateHex(imagesJsonArray.image)}
                       />
                     ) : (
-                      <img src={noImg} alt="" className="cake-image" />
+                      <img src={addOnsImg1} alt="" className="cake-image" />
                     )}
 
                     <div className="content">

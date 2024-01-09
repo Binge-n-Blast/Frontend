@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./../Pages/User/Theaters/Theaters.scss";
-export const HexToImage = ({ hexValue,styleName }) => {
+export const HexToImage = ({ hexValue }) => {
 
   const convert = () => {
     let cleanedHex = hexValue.replace(/[^A-Fa-f0-9]/g, "");
@@ -18,7 +18,7 @@ export const HexToImage = ({ hexValue,styleName }) => {
     }
 
     let byteArray = new Uint8Array(binary);
-    let img = document.querySelector(`.${styleName}`);
+    let img = document.querySelector(".heximage");
 
     img.src = window.URL.createObjectURL(
       new Blob([byteArray], { type: "application/octet-stream" })
@@ -28,7 +28,7 @@ export const HexToImage = ({ hexValue,styleName }) => {
     convert();
   }, [hexValue]);
 
-  return <img className={`${styleName}`} alt="Converted Image" />;
+  return <img className="heximage" alt="Converted Image" />;
 };
 
 export const separateHex = (hex) => {
