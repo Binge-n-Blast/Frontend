@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from "react";
 import "./../Pages/User/Theaters/Theaters.scss";
 export const HexToImage = ({hexValue,name}) => {
     console.log(hexValue)

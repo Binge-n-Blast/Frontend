@@ -1,17 +1,25 @@
 import "./Theaters.scss";
+import toast from "react-hot-toast";
 
 //Component
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 //Images
 import theater from "../../../Assets/theater.png";
-import img1 from "../../../Assets/img1.png";
+import noImg from "../../../Assets/noImg.jpg";
+
+
 
 //Redux
 import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
 
 const Theaters = () => {
   const { data, error, isLoading } = useGetTheatersQuery();
+
+  if (error) {
+    toast.error("Something went wrong!");
+  }
+
   return (
     <>
       <Navbar title="Theaters" image={theater} />
@@ -35,11 +43,13 @@ const Theaters = () => {
                       theaterName,
                       details,
                       price,
+                      imagesJsonArray,
                     } = card;
+
                     return (
                       <div className="card" key={uid}>
                         <div className="content">
-                          <img src={img1} alt="" />
+                       <img src={noImg} alt="" />
                           <h3>{theaterName}</h3>
                           <p>{details}</p>
                         </div>

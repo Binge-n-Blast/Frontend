@@ -67,7 +67,7 @@ const Addon = () => {
         itemsName: card.itemsName,
         details: card.details,
         price: card.price,
-        uid:card.uid
+        uid: card.uid,
       })
     );
   };

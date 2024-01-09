@@ -192,7 +192,6 @@ export const adminApi = createApi({
         },
         body:data.formsData
       }),
-      // invalidatesTags: ["Message"],
     }),
   }),
 });

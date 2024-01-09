@@ -1,4 +1,5 @@
 import "./Decoration.scss";
+import {toast} from "react-hot-toast"
 
 // Components
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";
