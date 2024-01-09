@@ -5,8 +5,7 @@ const accessToken = sessionStorage.getItem("token");
 export const adminApi = createApi({
   reducerPath: "admin",
   tagTypes: [],
-  baseQuery: fetchBaseQuery({
-  }),
+  baseQuery: fetchBaseQuery({baseUrl: "https://binge-browser.onrender.com/api/v1/",}),
   endpoints: (builder) => ({
 
     //Login

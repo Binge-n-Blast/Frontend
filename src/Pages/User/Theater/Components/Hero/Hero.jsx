@@ -27,6 +27,7 @@ import {
 //Api Slice
 import { useGetTheaterQuery } from "../../../../../Redux/Api/apiSlice";
 import { useGetSlotByDateQuery } from "../../../../../Redux/Slices/User/apiSlice";
+import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
 
 const Hero = ({ info }) => {
   const { id } = useParams();
@@ -101,9 +102,10 @@ const Hero = ({ info }) => {
             slidesPerView={1}
             className="carousel"
           >
-            {theaterData.images.map((image, index) => (
+            {data && data.data[0] && data.data[0].imagesJsonArray &&
+data.data[0].imagesJsonArray.map((image, index) => (
               <SwiperSlide key={index}>
-                <img src={image} alt="" />
+        {image &&<HexToImage hexValue={separateHex(image.image)} name={`image_${index}`}/>}
               </SwiperSlide>
             ))}
           </Swiper>

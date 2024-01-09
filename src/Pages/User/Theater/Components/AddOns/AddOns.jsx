@@ -52,11 +52,11 @@ const AddOns = ({changeHandler,info}) => {
           {data && data.data.length === 0 ? (
             <h1 className="no-data">No Data!</h1>
           ) : (
-            data && data.data && data.data.map((card) => {
+            data && data.data && data.data.map((card,index) => {
               const { id, uid, price, itemsName, details,imagesJsonArray } = card;
               return (
                 <div className="card" key={id}>
-                  {imagesJsonArray ?<HexToImage hexValue={separateHex(imagesJsonArray.image)} />:<img src={addOnsImg1} alt="" /> }
+                  {imagesJsonArray ?<HexToImage hexValue={separateHex(imagesJsonArray.image)} name={`image_${index}`}/>:<img src={addOnsImg1} alt="" /> }
                   <div className="content">
                     <h4>{itemsName}</h4>
                     <p>{details}</p>

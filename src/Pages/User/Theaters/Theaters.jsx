@@ -39,13 +39,13 @@ const Theaters = () => {
           ) : (
             <div className="cards">
               {data &&
-                data.data.map((card) => {
+                data.data.map((card,index) => {
                   const {  uid, theaterName, details, price,imagesJsonArray} = card;
                   return (
                     <div className="card" key={uid}>
                       <div className="content">
                         {/* <img src={img1} alt="" /> */}
-                        {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} />:<img src={img1} alt="" /> }
+                        {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} name={`image_${index}`}/>:<img src={img1} alt="" /> }
                         
                         <h3>{theaterName}</h3>
                         <p>{details}</p>

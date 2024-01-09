@@ -28,9 +28,13 @@ import {
   useDeleteAddonMutation,
   useGetAddonsQuery,
 } from "../../../../Redux/Api/apiSlice";
-import { HexToImage, separateHex } from "../../../../Utils/HexToImage";
+import  {HexToImage,separateHex} from "../../../../Utils/HexToImage";
+// import { separateHex } from "../../../../Utils/separateHex";
+
 
 const Addon = () => {
+
+
   const dispatch = useDispatch();
 
   const { data, error, isLoading } = useGetAddonsQuery();
@@ -86,7 +90,7 @@ const Addon = () => {
             {data && data.data.length === 0 ? (
               <h1 className="no-data">No Data!</h1>
             ) : (
-              data.data.map((card) => {
+              data.data.map((card,index) => {
                 const { uid, price, itemsName, details,imagesJsonArray } = card;
                 return (
                   <div className="card" key={uid}>
@@ -96,9 +100,7 @@ const Addon = () => {
                       className="delete"
                       alt=""
                     />
-                  {imagesJsonArray ?<HexToImage className="cake-image" hexValue={separateHex(imagesJsonArray.image)} />:<img src={addOnsImg1} alt="" className="cake-image" /> }
-
-                    {/* <img src={addOnsImg1} alt="" className="cake-image" /> */}
+                  {imagesJsonArray ?<HexToImage hexValue={separateHex(imagesJsonArray.image)} name={`image_${index}`}/>:<img src={addOnsImg1} alt="" /> }
                     <div className="content">
                       <h4>{itemsName}</h4>
                       <p>{details}</p>

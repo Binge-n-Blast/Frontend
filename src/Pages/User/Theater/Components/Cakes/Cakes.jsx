@@ -6,7 +6,7 @@ import cakesImg1 from "../../../../../Assets/cakesImg1.png";
 
 // Api Slices
 import { useGetCakesQuery } from "../../../../../Redux/Api/apiSlice";
-import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
+import  {HexToImage,separateHex} from "../../../../../Utils/HexToImage";
 
 const Cakes = ({changeHandler,info}) => {
   const { data, error, isLoading } = useGetCakesQuery();
@@ -29,11 +29,11 @@ const Cakes = ({changeHandler,info}) => {
           {data && data.data.length === 0 ? (
             <h1 className="no-data">No Data!</h1>
           ) : (
-            data.data.map((card) => {
+            data.data.map((card,index) => {
               const { id, uid, price, itemsName, details,imagesJsonArray } = card;
               return (
                 <div className="card" key={id}>
-                  {imagesJsonArray?<HexToImage hexValue={separateHex(imagesJsonArray.image)} />:<img src={cakesImg1} alt="" /> }
+                  {imagesJsonArray ?<HexToImage hexValue={separateHex(imagesJsonArray.image)} name={`image_${index}`}/>:<img src={cakesImg1} alt="" /> }
                   {/* <img src={cakesImg1} alt="" /> */}
                   <div className="content">
                     <h4>{itemsName}</h4>
