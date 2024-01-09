@@ -50,7 +50,7 @@ const Event = ({changeHandler,info}) => {
                       <div className="action">
                         <p>₹ {price}</p>
                         {
-                          info && info.decoration && info.decoration.id==id? <button className="button_remove" onClick={()=>{changeHandler({decoration:null})}}>Remove</button>:
+                          info && info.decoration && info.decoration.id==id? <button className="button_remove" onClick={()=>{changeHandler({decoration:null})}}>remove</button>:
                           <button onClick={()=>{changeHandler({decoration:{id,price,itemsName}})}}>add</button>
                         }
                        

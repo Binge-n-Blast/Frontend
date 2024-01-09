@@ -63,7 +63,7 @@ const AddOns = ({changeHandler,info}) => {
                     <div className="action">
                       <p>₹ {price}</p>
                       {
-                          info && info.addOns && info.addOns.id==id? <button className="button_remove" onClick={()=>{changeHandler({addOns:null})}}>Remove</button>:
+                          info && info.addOns && info.addOns.id==id? <button className="button_remove" onClick={()=>{changeHandler({addOns:null})}}>remove</button>:
                           <button onClick={()=>{changeHandler({addOns:{id,price,itemsName}})}}>add</button>
                         }
                     </div>

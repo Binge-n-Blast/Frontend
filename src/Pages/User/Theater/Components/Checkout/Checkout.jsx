@@ -2,7 +2,6 @@ import "./Checkout.scss";
 
 // Icons
 import { FaPlus, FaMinus } from "react-icons/fa";
-import deleteImg from "../../../../../Assets/delete.png";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +13,7 @@ import {
 } from "../../../../../Redux/Slices/User/checkoutSlice";
 import { useBookSlotMutation } from "../../../../../Redux/Slices/User/apiSlice";
 
-const Checkout = ({info,theaterUid}) => {
+const Checkout = ({ info, theaterUid }) => {
   const dispatch = useDispatch();
 
   const isCheckoutActive = useSelector(
@@ -24,7 +23,6 @@ const Checkout = ({info,theaterUid}) => {
   const slot = useSelector((state) => state.checkout.slot);
   const person = useSelector((state) => state.checkout.person);
   const price = useSelector((state) => state.checkout.price);
-
   const theater = useSelector((state) => state.checkout.theater);
 
   const handleCheckoutActive = () => {
@@ -34,13 +32,11 @@ const Checkout = ({info,theaterUid}) => {
   if (parseInt(person) < 7) {
     dispatch(setPrice(parseInt(theater.price)));
   }
-
   if (parseInt(person) === 7) {
     dispatch(
       setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost))
     );
   }
-
   if (parseInt(person) === 8) {
     dispatch(
       setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost) * 2)
@@ -57,6 +53,7 @@ const Checkout = ({info,theaterUid}) => {
     );
   }
 
+<<<<<<< HEAD
 const notNull=(val)=>{
 if(val==undefined || val==null){
 return 0
@@ -70,6 +67,28 @@ const handleSubmit=async()=>{
 const res=await bookSlot({...theater,...info,theaterUid,bookedDate:date,startTime:date+"T"+slots[0],endTime:date+"T"+slots[1]})
 console.log(res)
 }
+=======
+  const notNull = (val) => {
+    if (val == undefined || val == null) {
+      return 0;
+    }
+    return parseInt(val);
+  };
+  // const
+  const [bookSlot] = useBookSlotMutation();
+  const handleSubmit = async () => {
+    const slots = slot.split("-");
+    const res = await bookSlot({
+      ...theater,
+      ...info,
+      theaterUid,
+      bookedDate: date,
+      startTime: date + "T" + slots[0],
+      endtTime: date + "T" + slots[1],
+    });
+    dispatch(setCheckoutActive(!isCheckoutActive));
+  };
+>>>>>>> 79d852ba1a32d898fd75036d8c771642330ccb79
 
 
   return (
@@ -103,19 +122,14 @@ console.log(res)
           <div className="rest">
             <h3>Event Decoration</h3>
             <div className="data">
-            {
-              info && info.decoration? <div className="data">
-              <p>{info.decoration.itemsName}</p>
-              <p>
-                ₹ {info.decoration.price}{" "}
-                <img
-                  src={deleteImg}
-                  alt=""
-                  style={{ width: "12px", cursor: "pointer" }}
-                />
-              </p>
-            </div>:""
-            }
+              {info && info.decoration ? (
+                <div className="data">
+                  <p>{info.decoration.itemsName}</p>
+                  <p>₹ {info.decoration.price}</p>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <hr />
           </div>
@@ -123,44 +137,40 @@ console.log(res)
           <div className="rest">
             <h3>Cakes</h3>
             <div className="data">
-            {
-              info && info.cake? <div className="data">
-              <p>{info.cake.itemsName}</p>
-              <p>
-                ₹ {info.cake.price}{" "}
-                <img
-                  src={deleteImg}
-                  alt=""
-                  style={{ width: "12px", cursor: "pointer" }}
-                />
-              </p>
-            </div>:""
-            }
+              {info && info.cake ? (
+                <div className="data">
+                  <p>{info.cake.itemsName}</p>
+                  <p>₹ {info.cake.price}</p>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <hr />
           </div>
 
           <div className="rest">
             <h3>Add On’s</h3>
-            {
-              info && info.addOns? <div className="data">
-              <p>{info.addOns.itemsName}</p>
-              <p>
-                ₹ {info.addOns.price}{" "}
-                <img
-                  src={deleteImg}
-                  alt=""
-                  style={{ width: "12px", cursor: "pointer" }}
-                />
-              </p>
-            </div>:""
-            }
+            {info && info.addOns ? (
+              <div className="data">
+                <p>{info.addOns.itemsName}</p>
+                <p>₹ {info.addOns.price}</p>
+              </div>
+            ) : (
+              ""
+            )}
             <hr />
           </div>
 
           <div className="total">
             <h2>Grand Total</h2>
-            <h2>₹ {notNull(price)+notNull(info && info.addOns?info.addOns.price:0)+notNull(info && info.cake?info.cake.price:0)+notNull(info && info.decoration?info.decoration.price:0)}</h2>
+            <h2>
+              ₹{" "}
+              {notNull(price) +
+                notNull(info && info.addOns ? info.addOns.price : 0) +
+                notNull(info && info.cake ? info.cake.price : 0) +
+                notNull(info && info.decoration ? info.decoration.price : 0)}
+            </h2>
           </div>
 
           <button onClick={handleSubmit}>Proceed to checkout</button>
