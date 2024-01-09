@@ -53,21 +53,6 @@ const Checkout = ({ info, theaterUid }) => {
     );
   }
 
-<<<<<<< HEAD
-const notNull=(val)=>{
-if(val==undefined || val==null){
-return 0
-}
-return parseInt(val)
-}
-// const 
-const [bookSlot]=useBookSlotMutation()
-const handleSubmit=async()=>{
-  const slots=slot.split("-")
-const res=await bookSlot({...theater,...info,theaterUid,bookedDate:date,startTime:date+"T"+slots[0],endTime:date+"T"+slots[1]})
-console.log(res)
-}
-=======
   const notNull = (val) => {
     if (val == undefined || val == null) {
       return 0;
@@ -88,7 +73,6 @@ console.log(res)
     });
     dispatch(setCheckoutActive(!isCheckoutActive));
   };
->>>>>>> 79d852ba1a32d898fd75036d8c771642330ccb79
 
 
   return (
