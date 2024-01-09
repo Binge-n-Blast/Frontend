@@ -56,7 +56,7 @@ const AddOns = ({changeHandler,info}) => {
               const { id, uid, price, itemsName, details,imagesJsonArray } = card;
               return (
                 <div className="card" key={id}>
-                  {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} />:<img src={addOnsImg1} alt="" /> }
+                  {imagesJsonArray ?<HexToImage hexValue={separateHex(imagesJsonArray.image)} />:<img src={addOnsImg1} alt="" /> }
                   <div className="content">
                     <h4>{itemsName}</h4>
                     <p>{details}</p>

@@ -6,7 +6,7 @@ export const userApi = createApi({
     reducerPath: "user",
     tagTypes: [],
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/v1/",
+    baseUrl: "https://binge-browser.onrender.com/api/v1/",
   }),
   endpoints: (builder) => ({
     

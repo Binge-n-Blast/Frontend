@@ -27,6 +27,8 @@ import {
   useGetDecorationsQuery,
   useDeleteDecorationMutation,
 } from "../../../../Redux/Api/apiSlice";
+import { useEffect } from "react";
+import { HexToImage, separateHex } from "../../../../Utils/HexToImage";
 
 const Decoration = () => {
   const dispatch = useDispatch();
@@ -60,10 +62,14 @@ const Decoration = () => {
         itemsName: card.itemsName,
         details: card.details,
         price: card.price,
+        uid:card.uid
       })
     );
   };
 
+ useEffect(()=>{
+console.log(data)
+ },[data])
   return (
     <>
       <Form />
@@ -83,7 +89,7 @@ const Decoration = () => {
               <h1 className="no-data">No Data!</h1>
             ) : (
               data.data.map((card) => {
-                const { uid, price, itemsName, details } = card;
+                const { uid,imagesJsonArray, price, itemsName, details } = card;
                 return (
                   <div className="card" key={uid}>
                     <img
@@ -92,7 +98,9 @@ const Decoration = () => {
                       className="delete"
                       alt=""
                     />
-                    <img src={eventImg1} alt="" className="cake-image" />
+                                      {imagesJsonArray ?<HexToImage className="cake-image" hexValue={separateHex(imagesJsonArray.image)} />:<img src={eventImg1} alt="" className="cake-image" /> }
+
+                    
                     <div className="content">
                       <h4>{itemsName}</h4>
                       <p>{details}</p>

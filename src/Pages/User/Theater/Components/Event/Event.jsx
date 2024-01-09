@@ -43,7 +43,7 @@ const Event = ({changeHandler,info}) => {
                 const { id, imagesJsonArray, price, itemsName, details } = card;
                 return (
                   <div className="card" key={id}>
-                  {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} />:<img src={eventImg1} alt="" /> }
+                  {imagesJsonArray ?<HexToImage hexValue={separateHex(imagesJsonArray.image)} />:<img src={eventImg1} alt="" /> }
                     <div className="content">
                       <h4>{itemsName}</h4>
                       <p>{details}</p>

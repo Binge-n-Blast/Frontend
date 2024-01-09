@@ -22,7 +22,9 @@ import {
   useEditDecorationMutation,
   useAddAddonMutation,
   useEditAddonMutation,
+  useImageUploadMutation
 } from "../../../../Redux/Api/apiSlice";
+import { useEffect } from "react";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -137,6 +139,20 @@ const Form = () => {
     }
   };
 
+const [imageUpload]=useImageUploadMutation()
+  const handleFileChange =async(event) => {
+    const formsData= new FormData();
+    formsData.append('image',event.target.files[0])
+const res=await imageUpload({formsData,uid:formData.uid})
+console.log(res)
+  };
+
+  useEffect(()=>{
+if(formData){
+  console.log(formData)
+}
+  },[formData])
+
   return (
     <div className="form">
       <Modal
@@ -170,7 +186,7 @@ const Form = () => {
               value={formData.price}
               name="price"
             />
-            <input type="file" />
+            <input type="file" onChange={handleFileChange}/>
           </div>
           <div className="buttons" onClick={isEdit ? handleEdit : handleSubmit}>
             <button>{isEdit ? "Edit" : "Save"}</button>

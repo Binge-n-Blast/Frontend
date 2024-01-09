@@ -39,7 +39,7 @@ const Cakes = ({changeHandler,info}) => {
               const { id, uid, price, itemsName, details,imagesJsonArray } = card;
               return (
                 <div className="card" key={id}>
-                  {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} />:<img src={cakesImg1} alt="" /> }
+                  {imagesJsonArray?<HexToImage hexValue={separateHex(imagesJsonArray.image)} />:<img src={cakesImg1} alt="" /> }
                   {/* <img src={cakesImg1} alt="" /> */}
                   <div className="content">
                     <h4>{itemsName}</h4>

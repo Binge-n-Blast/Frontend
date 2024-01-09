@@ -67,9 +67,10 @@ return parseInt(val)
 const [bookSlot]=useBookSlotMutation()
 const handleSubmit=async()=>{
   const slots=slot.split("-")
-const res=await bookSlot({...theater,...info,theaterUid,bookedDate:date,startTime:date+"T"+slots[0],endtTime:date+"T"+slots[1]})
+const res=await bookSlot({...theater,...info,theaterUid,bookedDate:date,startTime:date+"T"+slots[0],endTime:date+"T"+slots[1]})
 console.log(res)
 }
+
 
   return (
     <section className="checkout">

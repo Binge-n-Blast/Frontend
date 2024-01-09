@@ -28,6 +28,7 @@ import {
   useGetCakesQuery,
   useDeleteCakeMutation,
 } from "../../../../Redux/Api/apiSlice";
+import { HexToImage, separateHex } from "../../../../Utils/HexToImage";
 
 const Cake = () => {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ const Cake = () => {
         itemsName: card.itemsName,
         details: card.details,
         price: card.price,
+        uid:card.uid
       })
     );
   };
@@ -84,7 +86,7 @@ const Cake = () => {
               <h1 className="no-data">No Data!</h1>
             ) : (
               data.data.map((card) => {
-                const { uid, price, itemsName, details } = card;
+                const { uid, price, itemsName,imagesJsonArray, details } = card;
                 return (
                   <div className="card" key={uid}>
                     <img
@@ -93,7 +95,8 @@ const Cake = () => {
                       className="delete"
                       alt=""
                     />
-                    <img src={cakesImg1} alt="" className="cake-image" />
+                      {imagesJsonArray ?<HexToImage className="cake-image" hexValue={separateHex(imagesJsonArray.image)} />:<img src={cakesImg1} alt="" className="cake-image" /> }
+                    {/* <img src={cakesImg1} alt="" className="cake-image" /> */}
                     <div className="content">
                       <h4>{itemsName}</h4>
                       <p>{details}</p>

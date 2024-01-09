@@ -16,8 +16,7 @@ setData({...data,...props})
   }
 
   const {id}=useParams()
-  console.log("lllllllllllllllllll")
-  console.log(id)
+
   return (
     <section className="theater">
       <Hero info={data}/>

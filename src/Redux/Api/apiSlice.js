@@ -184,6 +184,18 @@ export const adminApi = createApi({
       }),
       invalidatesTags: ["Message"],
     }),
+
+    imageUpload: builder.mutation({
+      query: (data) => ({
+        url: `image/thumbnail/${data.uid}`,
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+        body:data.formsData
+      }),
+      // invalidatesTags: ["Message"],
+    }),
   }),
 });
 
@@ -211,4 +223,8 @@ export const {
   usePostMessageMutation,
   useGetMessageQuery,
   useDeleteMessageMutation,
+
+  useImageUploadMutation
+
+
 } = adminApi;
