@@ -8,7 +8,7 @@ import Form from "../Form/Form";
 // Images
 import addon from "../../../../Assets/addon.png";
 import deleteIcon from "../../../../Assets/delete.png";
-import addOnsImg1 from "../../../../Assets/addOnsImg1.png";
+import noImg from "../../../../Assets/noImg.jpg";
 
 // Redux
 import { useDispatch } from "react-redux";
@@ -63,7 +63,7 @@ const Addon = () => {
         itemsName: card.itemsName,
         details: card.details,
         price: card.price,
-        uid:card.uid
+        uid: card.uid,
       })
     );
   };
@@ -86,8 +86,10 @@ const Addon = () => {
             {data && data.data.length === 0 ? (
               <h1 className="no-data">No Data!</h1>
             ) : (
+              data &&
               data.data.map((card) => {
-                const { uid, price, itemsName, details,imagesJsonArray } = card;
+                const { uid, price, itemsName, details, imagesJsonArray } =
+                  card;
                 return (
                   <div className="card" key={uid}>
                     <img
@@ -96,9 +98,15 @@ const Addon = () => {
                       className="delete"
                       alt=""
                     />
-                  {imagesJsonArray ?<HexToImage className="cake-image" hexValue={separateHex(imagesJsonArray.image)} />:<img src={addOnsImg1} alt="" className="cake-image" /> }
+                    {imagesJsonArray ? (
+                      <HexToImage
+                        styleName="cake-image"
+                        hexValue={separateHex(imagesJsonArray.image)}
+                      />
+                    ) : (
+                      <img src={noImg} alt="" className="cake-image" />
+                    )}
 
-                    {/* <img src={addOnsImg1} alt="" className="cake-image" /> */}
                     <div className="content">
                       <h4>{itemsName}</h4>
                       <p>{details}</p>

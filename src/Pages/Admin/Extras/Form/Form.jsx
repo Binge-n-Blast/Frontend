@@ -22,9 +22,8 @@ import {
   useEditDecorationMutation,
   useAddAddonMutation,
   useEditAddonMutation,
-  useImageUploadMutation
+  useImageUploadMutation,
 } from "../../../../Redux/Api/apiSlice";
-import { useEffect } from "react";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -42,7 +41,6 @@ const Form = () => {
   const [editCake] = useEditCakeMutation();
   const [editDecoration] = useEditDecorationMutation();
   const [editAddon] = useEditAddonMutation();
-
 
   //Popup
   const handleCloseModal = () => {
@@ -139,19 +137,17 @@ const Form = () => {
     }
   };
 
-const [imageUpload]=useImageUploadMutation()
-  const handleFileChange =async(event) => {
-    const formsData= new FormData();
-    formsData.append('image',event.target.files[0])
-const res=await imageUpload({formsData,uid:formData.uid})
-console.log(res)
-  };
+  if (isEdit) {
+    console.log(formData);
+  }
 
-  useEffect(()=>{
-if(formData){
-  console.log(formData)
-}
-  },[formData])
+  const [imageUpload] = useImageUploadMutation();
+
+  const handleFileChange = async (event) => {
+    const formsData = new FormData();
+    formsData.append("image", event.target.files[0]);
+    const res = await imageUpload({ formsData, uid: formData.uid });
+  };
 
   return (
     <div className="form">
@@ -163,7 +159,6 @@ if(formData){
       >
         <Box className="form-box">
           <h2>{title}</h2>
-
           <div className="form">
             <input
               type="text"
@@ -186,7 +181,7 @@ if(formData){
               value={formData.price}
               name="price"
             />
-            <input type="file" onChange={handleFileChange}/>
+            {isEdit ? <input type="file" onChange={handleFileChange} /> : ""}
           </div>
           <div className="buttons" onClick={isEdit ? handleEdit : handleSubmit}>
             <button>{isEdit ? "Edit" : "Save"}</button>
