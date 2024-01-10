@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import img1 from "../../../Assets/userTheaterImg1.png";
 
 import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
-import {HexToImage,separateHex} from "../../../Utils/HexToImage";
+import { HexToImage, separateHex } from "../../../Utils/HexToImage";
 
 const Theaters = () => {
   const { data, error, isLoading } = useGetTheatersQuery();
-
+console.log(data)
   return (
     <section className="theaters">
       <div className="blue-blob1"></div>
@@ -39,14 +39,22 @@ const Theaters = () => {
           ) : (
             <div className="cards">
               {data &&
-                data.data.map((card,index) => {
-                  const {  uid, theaterName, details, price,imagesJsonArray} = card;
+                data.data.map((card, index) => {
+                  const { uid, theaterName, details, price, imagesJsonArray } =
+                    card;
                   return (
                     <div className="card" key={uid}>
                       <div className="content">
-                        {/* <img src={img1} alt="" /> */}
-                        {imagesJsonArray && imagesJsonArray[0]?<HexToImage hexValue={separateHex(imagesJsonArray[0].image)} name={`image_${index}`}/>:<img src={img1} alt="" /> }
-                        
+                        {/* {imagesJsonArray && imagesJsonArray[0] ? (
+                          <HexToImage
+                            hexValue={separateHex(imagesJsonArray[0].image)}
+                            name={`image_${index}`}
+                          />
+                        ) : (
+                          <img src={img1} alt="" />
+                        )} */}
+                          <img src={img1} alt="" />
+
                         <h3>{theaterName}</h3>
                         <p>{details}</p>
                       </div>

@@ -11,7 +11,7 @@ import noImg from "../../../../Assets/noImg.jpg";
 import deleteIcon from "../../../../Assets/delete.png";
 
 // Redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // State Slices
 import {
@@ -29,7 +29,7 @@ import {
   useDeleteCakeMutation,
 } from "../../../../Redux/Api/apiSlice";
 
-//Hex to Image
+//Hex to Image Function
 import { HexToImage } from "../../../../Utils/HexToImage";
 
 

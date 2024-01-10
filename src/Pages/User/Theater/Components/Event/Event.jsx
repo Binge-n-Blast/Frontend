@@ -2,14 +2,15 @@ import "./Event.scss";
 import { toast } from "react-hot-toast";
 
 // Images
-import eventImg1 from "../../../../../Assets/eventImg1.png";
+import noImg from "../../../../../Assets/noImg.jpg";
 
 // Api SLices
 import { useGetDecorationsQuery } from "../../../../../Redux/Api/apiSlice";
-import  {HexToImage,separateHex} from "../../../../../Utils/HexToImage";
-const Event = ({changeHandler,info}) => {
+import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
+
+const Event = ({ changeHandler, info }) => {
   const { data, error, isLoading } = useGetDecorationsQuery();
-// const {decoration}=info
+
   if (error) {
     toast("Something went wrong!");
   }
@@ -38,21 +39,48 @@ const Event = ({changeHandler,info}) => {
             {data && data.data.length === 0 ? (
               <h1 className="no-data">No Data!</h1>
             ) : (
-              data && data.data && data.data.map((card,index) => {
-                const { id, imagesJsonArray, price, itemsName, details } = card;
+              data.data.map((card) => {
+                const { id, uid, price, itemsName, details, imagesJsonArray } =
+                  card;
+
+                const hexValues = imagesJsonArray
+                  ? [imagesJsonArray.image]
+                  : [];
                 return (
                   <div className="card" key={id}>
-                  {imagesJsonArray ?<HexToImage hexValue={separateHex(imagesJsonArray.image)} name={`image_${index}`}/>:<img src={eventImg1} alt="" /> }
+                    {hexValues.length > 0 ? (
+                      <HexToImage
+                        hexValues={hexValues}
+                        name={`addon-image-${uid}`}
+                      />
+                    ) : (
+                      <img src={noImg} alt="" className="cake-image" />
+                    )}
                     <div className="content">
                       <h4>{itemsName}</h4>
                       <p>{details}</p>
                       <div className="action">
                         <p>₹ {price}</p>
-                        {
-                          info && info.decoration && info.decoration.id==id? <button className="button_remove" onClick={()=>{changeHandler({decoration:null})}}>remove</button>:
-                          <button onClick={()=>{changeHandler({decoration:{id,price,itemsName}})}}>add</button>
-                        }
-                       
+                        {info && info.decoration && info.decoration.id == id ? (
+                          <button
+                            className="button_remove"
+                            onClick={() => {
+                              changeHandler({ decoration: null });
+                            }}
+                          >
+                            remove
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              changeHandler({
+                                decoration: { id, price, itemsName },
+                              });
+                            }}
+                          >
+                            add
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

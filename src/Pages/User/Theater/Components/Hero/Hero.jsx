@@ -27,7 +27,7 @@ import {
 //Api Slice
 import { useGetTheaterQuery } from "../../../../../Redux/Api/apiSlice";
 import { useGetSlotByDateQuery } from "../../../../../Redux/Slices/User/apiSlice";
-import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
+// import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
 
 const Hero = ({ info }) => {
   const { id } = useParams();
@@ -83,40 +83,41 @@ const Hero = ({ info }) => {
     <>
       <section className="theater-hero">
         {theaterData.images.length > 1 ? (
-          <Swiper
-            loop={true}
-            navigation={true}
-            grabCursor={true}
-            effect={"creative"}
-            pagination={true}
-            creativeEffect={{
-              prev: {
-                shadow: true,
-                translate: [0, 0, -400],
-              },
-              next: {
-                translate: ["100%", 0, 0],
-              },
-            }}
-            modules={[Pagination, EffectCreative]}
-            slidesPerView={1}
-            className="carousel"
-          >
-            {data &&
-              data.data[0] &&
-              data.data[0].imagesJsonArray &&
-              data.data[0].imagesJsonArray.map((image, index) => (
-                <SwiperSlide key={index}>
-                  {image && (
-                    <HexToImage
-                      hexValue={separateHex(image.image)}
-                      name={`image_${index}`}
-                    />
-                  )}
-                </SwiperSlide>
-              ))}
-          </Swiper>
+          <img src={theaterImg} />
         ) : (
+          // <Swiper
+          //   loop={true}
+          //   navigation={true}
+          //   grabCursor={true}
+          //   effect={"creative"}
+          //   pagination={true}
+          //   creativeEffect={{
+          //     prev: {
+          //       shadow: true,
+          //       translate: [0, 0, -400],
+          //     },
+          //     next: {
+          //       translate: ["100%", 0, 0],
+          //     },
+          //   }}
+          //   modules={[Pagination, EffectCreative]}
+          //   slidesPerView={1}
+          //   className="carousel"
+          // >
+          //   {data &&
+          //     data.data[0] &&
+          //     data.data[0].imagesJsonArray &&
+          //     data.data[0].imagesJsonArray.map((image, index) => (
+          //       <SwiperSlide key={index}>
+          //         {image && (
+          //           <HexToImage
+          //             hexValue={separateHex(image.image)}
+          //             name={`image_${index}`}
+          //           />
+          //         )}
+          //       </SwiperSlide>
+          //     ))}
+          // </Swiper>
           <img src={theaterImg} />
         )}
         <div className="blue-blob1"></div>
