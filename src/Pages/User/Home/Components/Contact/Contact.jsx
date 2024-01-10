@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { usePostMessageMutation } from "../../../../../Redux/Api/apiSlice";
 
 const Contact = () => {
-  const[postMessage] =usePostMessageMutation()
+  const [postMessage] = usePostMessageMutation();
 
   const [user, setUser] = useState({
     full_name: "",
@@ -20,11 +20,20 @@ const Contact = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await postMessage(user);
-    toast.success("Message sent successfully!")
-    
+    if (response) {
+      toast.success("Message sent successfully!");
+      setUser({
+        full_name: "",
+        email: "",
+        phone_number: "",
+        message: "",
+      });
+    } else {
+      toast.error("Please try again!");
+    }
   };
   return (
     <section className="contact" id="contact">

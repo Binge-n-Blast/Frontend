@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import img1 from "../../../Assets/userTheaterImg1.png";
 
 import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
-import { HexToImage, separateHex } from "../../../Utils/HexToImage";
+import { SingleHexToImage, separateHex } from "../../../Utils/SingleHexToImage";
 
 const Theaters = () => {
   const { data, error, isLoading } = useGetTheatersQuery();
-console.log(data)
+
   return (
     <section className="theaters">
       <div className="blue-blob1"></div>
@@ -45,15 +45,14 @@ console.log(data)
                   return (
                     <div className="card" key={uid}>
                       <div className="content">
-                        {/* {imagesJsonArray && imagesJsonArray[0] ? (
-                          <HexToImage
+                        {imagesJsonArray && imagesJsonArray[0] ? (
+                          <SingleHexToImage
                             hexValue={separateHex(imagesJsonArray[0].image)}
                             name={`image_${index}`}
                           />
                         ) : (
                           <img src={img1} alt="" />
-                        )} */}
-                          <img src={img1} alt="" />
+                        )}
 
                         <h3>{theaterName}</h3>
                         <p>{details}</p>

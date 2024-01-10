@@ -1,5 +1,5 @@
 import "./Cake.scss";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 // Components
 import Navbar from "../../../../Components/Admin/Navbar/Navbar";

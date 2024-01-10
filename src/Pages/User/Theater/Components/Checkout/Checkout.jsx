@@ -1,4 +1,5 @@
 import "./Checkout.scss";
+import{toast} from "react-hot-toast"
 
 // Icons
 import { FaPlus, FaMinus } from "react-icons/fa";
@@ -11,6 +12,8 @@ import {
   setCheckoutActive,
   setPrice,
 } from "../../../../../Redux/Slices/User/checkoutSlice";
+
+//API Slice
 import { useBookSlotMutation } from "../../../../../Redux/Slices/User/apiSlice";
 
 const Checkout = ({ info, theaterUid }) => {
@@ -59,8 +62,10 @@ const Checkout = ({ info, theaterUid }) => {
     }
     return parseInt(val);
   };
-  // const
+
+
   const [bookSlot] = useBookSlotMutation();
+
   const handleSubmit = async () => {
     const slots = slot.split("-");
     const res = await bookSlot({
@@ -71,6 +76,7 @@ const Checkout = ({ info, theaterUid }) => {
       startTime: date + "T" + slots[0],
     });
     dispatch(setCheckoutActive(!isCheckoutActive));
+    toast.success("Booking Successful!")
   };
 
 

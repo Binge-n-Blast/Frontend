@@ -1,6 +1,6 @@
 import "./Popup.scss";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 // MUi
 import { Box, Modal } from "@mui/material";

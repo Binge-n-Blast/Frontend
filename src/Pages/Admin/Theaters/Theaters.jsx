@@ -1,5 +1,5 @@
 import "./Theaters.scss";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 //Component
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
@@ -7,8 +7,6 @@ import Navbar from "../../../Components/Admin/Navbar/Navbar";
 //Images
 import theater from "../../../Assets/theater.png";
 import noImg from "../../../Assets/noImg.jpg";
-
-
 
 //Redux
 import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
@@ -49,7 +47,7 @@ const Theaters = () => {
                     return (
                       <div className="card" key={uid}>
                         <div className="content">
-                       <img src={noImg} alt="" />
+                          <img src={noImg} alt="" />
                           <h3>{theaterName}</h3>
                           <p>{details}</p>
                         </div>

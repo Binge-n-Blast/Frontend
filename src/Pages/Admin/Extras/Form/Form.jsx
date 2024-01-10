@@ -1,5 +1,5 @@
 import "./Form.scss";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 // MUi
 import { Box, Modal } from "@mui/material";

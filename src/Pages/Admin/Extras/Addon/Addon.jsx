@@ -1,5 +1,5 @@
 import "./Addon.scss";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 // Components
 import Form from "../Form/Form";
