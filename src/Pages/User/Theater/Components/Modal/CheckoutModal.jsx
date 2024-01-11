@@ -14,7 +14,7 @@ import {
   setModalClose,
   setInfo,
 } from "../../../../../Redux/Slices/User/modalSlice";
-import {setCheckoutActive} from "../../../../../Redux/Slices/User/checkoutSlice"
+import { setCheckoutActive } from "../../../../../Redux/Slices/User/checkoutSlice";
 
 const CheckoutModal = () => {
   const { id } = useParams();
@@ -48,14 +48,15 @@ const CheckoutModal = () => {
   };
 
   const handleSubmit = () => {
+    console.log(user);
     setUser({
       customerName: "",
       phoneNumber: "",
     });
     dispatch(setModalClose());
     dispatch(setInfo(null));
-    dispatch(setCheckoutActive(false))
-    toast.success("Booking Successful!")
+    dispatch(setCheckoutActive(false));
+    toast.success("Booking Successful!");
   };
 
   return (
