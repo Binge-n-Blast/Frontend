@@ -10,11 +10,16 @@ import { Box, Modal } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 
 // Reducers
-import { setModalClose } from "../../../../../Redux/Slices/User/modalSlice";
+import {
+  setModalClose,
+  setInfo,
+} from "../../../../../Redux/Slices/User/modalSlice";
+import {setCheckoutActive} from "../../../../../Redux/Slices/User/checkoutSlice"
 
 const CheckoutModal = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
   const date = useSelector((state) => state.checkout.date);
   const slot = useSelector((state) => state.checkout.slot);
@@ -43,12 +48,14 @@ const CheckoutModal = () => {
   };
 
   const handleSubmit = () => {
-    console.log(user);
     setUser({
       customerName: "",
       phoneNumber: "",
     });
     dispatch(setModalClose());
+    dispatch(setInfo(null));
+    dispatch(setCheckoutActive(false))
+    toast.success("Booking Successful!")
   };
 
   return (

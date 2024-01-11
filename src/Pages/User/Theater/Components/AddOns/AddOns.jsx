@@ -36,7 +36,7 @@ const AddOns = ({ changeHandler, info }) => {
               const hexValues = imagesJsonArray ? [imagesJsonArray.image] : [];
               return (
                 <div className="card" key={id}>
-                   {hexValues.length > 0 ? (
+                  {hexValues.length > 0 ? (
                     <HexToImage
                       hexValues={hexValues}
                       name={`addon-image-${uid}`}
