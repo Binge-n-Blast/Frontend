@@ -20,6 +20,7 @@ const Popup = () => {
   const handlePopupCloseModal = () => {
     dispatch(handlePopupClose());
   };
+
   const handleLogout = () => {
     dispatch(logout());
     toast.success("Logged out!");

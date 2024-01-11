@@ -1,8 +1,10 @@
 import "./Checkout.scss";
-import{toast} from "react-hot-toast"
 
 // Icons
 import { FaPlus, FaMinus } from "react-icons/fa";
+
+// Components
+import CheckoutModal from "../Modal/CheckoutModal";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -11,12 +13,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setCheckoutActive,
   setPrice,
+  setGrandTotal,
 } from "../../../../../Redux/Slices/User/checkoutSlice";
+import { setModalOpen } from "../../../../../Redux/Slices/User/modalSlice";
 
-//API Slice
-import { useBookSlotMutation } from "../../../../../Redux/Slices/User/apiSlice";
-
-const Checkout = ({ info, theaterUid }) => {
+const Checkout = ({ info }) => {
   const dispatch = useDispatch();
 
   const isCheckoutActive = useSelector(
@@ -62,115 +63,108 @@ const Checkout = ({ info, theaterUid }) => {
     }
     return parseInt(val);
   };
+  const grandTotal =
+    notNull(price) +
+    notNull(info && info.addOns ? info.addOns.price : 0) +
+    notNull(info && info.cake ? info.cake.price : 0) +
+    notNull(info && info.decoration ? info.decoration.price : 0);
 
-
-  const [bookSlot] = useBookSlotMutation();
-
-  const handleSubmit = async () => {
-    const slots = slot.split("-");
-    const res = await bookSlot({
-      ...theater,
-      ...info,
-      theaterUid,
-      bookedDate: date,
-      startTime: date + "T" + slots[0],
-    });
-    dispatch(setCheckoutActive(!isCheckoutActive));
-    toast.success("Booking Successful!")
+  const handleSubmit = () => {
+    dispatch(setGrandTotal(grandTotal));
+    dispatch(setModalOpen());
   };
 
-
   return (
-    <section className="checkout">
-      {isCheckoutActive ? (
-        <>
+    <>
+      <CheckoutModal />
+      <section className="checkout">
+        {isCheckoutActive ? (
+          <>
+            <div className="top" onClick={handleCheckoutActive}>
+              <h2>Booking Summary</h2>
+              <FaMinus
+                style={{ color: "white", cursor: "pointer" }}
+                size={16}
+              />
+            </div>
+
+            <div className="main">
+              <div className="data">
+                <h3>{theater.theaterName}</h3>
+                <p>₹ {price}</p>
+              </div>
+              <div className="date">
+                <p>
+                  Date:<span> {date}</span>
+                </p>
+                <p>
+                  Slot: <span> {slot}</span>
+                </p>
+                <p>
+                  People: <span> {person}</span>
+                </p>
+              </div>
+              <hr />
+            </div>
+
+            <div className="rest">
+              <h3>Event Decoration</h3>
+              <div className="data">
+                {info && info.decoration ? (
+                  <div className="data">
+                    <p>{info.decoration.itemsName}</p>
+                    <p>₹ {info.decoration.price}</p>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <hr />
+            </div>
+
+            <div className="rest">
+              <h3>Cakes</h3>
+              <div className="data">
+                {info && info.cake ? (
+                  <div className="data">
+                    <p>{info.cake.itemsName}</p>
+                    <p>₹ {info.cake.price}</p>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <hr />
+            </div>
+
+            <div className="rest">
+              <h3>Add On’s</h3>
+              {info && info.addOns ? (
+                <div className="data">
+                  <p>{info.addOns.itemsName}</p>
+                  <p>₹ {info.addOns.price}</p>
+                </div>
+              ) : (
+                ""
+              )}
+              <hr />
+            </div>
+
+            <div className="total">
+              <h2>Grand Total</h2>
+              <h2>₹{grandTotal}</h2>
+            </div>
+
+            <button onClick={handleSubmit}>Proceed to checkout</button>
+          </>
+        ) : (
           <div className="top" onClick={handleCheckoutActive}>
             <h2>Booking Summary</h2>
-            <FaMinus style={{ color: "white", cursor: "pointer" }} size={16} />
+            <FaPlus style={{ color: "white", cursor: "pointer" }} size={16} />
           </div>
-
-          <div className="main">
-            <div className="data">
-              <h3>{theater.theaterName}</h3>
-              <p>₹ {price}</p>
-            </div>
-            <div className="date">
-              <p>
-                Date:<span> {date}</span>
-              </p>
-              <p>
-                Slot: <span> {slot}</span>
-              </p>
-              <p>
-                People: <span> {person}</span>
-              </p>
-            </div>
-            <hr />
-          </div>
-
-          <div className="rest">
-            <h3>Event Decoration</h3>
-            <div className="data">
-              {info && info.decoration ? (
-                <div className="data">
-                  <p>{info.decoration.itemsName}</p>
-                  <p>₹ {info.decoration.price}</p>
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <hr />
-          </div>
-
-          <div className="rest">
-            <h3>Cakes</h3>
-            <div className="data">
-              {info && info.cake ? (
-                <div className="data">
-                  <p>{info.cake.itemsName}</p>
-                  <p>₹ {info.cake.price}</p>
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <hr />
-          </div>
-
-          <div className="rest">
-            <h3>Add On’s</h3>
-            {info && info.addOns ? (
-              <div className="data">
-                <p>{info.addOns.itemsName}</p>
-                <p>₹ {info.addOns.price}</p>
-              </div>
-            ) : (
-              ""
-            )}
-            <hr />
-          </div>
-
-          <div className="total">
-            <h2>Grand Total</h2>
-            <h2>
-              ₹{" "}
-              {notNull(price) +
-                notNull(info && info.addOns ? info.addOns.price : 0) +
-                notNull(info && info.cake ? info.cake.price : 0) +
-                notNull(info && info.decoration ? info.decoration.price : 0)}
-            </h2>
-          </div>
-
-          <button onClick={handleSubmit}>Proceed to checkout</button>
-        </>
-      ) : (
-        <div className="top" onClick={handleCheckoutActive}>
-          <h2>Booking Summary</h2>
-          <FaPlus style={{ color: "white", cursor: "pointer" }} size={16} />
-        </div>
-      )}
-    </section>
+        )}
+      </section>
+    </>
   );
 };
 

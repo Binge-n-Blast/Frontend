@@ -1,7 +1,7 @@
 $purple: #63049b;
 
 .checkout {
-  background: #14011f;
+  background: #470070;
   width: 450px;
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@ $purple: #63049b;
 
   hr {
     width: 100%;
-    border: 1px solid $purple;
+    border: 0.5px solid white;
   }
 
   .top {
@@ -109,7 +109,7 @@ $purple: #63049b;
 
   button {
     padding: 15px 40px;
-    background-color: $purple;
+    background: rgba(15, 0, 26, 0.2);
     font-size: 14px;
     color: white;
     letter-spacing: 1px;

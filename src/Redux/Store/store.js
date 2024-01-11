@@ -5,6 +5,7 @@ import todoReducer from "../Slices/Admin/popupSlice";
 import formReducer from "../Slices/Admin/formSlice";
 import authReducer from "../Slices/Admin/authSlice";
 import checkoutReducer from "../Slices/User/checkoutSlice";
+import modalReducer from "../Slices/User/modalSlice";
 
 // APIs
 import { adminApi } from "../Api/apiSlice";
@@ -16,9 +17,12 @@ export const store = configureStore({
     popup: todoReducer,
     form: formReducer,
     checkout: checkoutReducer,
+    modal: modalReducer,
     [adminApi.reducerPath]: adminApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(adminApi.middleware).concat(userApi.middleware),
+    getDefaultMiddleware()
+      .concat(adminApi.middleware)
+      .concat(userApi.middleware),
 });

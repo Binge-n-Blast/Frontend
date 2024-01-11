@@ -16,6 +16,7 @@ const initialState = {
     id: "",
     itemsName: "",
   },
+  grandTotal: "",
 };
 
 const checkoutSlice = createSlice({
@@ -40,6 +41,9 @@ const checkoutSlice = createSlice({
     setTheater(state, action) {
       state.theater = { ...state.theater, ...action.payload };
     },
+    setGrandTotal(state, action) {
+      state.grandTotal = action.payload;
+    },
   },
 });
 
@@ -50,5 +54,6 @@ export const {
   setPerson,
   setPrice,
   setTheater,
+  setGrandTotal
 } = checkoutSlice.actions;
 export default checkoutSlice.reducer;
