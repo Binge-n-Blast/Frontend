@@ -9,8 +9,8 @@ import { Box, Modal } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 
 // Reducers
-import { handlePopupClose } from "../../Redux/Slices/Admin/popupSlice";
-import { logout } from "../../Redux/Slices/Admin/authSlice";
+import { handlePopupClose } from "../../../Redux/Slices/Admin/State/popupSlice";
+import { logout } from "../../../Redux/Slices/Admin/State/authSlice";
 
 const Popup = () => {
   const navigate = useNavigate();

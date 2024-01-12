@@ -1,5 +1,4 @@
 import "./Theater.scss";
-import { useState } from "react";
 
 // Components
 import AddOns from "./Components/AddOns/AddOns";
@@ -9,12 +8,14 @@ import Event from "./Components/Event/Event";
 import Hero from "./Components/Hero/Hero";
 
 // Redux
-import {useDispatch,useSelector} from "react-redux"
-import { setInfo } from "../../../Redux/Slices/User/modalSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+// State Slice
+import { setInfo } from "../../../Redux/Slices/User/State/modalSlice";
 
 const Theater = () => {
-  const dispatch = useDispatch()
-  const info = useSelector(state=>state.modal.info)
+  const dispatch = useDispatch();
+  const info = useSelector((state) => state.modal.info);
 
   const changeHandler = (props) => {
     dispatch(setInfo({ ...info, ...props }));
@@ -22,7 +23,7 @@ const Theater = () => {
   return (
     <section className="theater">
       <Hero info={info} />
-      <Checkout info={info}  />
+      <Checkout info={info} />
       <Event changeHandler={changeHandler} info={info} />
       <Cakes changeHandler={changeHandler} info={info} />
       <AddOns changeHandler={changeHandler} info={info} />

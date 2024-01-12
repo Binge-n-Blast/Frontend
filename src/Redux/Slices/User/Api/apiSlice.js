@@ -31,5 +31,4 @@ export const userApi = createApi({
 export const {
   useBookSlotMutation,
   useGetSlotByDateQuery,
-  //   useGetTheaterQuery,
 } = userApi;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 //Api Slices
-import { usePostMessageMutation } from "../../../../../Redux/Api/apiSlice";
+import { usePostMessageMutation } from "../../../../../Redux/Slices/Admin/Api/apiSlice";
 
 const Contact = () => {
   const [postMessage] = usePostMessageMutation();

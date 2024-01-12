@@ -24,7 +24,7 @@ import {
 import {
   useGetMessageQuery,
   useDeleteMessageMutation,
-} from "../../../Redux/Api/apiSlice";
+} from "../../../Redux/Slices/Admin/Api/apiSlice";
 
 const Message = () => {
   const { data, error, isLoading } = useGetMessageQuery();

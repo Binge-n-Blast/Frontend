@@ -21,13 +21,13 @@ import {
   getItemId,
   setEditItem,
   setFormData,
-} from "../../../../Redux/Slices/Admin/formSlice";
+} from "../../../../Redux/Slices/Admin/State/formSlice";
 
 // API Slices
 import {
   useGetCakesQuery,
   useDeleteCakeMutation,
-} from "../../../../Redux/Api/apiSlice";
+} from "../../../../Redux/Slices/Admin/Api/apiSlice";
 
 //Hex to Image Function
 import { HexToImage } from "../../../../Utils/HexToImage";

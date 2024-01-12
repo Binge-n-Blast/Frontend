@@ -4,8 +4,8 @@ import { toast } from "react-hot-toast";
 // Images
 import noImg from "../../../../../Assets/noImg.jpg";
 
-// Api SLices
-import { useGetAddonsQuery } from "../../../../../Redux/Api/apiSlice";
+// Api Slices
+import { useGetAddonsQuery } from "../../../../../Redux/Slices/Admin/Api/apiSlice";
 
 //Hex to Image Function
 import { HexToImage } from "../../../../../Utils/HexToImage";

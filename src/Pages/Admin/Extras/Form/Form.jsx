@@ -12,7 +12,7 @@ import {
   handleFormClose,
   setFormData,
   setEditItem,
-} from "../../../../Redux/Slices/Admin/formSlice";
+} from "../../../../Redux/Slices/Admin/State/formSlice";
 
 //API Slice
 import {
@@ -23,7 +23,7 @@ import {
   useAddAddonMutation,
   useEditAddonMutation,
   useImageUploadMutation,
-} from "../../../../Redux/Api/apiSlice";
+} from "../../../../Redux/Slices/Admin/Api/apiSlice";
 
 const Form = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import "./Sidebar.scss";
 import { Link } from "react-router-dom";
 
 // Component
-import Popup from "../../Popup/Popup";
+import Popup from "../../Admin/Popup/Popup";
 
 // Images
 import logo from "../../../Assets/logo.png";
@@ -17,7 +17,9 @@ import logout from "../../../Assets/logout.png";
 
 //Redux
 import { useDispatch } from "react-redux";
-import { handlePopupOpen } from "../../../Redux/Slices/Admin/popupSlice";
+
+//State Slice
+import { handlePopupOpen } from "../../../Redux/Slices/Admin/State/popupSlice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();

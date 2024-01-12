@@ -5,8 +5,10 @@ import { toast } from "react-hot-toast";
 import noImg from "../../../../../Assets/noImg.jpg";
 
 // Api SLices
-import { useGetDecorationsQuery } from "../../../../../Redux/Api/apiSlice";
-import { HexToImage, separateHex } from "../../../../../Utils/HexToImage";
+import { useGetDecorationsQuery } from "../../../../../Redux/Slices/Admin/Api/apiSlice";
+
+// Hex to Image
+import { HexToImage } from "../../../../../Utils/HexToImage";
 
 const Event = ({ changeHandler, info }) => {
   const { data, error, isLoading } = useGetDecorationsQuery();

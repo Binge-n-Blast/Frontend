@@ -22,11 +22,13 @@ import {
   setPerson,
   setTheater,
   setPrice,
-} from "../../../../../Redux/Slices/User/checkoutSlice";
+} from "../../../../../Redux/Slices/User/State/checkoutSlice";
 
 //Api Slice
-import { useGetTheaterQuery } from "../../../../../Redux/Api/apiSlice";
-import { useGetSlotByDateQuery } from "../../../../../Redux/Slices/User/apiSlice";
+import { useGetTheaterQuery } from "../../../../../Redux/Slices/Admin/Api/apiSlice";
+import { useGetSlotByDateQuery } from "../../../../../Redux/Slices/User/Api/apiSlice";
+
+// Hex to Image
 import {
   SingleHexToImage,
   separateHex,

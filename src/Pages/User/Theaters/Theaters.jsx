@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 // Images
 import img1 from "../../../Assets/userTheaterImg1.png";
 
-import { useGetTheatersQuery } from "../../../Redux/Api/apiSlice";
+import { useGetTheatersQuery } from "../../../Redux/Slices/Admin/Api/apiSlice";
+
+// Hex to Image
 import { SingleHexToImage, separateHex } from "../../../Utils/SingleHexToImage";
 
 const Theaters = () => {

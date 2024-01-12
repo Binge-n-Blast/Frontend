@@ -14,8 +14,8 @@ import {
   setCheckoutActive,
   setPrice,
   setGrandTotal,
-} from "../../../../../Redux/Slices/User/checkoutSlice";
-import { setModalOpen } from "../../../../../Redux/Slices/User/modalSlice";
+} from "../../../../../Redux/Slices/User/State/checkoutSlice";
+import { setModalOpen } from "../../../../../Redux/Slices/User/State/modalSlice";
 
 const Checkout = ({ info }) => {
   const dispatch = useDispatch();

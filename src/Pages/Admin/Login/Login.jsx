@@ -1,16 +1,16 @@
 import "./Login.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 //Redux
 import { useDispatch } from "react-redux";
 
 //State Slice
-import { login } from "../../../Redux/Slices/Admin/authSlice";
+import { login } from "../../../Redux/Slices/Admin/State/authSlice";
 
 //Api Slice
-import { useAdminLoginMutation } from "../../../Redux/Api/apiSlice";
+import { useAdminLoginMutation } from "../../../Redux/Slices/Admin/Api/apiSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,14 +27,13 @@ const Login = () => {
     setLoginData({ ...loginData, [name]: value });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await adminLogin(loginData);
     if (response.data) {
       toast.success("Login Successful!");
       dispatch(login());
-      sessionStorage.setItem("token",response.data.data.accessToken);
+      sessionStorage.setItem("token", response.data.data.accessToken);
       navigate("/admin/payments");
       setLoginData({
         email: "",

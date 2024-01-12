@@ -13,8 +13,8 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setModalClose,
   setInfo,
-} from "../../../../../Redux/Slices/User/modalSlice";
-import { setCheckoutActive } from "../../../../../Redux/Slices/User/checkoutSlice";
+} from "../../../../../Redux/Slices/User/State/modalSlice";
+import { setCheckoutActive } from "../../../../../Redux/Slices/User/State/checkoutSlice";
 
 const CheckoutModal = () => {
   const { id } = useParams();

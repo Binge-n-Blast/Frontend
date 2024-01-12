@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import noImg from "../../../../../Assets/noImg.jpg";
 
 // Api Slices
-import { useGetCakesQuery } from "../../../../../Redux/Api/apiSlice";
+import { useGetCakesQuery } from "../../../../../Redux/Slices/Admin/Api/apiSlice";
 
 //Hex to Image Function
 import { HexToImage } from "../../../../../Utils/HexToImage";

@@ -126,7 +126,7 @@ const adminRoutesData = [
         <Addon />
       </ProtectedRoute>
     ),
-  }
+  },
 ];
 
 function App() {
