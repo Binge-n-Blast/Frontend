@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const accessToken = sessionStorage.getItem("token");
-
 export const userApi = createApi({
   reducerPath: "user",
   tagTypes: [],
@@ -28,7 +26,4 @@ export const userApi = createApi({
   }),
 });
 
-export const {
-  useBookSlotMutation,
-  useGetSlotByDateQuery,
-} = userApi;
+export const { useBookSlotMutation, useGetSlotByDateQuery } = userApi;
