@@ -98,11 +98,17 @@ const TodaysBooking = () => {
                         <TableCell align="center">
                           {booking.noOfPersons}
                         </TableCell>
-                        <TableCell align="center">{booking.cake}</TableCell>
                         <TableCell align="center">
-                          {booking.eventDecoration}
+                          {booking.cake === "null" ? "-" : booking.cake}
                         </TableCell>
-                        <TableCell align="center">{booking.addOn}</TableCell>
+                        <TableCell align="center">
+                          {booking.eventDecoration === "null"
+                            ? "-"
+                            : booking.eventDecoration}
+                        </TableCell>
+                        <TableCell align="center">
+                          {booking.addOn === "null" ? "-" : booking.addOn}
+                        </TableCell>
                         <TableCell align="center">
                           ₹ {booking.totalPrice}/-
                         </TableCell>
