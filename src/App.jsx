@@ -72,7 +72,7 @@ const userRoutesData = [
 ];
 const adminRoutesData = [
   {
-    path: "todays-booking",
+    path: "bookings",
     element: (
       <ProtectedRoute>
         <TodaysBooking />

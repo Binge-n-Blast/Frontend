@@ -1,13 +1,11 @@
 import "./TodaysBooking.scss";
+import { useEffect, useState } from "react";
 
 // Component
 import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 // Images
 import booking from "../../../Assets/calendar.png";
-
-// Data
-import { data } from "./data";
 
 // MUI
 import {
@@ -21,41 +19,106 @@ import {
   Pagination,
 } from "@mui/material";
 
+// APi Slice
+import { useGetBookingsQuery } from "../../../Redux/Slices/Admin/Api/apiSlice";
+
 const TodaysBooking = () => {
+  const [date, setDate] = useState("");
+
+  const { data: bookings, isLoading } = useGetBookingsQuery(date);
+
+  // Todays date
+  useEffect(() => {
+    const today = new Date();
+    const formattedDate = today.toISOString().split("T")[0];
+    setDate(formattedDate);
+  }, []);
+
   return (
     <>
-      <Navbar title="Today's Booking" image={booking} />
+      <Navbar title="Bookings" image={booking} />
+
       <section className="booking">
-        <TableContainer component={Paper} className="table">
-          <Table aria-label="simple table">
-            <TableHead className="table-head">
-              <TableRow>
-                <TableCell align="center">Id</TableCell>
-                <TableCell align="center">Customer</TableCell>
-                <TableCell align="center">Theater</TableCell>
-                <TableCell align="center">Slot</TableCell>
-                <TableCell align="center">Amount</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody className="table-body">
-              {data.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell align="center">{row.id}</TableCell>
-                  <TableCell align="center">{row.Customer}</TableCell>
-                  <TableCell align="center">{row.Theater}</TableCell>
-                  <TableCell align="center">{row.Slot}</TableCell>
-                  <TableCell align="center">{row.Amount}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Pagination
-          count={2}
-          size="small"
-          color="standard"
-          className="pagination"
+        <input
+          type="date"
+          placeholder="Select Date"
+          name="dateInput"
+          value={date}
+          onChange={(event) => setDate(event.target.value)}
         />
+        {isLoading ? (
+          <div className="loading">
+            <h1>Loading...</h1>
+          </div>
+        ) : bookings && bookings.data.length === 0 ? (
+          <div className="loading">
+            <h1>No data!</h1>
+          </div>
+        ) : (
+          <>
+            <TableContainer component={Paper} className="table">
+              <Table aria-label="simple table">
+                <TableHead className="table-head">
+                  <TableRow>
+                    <TableCell align="center">Sno</TableCell>
+                    <TableCell align="center">Customer Details</TableCell>
+
+                    <TableCell align="center">Theater</TableCell>
+                    <TableCell align="center">Date</TableCell>
+                    <TableCell align="center">Slot</TableCell>
+                    <TableCell align="center">Persons</TableCell>
+
+                    <TableCell align="center">Cake</TableCell>
+                    <TableCell align="center">Decoration</TableCell>
+                    <TableCell align="center">Addon</TableCell>
+
+                    <TableCell align="center">Amount</TableCell>
+                  </TableRow>
+                </TableHead>
+
+                <TableBody className="table-body">
+                  {bookings &&
+                    bookings.data.map((booking, index) => (
+                      <TableRow key={booking.slotId}>
+                        <TableCell align="center">{index + 1}</TableCell>
+                        <TableCell align="center">
+                          {booking.clientName} <br />
+                          {booking.clientPhoneNumber} <br />
+                          {booking.clientEmail}
+                        </TableCell>
+                        <TableCell align="center">
+                          {booking.theaterName}
+                        </TableCell>
+                        <TableCell align="center">
+                          {booking.bookedDate}{" "}
+                        </TableCell>
+                        <TableCell align="center">
+                          {booking.bookedSlot}
+                        </TableCell>
+                        <TableCell align="center">
+                          {booking.noOfPersons}
+                        </TableCell>
+                        <TableCell align="center">{booking.cake}</TableCell>
+                        <TableCell align="center">
+                          {booking.eventDecoration}
+                        </TableCell>
+                        <TableCell align="center">{booking.addOn}</TableCell>
+                        <TableCell align="center">
+                          ₹ {booking.totalPrice}/-
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            {/* <Pagination
+           count={2}
+           size="small"
+           color="standard"
+           className="pagination"
+         /> */}
+          </>
+        )}
       </section>
     </>
   );

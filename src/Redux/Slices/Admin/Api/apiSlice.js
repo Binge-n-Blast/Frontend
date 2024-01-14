@@ -184,6 +184,7 @@ export const adminApi = createApi({
       invalidatesTags: ["Message"],
     }),
 
+    // Images
     imageUpload: builder.mutation({
       query: (data) => ({
         url: `image/thumbnail/${data.uid}`,
@@ -195,6 +196,18 @@ export const adminApi = createApi({
       }),
     }),
 
+
+    // Get Bookings
+    getBookings: builder.query({
+      query: (date) => ({
+        url: `slots/${date}`,
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      }),
+      providesTags: ["Bookings"],
+    }),
   }),
 });
 
@@ -224,4 +237,6 @@ export const {
   useDeleteMessageMutation,
 
   useImageUploadMutation,
+
+  useGetBookingsQuery
 } = adminApi;

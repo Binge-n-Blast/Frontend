@@ -48,6 +48,10 @@ const Message = () => {
           <div className="loading">
             <h1>Loading...</h1>
           </div>
+        ) : data && data.data.length === 0 ? (
+          <div className="loading">
+          <h1>No data!</h1>
+        </div>
         ) : (
           <>
             <TableContainer component={Paper} className="table">
@@ -99,11 +103,11 @@ const Message = () => {
               </Table>
             </TableContainer>
             {/* <Pagination
-              count={2}
-              size="small"
-              color="standard"
-              className="pagination"
-            /> */}
+          count={2}
+          size="small"
+          color="standard"
+          className="pagination"
+        /> */}
           </>
         )}
       </section>

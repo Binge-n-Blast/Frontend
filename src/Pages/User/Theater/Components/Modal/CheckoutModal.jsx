@@ -68,6 +68,7 @@ const CheckoutModal = () => {
         phoneNumber: "",
         customerEmail: "",
       });
+
       dispatch(setModalClose());
       dispatch(setInfo(null));
       dispatch(setCheckoutActive(false));

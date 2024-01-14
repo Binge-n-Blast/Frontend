@@ -6,7 +6,7 @@ import Navbar from "../../../Components/Admin/Navbar/Navbar";
 
 //Images
 import theater from "../../../Assets/theater.png";
-import noImg from "../../../Assets/noImg.jpg";
+import noImg from "../../../Assets/theaterImg.png";
 
 //Redux
 import { useGetTheatersQuery } from "../../../Redux/Slices/Admin/Api/apiSlice";

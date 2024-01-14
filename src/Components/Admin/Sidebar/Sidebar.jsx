@@ -41,7 +41,7 @@ const Sidebar = () => {
           <div className="links">
             <div className="link">
               <img src={booking} alt="" />
-              <Link to="/admin/todays-booking">Today's Booking</Link>
+              <Link to="/admin/bookings">Bookings</Link>
             </div>
             <div className="link">
               <img src={message} alt="" />
