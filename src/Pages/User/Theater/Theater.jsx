@@ -20,6 +20,7 @@ const Theater = () => {
   const changeHandler = (props) => {
     dispatch(setInfo({ ...info, ...props }));
   };
+
   return (
     <section className="theater">
       <Hero info={info} />

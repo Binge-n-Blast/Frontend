@@ -74,6 +74,7 @@ const Checkout = ({ info }) => {
     dispatch(setModalOpen());
   };
 
+
   return (
     <>
       <CheckoutModal />
@@ -98,7 +99,7 @@ const Checkout = ({ info }) => {
                   Date:<span> {date}</span>
                 </p>
                 <p>
-                  Slot: <span> {slot}</span>
+                  Slot: <span> {slot && slot.timing}</span>
                 </p>
                 <p>
                   People: <span> {person}</span>

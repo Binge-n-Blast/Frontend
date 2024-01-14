@@ -7,7 +7,19 @@ export const userApi = createApi({
     baseUrl: "https://binge-browser.onrender.com/api/v1/",
   }),
   endpoints: (builder) => ({
-    //Login
+    getSlots: builder.query({
+      query: () => ({
+        url: `admin/time-slot`,
+        method: "GET",
+      }),
+    }),
+
+    getBookedSlots: builder.query({
+      query: (date) => ({
+        url: `slots/time/${date}`,
+        method: "GET",
+      }),
+    }),
     bookSlot: builder.mutation({
       query: (data) => ({
         url: `slots/book-slots/${data.theaterUid}`,
@@ -15,15 +27,8 @@ export const userApi = createApi({
         body: data,
       }),
     }),
-
-    //getSlotByDate
-    getSlotByDate: builder.query({
-      query: (data) => ({
-        url: `slots/${data}`,
-        method: "GET",
-      }),
-    }),
   }),
 });
 
-export const { useBookSlotMutation, useGetSlotByDateQuery } = userApi;
+export const { useGetSlotsQuery, useGetBookedSlotsQuery, useBookSlotMutation } =
+  userApi;

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isCheckoutActive: false,
   date: "",
-  slot: "",
+  slot: null,
   person: 6,
   price: "",
   theater: {
@@ -12,11 +12,6 @@ const initialState = {
     noOfPersons: "",
     extraPersonCost: "",
   },
-  cake: {
-    id: "",
-    itemsName: "",
-  },
-  grandTotal: "",
 };
 
 const checkoutSlice = createSlice({

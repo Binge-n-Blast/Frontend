@@ -3,22 +3,27 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
-// MUi
+// MUI
 import { Box, Modal } from "@mui/material";
 
 //Redux Hooks
 import { useSelector, useDispatch } from "react-redux";
 
-// Reducers
+// State Slice
 import {
   setModalClose,
   setInfo,
 } from "../../../../../Redux/Slices/User/State/modalSlice";
 import { setCheckoutActive } from "../../../../../Redux/Slices/User/State/checkoutSlice";
 
+//Api SLice
+import { useBookSlotMutation } from "../../../../../Redux/Slices/User/Api/apiSlice";
+
 const CheckoutModal = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+
+  const [bookSlot] = useBookSlotMutation();
 
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
   const date = useSelector((state) => state.checkout.date);
@@ -26,6 +31,7 @@ const CheckoutModal = () => {
   const person = useSelector((state) => state.checkout.person);
   const grandTotal = useSelector((state) => state.checkout.grandTotal);
   const theater = useSelector((state) => state.checkout.theater);
+  const info = useSelector((state) => state.modal.info);
 
   const handlePopupCloseModal = () => {
     dispatch(setModalClose());
@@ -34,12 +40,7 @@ const CheckoutModal = () => {
   const [user, setUser] = useState({
     customerName: "",
     phoneNumber: "",
-    theaterUid: id,
-    theaterName: theater.theaterName,
-    slot: slot,
-    person: person,
-    price: grandTotal,
-    date: date,
+    customerEmail: "",
   });
 
   const handleChange = (e) => {
@@ -47,16 +48,32 @@ const CheckoutModal = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = () => {
-    console.log(user);
-    setUser({
-      customerName: "",
-      phoneNumber: "",
+  const handleSubmit = async () => {
+    const response = await bookSlot({
+      ...user,
+      ...info,
+      theaterUid: id,
+      noOfPersons: person,
+      bookedDate: date,
+      price: grandTotal,
+      theaterName: theater.theaterName,
+      timeSlotId: slot.slotId,
+      bookedSlot: slot.timing,
     });
-    dispatch(setModalClose());
-    dispatch(setInfo(null));
-    dispatch(setCheckoutActive(false));
-    toast.success("Booking Successful!");
+
+    if (response) {
+      toast.success("Booking Successful!");
+      setUser({
+        customerName: "",
+        phoneNumber: "",
+        customerEmail: "",
+      });
+      dispatch(setModalClose());
+      dispatch(setInfo(null));
+      dispatch(setCheckoutActive(false));
+    } else {
+      toast.error("Something went wrong!");
+    }
   };
 
   return (
@@ -80,7 +97,7 @@ const CheckoutModal = () => {
               <span>Date:</span> {date}
             </p>
             <p>
-              <span>Slot:</span> {slot}
+              <span>Slot:</span> {slot && slot.timing}
             </p>
             <p>
               <span>Persons:</span> {person}
@@ -102,6 +119,13 @@ const CheckoutModal = () => {
               placeholder="Phone Number"
               name="phoneNumber"
               value={user.phoneNumber}
+              onChange={handleChange}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              name="customerEmail"
+              value={user.customerEmail}
               onChange={handleChange}
             />
           </div>

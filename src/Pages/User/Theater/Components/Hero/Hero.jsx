@@ -26,7 +26,10 @@ import {
 
 //Api Slice
 import { useGetTheaterQuery } from "../../../../../Redux/Slices/Admin/Api/apiSlice";
-import { useGetSlotByDateQuery } from "../../../../../Redux/Slices/User/Api/apiSlice";
+import {
+  useGetSlotsQuery,
+  useGetBookedSlotsQuery,
+} from "../../../../../Redux/Slices/User/Api/apiSlice";
 
 // Hex to Image
 import {
@@ -34,30 +37,32 @@ import {
   separateHex,
 } from "../../../../../Utils/SingleHexToImage";
 
-const Hero = ({ info }) => {
+const Hero = () => {
   const { id } = useParams();
-
-  const { data, error, isLoading } = useGetTheaterQuery(id);
-
-  const theaterData = {
-    images: [theaterImg, theaterImg, theaterImg],
-  };
-
   const dispatch = useDispatch();
+
   const date = useSelector((state) => state.checkout.date);
   const slot = useSelector((state) => state.checkout.slot);
   const person = useSelector((state) => state.checkout.person);
   const theater = useSelector((state) => state.checkout.theater);
-  const [booked, setBooked] = useState([]);
-  const res = useGetSlotByDateQuery(date);
 
+  const { data: theaterData, error, isLoading } = useGetTheaterQuery(id);
+  const { data: slots } = useGetSlotsQuery();
+  const { data: bookedSlots } = useGetBookedSlotsQuery(date);
+
+  const [booked, setBooked] = useState([]);
+
+  // Get Booked Slots
   useEffect(() => {
-    if (res && res.data && res.data.data && res.data.data.length > 0) {
-      setBooked(res.data.data);
-    } else {
-      setBooked([]);
+    if (bookedSlots && slots) {
+      const bookedData = slots.data.filter((slot) =>
+        bookedSlots.data.some(
+          (bookedSlot) => slot.slotId.toString() === bookedSlot.timingSlotId
+        )
+      );
+      setBooked(bookedData);
     }
-  }, [res]);
+  }, [bookedSlots, slots]);
 
   // Todays date
   useEffect(() => {
@@ -67,29 +72,32 @@ const Hero = ({ info }) => {
   }, []);
 
   useEffect(() => {
-    if (data) {
+    if (theaterData) {
       dispatch(
         setTheater({
-          theaterName: data.data[0].theaterName,
-          price: data.data[0].price,
-          noOfPersons: data.data[0].noOfPersons,
-          extraPersonCost: data.data[0].extraPersonCost,
+          theaterName: theaterData.data[0].theaterName,
+          price: theaterData.data[0].price,
+          noOfPersons: theaterData.data[0].noOfPersons,
+          extraPersonCost: theaterData.data[0].extraPersonCost,
         })
       );
 
       dispatch(setPrice(theater.price));
     }
-  }, [data]);
+  }, [theaterData]);
 
-  const isBooked = (startTime) => {
-    const includesObject = booked.some((obj) => obj.startTime === startTime);
-    return includesObject;
+  const handleSlotSelection = (event) => {
+    const selectedSlotId = event.target.value;
+    const selectedSlotObject = slots.data.find(
+      (slot) => slot.timing === selectedSlotId
+    );
+
+    dispatch(setSlot(selectedSlotObject));
   };
-
   return (
     <>
       <section className="theater-hero">
-        {theaterData.images.length > 1 ? (
+        {/* {theaterData.images.length > 1 ? (
           <Swiper
             loop={true}
             navigation={true}
@@ -123,20 +131,20 @@ const Hero = ({ info }) => {
                 </SwiperSlide>
               ))}
           </Swiper>
-        ) : (
-          <img src={theaterImg} />
-        )}
+        ) : ( */}
+        <img src={theaterImg} />
+        {/* )} */}
         <div className="blue-blob1"></div>
         <div className="blue-blob2"></div>
 
         <div className="content">
-          <h2>{data && data.data[0].theaterName}</h2>
-          <p>{data && data.data[0].details}</p>
+          <h2>{theaterData && theaterData.data[0].theaterName}</h2>
+          <p>{theaterData && theaterData.data[0].details}</p>
         </div>
         <div className="detail">
           <h2>
-            ₹{data && data.data[0].price} (up to{" "}
-            {data && data.data[0].noOfPersons} persons)
+            ₹{theaterData && theaterData.data[0].price} (up to{" "}
+            {theaterData && theaterData.data[0].noOfPersons} persons)
           </h2>
         </div>
         <div className="form">
@@ -145,62 +153,33 @@ const Hero = ({ info }) => {
             placeholder="Select Date"
             name="dateInput"
             value={date}
-            min={date}
             onChange={(event) => dispatch(setDate(event.target.value))}
           />
-          {booked && booked.length > 0 ? (
-            <select
-              name="slots"
-              onChange={(event) => dispatch(setSlot(event.target.value))}
-              value={slot}
-            >
-              <option value="">Slots</option>
-              <option
-                value="10:00 am - 12:30 pm"
-                disabled={isBooked(date + "T" + "10:00 am")}
-              >
-                10:00 am - 12:30 pm
-              </option>
-              <option
-                value="1:00 pm - 3:30 pm"
-                disabled={isBooked(date + "T" + "1:00 am")}
-              >
-                1:00 pm - 3:30 pm
-              </option>
-              <option
-                value="4:00 pm - 6:30 pm"
-                disabled={isBooked(date + "T" + "4:00 am")}
-              >
-                4:00 pm - 6:30 pm
-              </option>
-              <option
-                value="7:00 pm - 9:30 pm"
-                disabled={isBooked(date + "T" + "7:00 am")}
-              >
-                7:00 pm - 9:30 pm
-              </option>
-              <option
-                value="10:30 pm - 1:00 am"
-                disabled={isBooked(date + "T" + "10:30 pm")}
-              >
-                10:30 pm - 1:00 am
-              </option>
-            </select>
-          ) : (
-            //
-            <select
-              name="slots"
-              onChange={(event) => dispatch(setSlot(event.target.value))}
-              value={slot}
-            >
-              <option value="">Slots</option>
-              <option value="10:00 am - 12:30 pm">10:00 am - 12:30 pm</option>
-              <option value="1:00 pm - 3:30 pm">1:00 pm - 3:30 pm</option>
-              <option value="4:00 pm - 6:30 pm">4:00 pm - 6:30 pm</option>
-              <option value="7:00 pm - 9:30 pm">7:00 pm - 9:30 pm</option>
-              <option value="10:30 pm - 1:00 am">10:30 pm - 1:00 am</option>
-            </select>
-          )}
+
+          <select
+            name="slots"
+            value={slot && slot.timing}
+            onChange={handleSlotSelection}
+          >
+            <option value="">Slots</option>
+            {slots &&
+              slots.data.map((slot) => {
+                return (
+                  <option
+                    key={slot.slotId}
+                    value={slot.timing}
+                    disabled={
+                      booked.length > 0 &&
+                      booked.some(
+                        (bookedSlot) => bookedSlot.slotId === slot.slotId
+                      )
+                    }
+                  >
+                    {slot.timing}
+                  </option>
+                );
+              })}
+          </select>
 
           <select
             name="persons"
