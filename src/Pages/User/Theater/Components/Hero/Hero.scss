@@ -95,6 +95,7 @@ $purple: #63049b;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
     input,
     select {
@@ -108,7 +109,7 @@ $purple: #63049b;
 
 @media (max-width: 1750px) {
   .theater-hero {
-    margin: 80px 200px;
+    margin: 80px 180px;
     margin-top: 15vh;
     gap: 30px;
 
@@ -142,10 +143,10 @@ $purple: #63049b;
     }
 
     .form {
-      gap: 8px;
+      gap: 10px;
       input,
       select {
-        width: 350px;
+        width: 320px;
         padding: 16px 10px;
       }
     }
@@ -154,7 +155,7 @@ $purple: #63049b;
 
 @media (max-width: 1500px) {
   .theater-hero {
-    margin: 70px 150px;
+    margin: 70px 130px;
     margin-top: 15vh;
     gap: 25px;
 
@@ -187,7 +188,7 @@ $purple: #63049b;
 
 @media (max-width: 1200px) {
   .theater-hero {
-    margin: 60px 100px;
+    margin: 60px 80px;
     margin-top: 15vh;
     gap: 25px;
 
@@ -260,7 +261,6 @@ $purple: #63049b;
     }
 
     .form {
-      flex-wrap: wrap;
       gap: 10px;
       input,
       select {

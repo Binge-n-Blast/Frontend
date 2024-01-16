@@ -1,12 +1,13 @@
 $purple: #63049b;
 
 .addOns-container {
-  padding: 100px 250px;
+  padding: 100px 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 50px;
+
   h3 {
     font-family: "DM Sans", sans-serif;
     font-size: 48px;
@@ -17,15 +18,15 @@ $purple: #63049b;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 30px;
 
     .card {
-      padding: 20px;
-      width: 428px;
-      height: 168px;
-      border-radius: 0px 40px;
+      padding: 10px 20px;
+      border-radius: 0px 30px;
+      width: 380px;
+      height: 150px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       gap: 20px;
       background: rgba(255, 255, 255, 0.09);
@@ -33,6 +34,9 @@ $purple: #63049b;
       -webkit-backdrop-filter: blur(15.5px);
       border: 1px solid rgba(255, 255, 255, 0.18);
 
+      img {
+        width: 100%;
+      }
       .content {
         display: flex;
         justify-content: center;
@@ -51,7 +55,7 @@ $purple: #63049b;
         .action {
           width: 100%;
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
           gap: 30px;
           p {
@@ -70,7 +74,6 @@ $purple: #63049b;
             background-color: $purple;
             color: white;
           }
-
           .button_remove {
             width: 100px;
             height: 32px;
@@ -88,85 +91,31 @@ $purple: #63049b;
   }
 }
 
-@media (max-width: 1864px) {
+@media (max-width: 1600px) {
   .addOns-container {
-    padding: 80px 200px;
-    padding-bottom: 80px;
-    gap: 40px;
-
-    h3 {
-      font-size: 40px;
-    }
-    .cards {
-      gap: 32px;
-
-      .card {
-        padding: 18px;
-        width: 350px;
-        height: 140px;
-        gap: 15px;
-        border-radius: 0px 30px;
-
-        img {
-          width: 100px;
-        }
-
-        .content {
-          gap: 8px;
-          h4 {
-            font-size: 18px;
-          }
-          p {
-            font-size: 13px;
-          }
-          .action {
-            gap: 28px;
-
-            p {
-              font-size: 18px;
-            }
-            button {
-              width: 90px;
-              height: 30px;
-              padding: 9px 26px;
-            }
-            .button_remove {
-              width: 90px;
-              height: 30px;
-              padding: 4px 18px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 1400px) {
-  .addOns-container {
-    padding: 70px 100px;
-    padding-bottom: 70px;
+    padding: 80px ;
     gap: 30px;
 
     h3 {
-      font-size: 35px;
+      font-size: 36px;
     }
     .cards {
       gap: 30px;
 
       .card {
         padding: 18px;
-        width: 320px;
-        height: 130px;
-        gap: 14px;
+        width: 350px;
+        height: 140px;
+        border-radius: 0px 30px;
 
         img {
           width: 90px;
         }
 
         .content {
+          gap: 8px;
           h4 {
-            font-size: 16px;
+            font-size: 17px;
           }
           p {
             font-size: 12px;
@@ -175,17 +124,70 @@ $purple: #63049b;
             gap: 26px;
 
             p {
-              font-size: 16px;
+              font-size: 17px;
             }
             button {
               width: 80px;
               height: 26px;
-              padding: 8px 24px;
+              padding: 8px 25px;
             }
             .button_remove {
               width: 80px;
               height: 26px;
-              padding: 8px 16px;
+              padding: 4px 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .addOns-container {
+    padding-bottom: 75px;
+    gap:26px;
+
+    h3 {
+      font-size: 34px;
+    }
+    .cards {
+      gap: 28px;
+
+      .card {
+        padding: 18px;
+        width: 340px;
+        height: 120px;
+        gap: 13px;
+        border-radius: 0px 28px;
+
+        img {
+          width: 80px;
+        }
+
+        .content {
+          gap: 7px;
+          h4 {
+            font-size: 16px;
+          }
+          p {
+            font-size: 11px;
+          }
+          .action {
+            gap: 25px;
+
+            p {
+              font-size: 16px;
+            }
+            button {
+              width: 75px;
+              height: 24px;
+              padding: 8px 22px;
+            }
+            .button_remove {
+              width: 75px;
+              height: 24px;
+              padding: 4px 10px;
             }
           }
         }

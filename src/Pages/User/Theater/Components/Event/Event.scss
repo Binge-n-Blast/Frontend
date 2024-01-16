@@ -6,7 +6,7 @@ $purple: #63049b;
   align-items: center;
   flex-direction: column;
   gap: 50px;
-  padding: 0 250px;
+  padding: 0 200px;
   position: relative;
 
   .blue-blob {
@@ -47,16 +47,16 @@ $purple: #63049b;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 
     h2 {
       font-family: Orbitron;
-      font-size: 32px;
+      font-size: 30px;
     }
 
     p {
       text-align: center;
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
@@ -78,15 +78,15 @@ $purple: #63049b;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: 30px;
 
       .card {
-        padding: 20px;
-        border-radius: 0px 40px;
-        width: 428px;
-        height: 168px;
+        padding: 10px 20px;
+        border-radius: 0px 30px;
+        width: 380px;
+        height: 150px;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         gap: 20px;
         background: rgba(255, 255, 255, 0.09);
@@ -94,6 +94,9 @@ $purple: #63049b;
         -webkit-backdrop-filter: blur(15.5px);
         border: 1px solid rgba(255, 255, 255, 0.18);
 
+        img {
+          width: 100%;
+        }
         .content {
           display: flex;
           justify-content: center;
@@ -112,7 +115,7 @@ $purple: #63049b;
           .action {
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             gap: 30px;
             p {
@@ -149,7 +152,7 @@ $purple: #63049b;
   }
 }
 
-@media (max-width: 1864px) {
+@media (max-width: 1600px) {
   .main-container {
     gap: 40px;
     padding: 0 180px;
@@ -165,57 +168,56 @@ $purple: #63049b;
     .heading {
       gap: 18px;
       h2 {
-        font-size: 28px;
+        font-size: 26px;
       }
       p {
-        font-size: 16px;
+        font-size: 15px;
       }
     }
 
     .event-container {
       padding-bottom: 80px;
-      gap: 40px;
+      gap: 30px;
 
       h3 {
-        font-size: 40px;
+        font-size: 36px;
       }
       .cards {
-        gap: 32px;
+        gap: 30px;
 
         .card {
           padding: 18px;
           width: 350px;
           height: 140px;
-          gap: 15px;
           border-radius: 0px 30px;
 
           img {
-            width: 100px;
+            width: 90px;
           }
 
           .content {
             gap: 8px;
             h4 {
-              font-size: 18px;
+              font-size: 17px;
             }
             p {
-              font-size: 13px;
+              font-size: 12px;
             }
             .action {
-              gap: 28px;
+              gap: 26px;
 
               p {
-                font-size: 18px;
+                font-size: 17px;
               }
               button {
-                width: 90px;
-                height: 30px;
-                padding: 9px 26px;
+                width: 80px;
+                height: 26px;
+                padding: 8px 25px;
               }
               .button_remove {
-                width: 90px;
-                height: 30px;
-                padding: 4px 18px;
+                width: 80px;
+                height: 26px;
+                padding: 4px 16px;
               }
             }
           }
@@ -256,48 +258,49 @@ $purple: #63049b;
     }
 
     .event-container {
-      padding: 70px 100px;
-      padding-bottom: 70px;
-      gap: 30px;
+      padding-bottom: 75px;
+      gap:26px;
 
       h3 {
-        font-size: 35px;
+        font-size: 34px;
       }
       .cards {
-        gap: 30px;
+        gap: 28px;
 
         .card {
           padding: 18px;
-          width: 320px;
-          height: 130px;
-          gap: 14px;
+          width: 340px;
+          height: 120px;
+          gap: 13px;
+          border-radius: 0px 28px;
 
           img {
-            width: 90px;
+            width: 80px;
           }
 
           .content {
+            gap: 7px;
             h4 {
               font-size: 16px;
             }
             p {
-              font-size: 12px;
+              font-size: 11px;
             }
             .action {
-              gap: 26px;
+              gap: 25px;
 
               p {
                 font-size: 16px;
               }
               button {
-                width: 80px;
-                height: 26px;
-                padding: 8px 24px;
+                width: 75px;
+                height: 24px;
+                padding: 8px 22px;
               }
               .button_remove {
-                width: 80px;
-                height: 26px;
-                padding: 8px 16px;
+                width: 75px;
+                height: 24px;
+                padding: 4px 10px;
               }
             }
           }
