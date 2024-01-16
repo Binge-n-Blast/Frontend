@@ -14,7 +14,10 @@ import {
   setModalClose,
   setInfo,
 } from "../../../../../Redux/Slices/User/State/modalSlice";
-import { setCheckoutActive,setSlot } from "../../../../../Redux/Slices/User/State/checkoutSlice";
+import {
+  setCheckoutActive,
+  setSlot,
+} from "../../../../../Redux/Slices/User/State/checkoutSlice";
 
 //Api SLice
 import { useBookSlotMutation } from "../../../../../Redux/Slices/User/Api/apiSlice";
@@ -49,32 +52,32 @@ const CheckoutModal = () => {
   };
 
   const handleSubmit = async () => {
-    const response = await bookSlot({
-      ...user,
-      ...info,
-      theaterUid: id,
-      noOfPersons: person,
-      bookedDate: date,
-      price: grandTotal,
-      theaterName: theater.theaterName,
-      timeSlotId: slot.slotId,
-      bookedSlot: slot.timing,
-    });
-
-    if (response) {
-      toast.success("Booking Successful!");
-      setUser({
-        customerName: "",
-        phoneNumber: "",
-        customerEmail: "",
+    try {
+      const response = await bookSlot({
+        ...user,
+        ...info,
+        theaterUid: id,
+        noOfPersons: person,
+        bookedDate: date,
+        price: grandTotal,
+        theaterName: theater.theaterName,
+        timeSlotId: slot.slotId,
+        bookedSlot: slot.timing,
       });
 
-      dispatch(setModalClose());
-      dispatch(setInfo(null));
-      dispatch(setCheckoutActive(false));
-      dispatch(setSlot(null));
-
-    } else {
+      if (response) {
+        toast.success("Booking Successful!");
+        setUser({
+          customerName: "",
+          phoneNumber: "",
+          customerEmail: "",
+        });
+        dispatch(setModalClose());
+        dispatch(setInfo(null));
+        dispatch(setCheckoutActive(false));
+        dispatch(setSlot(null));
+      }
+    } catch (err) {
       toast.error("Something went wrong!");
     }
   };
