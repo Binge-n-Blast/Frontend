@@ -47,13 +47,19 @@ const AddOns = ({ changeHandler, info }) => {
                   <div className="content">
                     <h4>{itemsName}</h4>
                     <p>{details}</p>
+
                     <div className="action">
                       <p>₹ {price}</p>
-                      {info && info.addOns && info.addOns.id == id ? (
+                      {info &&
+                      info.addOns &&
+                      info.addOns.some((addon) => addon.id === id) ? (
                         <button
                           className="button_remove"
                           onClick={() => {
-                            changeHandler({ addOns: null });
+                            const updatedAddOns = info.addOns.filter(
+                              (addon) => addon.id !== id
+                            );
+                            changeHandler({ addOns: updatedAddOns });
                           }}
                         >
                           remove
@@ -61,7 +67,11 @@ const AddOns = ({ changeHandler, info }) => {
                       ) : (
                         <button
                           onClick={() => {
-                            changeHandler({ addOns: { id, price, itemsName } });
+                            const newAddOn = { id, price, itemsName };
+                            const updatedAddOns = (info.addOns || []).concat(
+                              newAddOn
+                            );
+                            changeHandler({ addOns: updatedAddOns });
                           }}
                         >
                           add

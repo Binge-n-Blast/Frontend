@@ -14,7 +14,7 @@ import {
   setModalClose,
   setInfo,
 } from "../../../../../Redux/Slices/User/State/modalSlice";
-import { setCheckoutActive } from "../../../../../Redux/Slices/User/State/checkoutSlice";
+import { setCheckoutActive,setSlot } from "../../../../../Redux/Slices/User/State/checkoutSlice";
 
 //Api SLice
 import { useBookSlotMutation } from "../../../../../Redux/Slices/User/Api/apiSlice";
@@ -72,6 +72,8 @@ const CheckoutModal = () => {
       dispatch(setModalClose());
       dispatch(setInfo(null));
       dispatch(setCheckoutActive(false));
+      dispatch(setSlot(null));
+
     } else {
       toast.error("Something went wrong!");
     }

@@ -11,16 +11,11 @@ import { useGetCakesQuery } from "../../../../../Redux/Slices/Admin/Api/apiSlice
 import { HexToImage } from "../../../../../Utils/HexToImage";
 
 const Cakes = ({ changeHandler, info }) => {
-
-
   const { data, error, isLoading } = useGetCakesQuery();
 
   if (error) {
     toast("Something went wrong!");
   }
-
-
-
 
   return (
     <section className="cakes-container">
@@ -58,7 +53,6 @@ const Cakes = ({ changeHandler, info }) => {
                         <button
                           className="button_remove"
                           onClick={() => {
-                        
                             changeHandler({ cake: null });
                           }}
                         >
@@ -67,7 +61,6 @@ const Cakes = ({ changeHandler, info }) => {
                       ) : (
                         <button
                           onClick={() => {
-                        
                             changeHandler({ cake: { id, price, itemsName } });
                           }}
                         >
