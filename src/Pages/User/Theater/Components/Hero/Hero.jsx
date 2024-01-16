@@ -57,12 +57,13 @@ const Hero = () => {
     if (bookedSlots && slots) {
       const bookedData = slots.data.filter((slot) =>
         bookedSlots.data.some(
-          (bookedSlot) => slot.slotId.toString() === bookedSlot.timingSlotId
+          (bookedSlot) => slot.slotId === bookedSlot.timingSlotId
         )
       );
       setBooked(bookedData);
     }
   }, [bookedSlots, slots]);
+
 
   // Todays date
   useEffect(() => {

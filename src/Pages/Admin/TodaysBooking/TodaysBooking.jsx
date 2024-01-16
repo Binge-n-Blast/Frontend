@@ -34,6 +34,7 @@ const TodaysBooking = () => {
     setDate(formattedDate);
   }, []);
 
+  
   return (
     <>
       <Navbar title="Bookings" image={booking} />
@@ -90,10 +91,10 @@ const TodaysBooking = () => {
                           {booking.theaterName}
                         </TableCell>
                         <TableCell align="center">
-                          {booking.bookedDate}{" "}
+                          {booking.bookedDate}
                         </TableCell>
                         <TableCell align="center">
-                          {booking.bookedSlot}
+                          {booking.bookedslot}
                         </TableCell>
                         <TableCell align="center">
                           {booking.noOfPersons}
