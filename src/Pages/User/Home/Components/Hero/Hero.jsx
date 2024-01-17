@@ -12,7 +12,7 @@ const Hero = () => {
       <img src={heroImg} alt="" />
 
       <div className="content">
-        <p>One stop destination for all celebrations</p>
+        <p>gand mara madarchod</p>
         <h1>
           Enjoy your special moments <br />
           in our Luxurious private <br /> theatres!
