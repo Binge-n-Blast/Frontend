@@ -2,7 +2,10 @@ import "./Theaters.scss";
 import { Link } from "react-router-dom";
 
 // Images
-import img1 from "../../../Assets/userTheaterImg1.png";
+import noImg from "../../../Assets/noImg.jpg";
+import theater1img1 from "../../../Assets/theater1Img1.png"
+import theater1img2 from "../../../Assets/theater1Img2.png"
+import theater1img3 from "../../../Assets/theater1Img3.png"
 
 import { useGetTheatersQuery } from "../../../Redux/Slices/Admin/Api/apiSlice";
 
@@ -53,7 +56,7 @@ const Theaters = () => {
                             name={`image_${index}`}
                           />
                         ) : (
-                          <img src={img1} alt="" />
+                          <img src={noImg} alt="" />
                         )}
 
                         <h3>{theaterName}</h3>

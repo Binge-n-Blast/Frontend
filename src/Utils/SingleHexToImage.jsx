@@ -29,7 +29,7 @@ export const SingleHexToImage = ({ hexValue, name }) => {
     convert();
   }, [hexValue]);
 
-  return <img className={name} alt="Converted Image" />;
+  return <img className={name} style={{width:"100%", height:"300px", borderRadius:"0 50px"}} alt="Converted Image" />;
 };
 
 export const separateHex = (hex) => {
