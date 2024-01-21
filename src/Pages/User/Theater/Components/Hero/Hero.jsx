@@ -10,7 +10,12 @@ import "swiper/css/effect-creative";
 import "swiper/css/pagination";
 
 //Images
-import theaterImg from "../../../../../Assets/theaterImg.png";
+import theater1img1 from "../../../../../Assets/theater1Img1.png";
+import theater1img2 from "../../../../../Assets/theater1Img2.png";
+import theater1img3 from "../../../../../Assets/theater1Img3.png";
+import theater2img1 from "../../../../../Assets/theater2Img1.png";
+import theater2img2 from "../../../../../Assets/theater2Img2.png";
+import theater2img3 from "../../../../../Assets/theater2Img3.jpg";
 
 //Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -94,46 +99,57 @@ const Hero = () => {
 
     dispatch(setSlot(selectedSlotObject));
   };
+
+  const theater1Images = [theater1img1, theater1img2, theater1img3];
+  console.log(id);
   return (
     <>
       <section className="theater-hero">
-        {/* {theaterData.images.length > 1 ? (
-          <Swiper
-            loop={true}
-            navigation={true}
-            grabCursor={true}
-            effect={"creative"}
-            pagination={true}
-            creativeEffect={{
-              prev: {
-                shadow: true,
-                translate: [0, 0, -400],
-              },
-              next: {
-                translate: ["100%", 0, 0],
-              },
-            }}
-            modules={[Pagination, EffectCreative]}
-            slidesPerView={1}
-            className="carousel"
-          >
-            {data &&
-              data.data[0] &&
-              data.data[0].imagesJsonArray &&
-              data.data[0].imagesJsonArray.map((image, index) => (
-                <SwiperSlide key={index}>
-                  {image && (
-                    <SingleHexToImage
-                      hexValue={separateHex(image.image)}
-                      name={`image_${index}`}
-                    />
-                  )}
-                </SwiperSlide>
-              ))}
-          </Swiper>
-        ) : ( */}
-        <img src={theaterImg} />
-        {/* )} */}
+        <Swiper
+          loop={true}
+          navigation={true}
+          grabCursor={true}
+          pagination={true}
+          creativeEffect={{
+            prev: {
+              shadow: true,
+              translate: [0, 0, -400],
+            },
+            next: {
+              translate: ["100%", 0, 0],
+            },
+          }}
+          modules={[Pagination]}
+          slidesPerView={1}
+          className="carousel"
+        >
+          {id === "b7ae67b9-09fe-428e-b89b-123f110b7a89" ? (
+            <>
+              <SwiperSlide>
+                <img src={theater1img1} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={theater1img2} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={theater1img3} alt="" />
+              </SwiperSlide>
+            </>
+          ) : (
+            <>
+              <SwiperSlide>
+                <img src={theater2img1} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={theater2img2} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={theater2img3} alt="" />
+              </SwiperSlide>
+            </>
+          )}
+        </Swiper>
+
         <div className="blue-blob1"></div>
         <div className="blue-blob2"></div>
 

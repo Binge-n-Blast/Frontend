@@ -28,7 +28,6 @@ const Checkout = ({ info }) => {
   const person = useSelector((state) => state.checkout.person);
   const price = useSelector((state) => state.checkout.price);
   const theater = useSelector((state) => state.checkout.theater);
-  console.log(parseInt(theater.noOfPersons));
 
   const handleCheckoutActive = () => {
     dispatch(setCheckoutActive(!isCheckoutActive));
