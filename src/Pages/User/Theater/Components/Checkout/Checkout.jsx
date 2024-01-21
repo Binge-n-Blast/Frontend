@@ -28,34 +28,26 @@ const Checkout = ({ info }) => {
   const person = useSelector((state) => state.checkout.person);
   const price = useSelector((state) => state.checkout.price);
   const theater = useSelector((state) => state.checkout.theater);
+  console.log(parseInt(theater.noOfPersons));
 
   const handleCheckoutActive = () => {
     dispatch(setCheckoutActive(!isCheckoutActive));
   };
 
-  if (parseInt(person) < 7) {
+  if (parseInt(person) <= parseInt(theater.noOfPersons)) {
     dispatch(setPrice(parseInt(theater.price)));
   }
-  if (parseInt(person) === 7) {
-    dispatch(
-      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost))
-    );
+
+  for (let i = 1; i < 7; i++) {
+    if (parseInt(person) === parseInt(theater.noOfPersons) + i) {
+      dispatch(
+        setPrice(
+          parseInt(theater.price) + parseInt(theater.extraPersonCost) * i + 1
+        )
+      );
+    }
   }
-  if (parseInt(person) === 8) {
-    dispatch(
-      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost) * 2)
-    );
-  }
-  if (parseInt(person) === 9) {
-    dispatch(
-      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost) * 3)
-    );
-  }
-  if (parseInt(person) === 10) {
-    dispatch(
-      setPrice(parseInt(theater.price) + parseInt(theater.extraPersonCost) * 4)
-    );
-  }
+
 
   const notNull = (val) => {
     if (val == undefined || val == null) {

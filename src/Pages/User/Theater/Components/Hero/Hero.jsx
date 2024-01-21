@@ -64,7 +64,6 @@ const Hero = () => {
     }
   }, [bookedSlots, slots]);
 
-
   // Todays date
   useEffect(() => {
     const today = new Date();

@@ -4,7 +4,7 @@ const initialState = {
   isCheckoutActive: false,
   date: "",
   slot: null,
-  person: 6,
+  person: "",
   price: "",
   theater: {
     theaterName: "",
