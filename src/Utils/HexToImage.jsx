@@ -40,7 +40,7 @@ export const HexToImage = ({ hexValues, name }) => {
           key={index}
           className={`${name}-${index}`}
           alt={`Converted Image ${index}`}
-          style={{width:"90px", height:"90px", borderRadius:"50%"}}
+          style={{ width: "90px", height: "90px", borderRadius: "50%" }}
         />
       ))}
     </div>

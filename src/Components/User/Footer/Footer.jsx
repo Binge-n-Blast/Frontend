@@ -31,9 +31,9 @@ const Footer = () => {
       <div className="section">
         <img src={logo} alt="" />
         <p>
-          2-76-9/2271, Telephone Colony,
-          <br /> Medipally Mandal, Boduppal,
-          <br /> Medchal Dist - 500092
+          XGWQ+G4Q, Waddepally,
+          <br /> Excise Colony, Hanamkonda,
+          <br /> Telangana 506370
         </p>
       </div>
       <div className="section">
@@ -52,8 +52,8 @@ const Footer = () => {
       </div>
       <div className="section">
         <p>Contact Us</p>
-        <a href="tel:+6494461709">+91 9392005252</a>
-        <a href="mailto:test@gmail.com">admin@bingedelight.com</a>
+        <a href="tel:+919381337074">+91 93813 37074</a>
+        <a href="mailto:bingnblast@gmail.com">bingnblast@gmail.com</a>
       </div>
     </footer>
   );
