@@ -56,10 +56,7 @@ const Hero = () => {
   const { data: bookedSlots } = useGetBookedSlotsQuery({date,id});
 
   const [booked, setBooked] = useState([]);
-if(bookedSlots){
-  console.log(bookedSlots.data)
 
-}
 useEffect(()=>{
   let ids=[]
   if(bookedSlots && bookedSlots.data){
