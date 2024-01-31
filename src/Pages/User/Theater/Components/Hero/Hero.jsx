@@ -60,7 +60,20 @@ if(bookedSlots){
   console.log(bookedSlots.data)
 
 }
+useEffect(()=>{
+  let ids=[]
+  if(bookedSlots && bookedSlots.data){
+    for(let item of bookedSlots.data){
+      ids.push(item.timingSlotId)
+        }
+  }
 
+  setBooked(ids)
+},[bookedSlots])
+
+useEffect(()=>{
+console.log(booked)
+},[booked])
   // Get Booked Slots
   // useEffect(() => {
   //   if (bookedSlots &&  && slots) {
@@ -174,7 +187,7 @@ if(bookedSlots){
             onChange={(event) => dispatch(setDate(event.target.value))}
           />
 
-          {/* <select
+          <select
             name="slots"
             value={slot && slot.timing}
             onChange={handleSlotSelection}
@@ -186,18 +199,13 @@ if(bookedSlots){
                   <option
                     key={slot.slotId}
                     value={slot.timing}
-                    disabled={
-                      booked.length > 0 &&
-                      booked.some(
-                        (bookedSlot) => bookedSlot.slotId === slot.slotId
-                      )
-                    }
+                    disabled={booked.includes(slot.slotId)}
                   >
                     {slot.timing}
                   </option>
                 );
               })}
-          </select> */}
+          </select>
 
           <select
             name="persons"
