@@ -51,23 +51,27 @@ const Hero = () => {
   const person = useSelector((state) => state.checkout.person);
   const theater = useSelector((state) => state.checkout.theater);
 
-  const { data: theaterData, error, isLoading } = useGetTheaterQuery(id);
+  const { data: theaterData} = useGetTheaterQuery(id);
   const { data: slots } = useGetSlotsQuery();
-  const { data: bookedSlots } = useGetBookedSlotsQuery(date);
+  const { data: bookedSlots } = useGetBookedSlotsQuery({date,id});
 
   const [booked, setBooked] = useState([]);
+if(bookedSlots){
+  console.log(bookedSlots.data)
+
+}
 
   // Get Booked Slots
-  useEffect(() => {
-    if (bookedSlots && slots) {
-      const bookedData = slots.data.filter((slot) =>
-        bookedSlots.data.some(
-          (bookedSlot) => slot.slotId === bookedSlot.timingSlotId
-        )
-      );
-      setBooked(bookedData);
-    }
-  }, [bookedSlots, slots]);
+  // useEffect(() => {
+  //   if (bookedSlots &&  && slots) {
+  //     const bookedData = slots.data.filter((slot) =>
+  //       bookedSlots.data.some(
+  //         (bookedSlot) => slot.slotId === bookedSlot.timingSlotId
+  //       )
+  //     );
+  //     setBooked(bookedData);
+  //   }
+  // }, [bookedSlots, slots]);
 
   // Todays date
   useEffect(() => {
@@ -100,8 +104,6 @@ const Hero = () => {
     dispatch(setSlot(selectedSlotObject));
   };
 
-  const theater1Images = [theater1img1, theater1img2, theater1img3];
-  console.log(id);
   return (
     <>
       <section className="theater-hero">
@@ -172,7 +174,7 @@ const Hero = () => {
             onChange={(event) => dispatch(setDate(event.target.value))}
           />
 
-          <select
+          {/* <select
             name="slots"
             value={slot && slot.timing}
             onChange={handleSlotSelection}
@@ -195,7 +197,7 @@ const Hero = () => {
                   </option>
                 );
               })}
-          </select>
+          </select> */}
 
           <select
             name="persons"

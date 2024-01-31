@@ -73,7 +73,7 @@ const Celebrations = () => {
           celebration very special!
         </h2>
         <p>
-          BingeDelight welcomes you for an extraordinary private theatre
+          Binge'n Blast welcomes you for an extraordinary private theatre
           experience with personalized decor. <br /> Our exclusive premium
           private theatres feature enhanced 4K resolution with DOLBY atoms sound
           system.

@@ -15,8 +15,8 @@ export const userApi = createApi({
     }),
 
     getBookedSlots: builder.query({
-      query: (date) => ({
-        url: `slots/time/${date}`,
+      query: ({date,id}) => ({
+        url: `slots/time/${date}/${id}`,
         method: "GET",
       }),
     }),
